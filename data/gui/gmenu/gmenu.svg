@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="gmenu.svg"
+   inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/horizontal_sprinter.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3592">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3594" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3596" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective3808"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2837"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2837-4"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2450495"
+     inkscape:cx="201.70913"
+     inkscape:cy="51.373154"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1278"
+     inkscape:window-height="739"
+     inkscape:window-x="0"
+     inkscape:window-y="15"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="background"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#a4ff79;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect3590"
+       width="100"
+       height="100"
+       x="0.5"
+       y="951.86218"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="drawing">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 43.341146,1024.4742 c 8.122252,-6.0127 13.402858,-7.8276 20.696532,-7.6645 0.68627,5.4929 2.783414,14.7162 6.405785,18.3884"
+       id="path3602"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 43.341146,1024.0842 c -0.295412,8.4968 -6.125865,13.9944 -10.704589,17.4716 -6.173745,-1.1058 -10.751988,-4.6636 -13.278037,-9.8674"
+       id="path3604"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 43.341146,1024.8641 c -2.56685,-11.7337 -6.050217,-23.4074 -9.193111,-34.87644 6.820058,-3.89165 3.212337,-17.27751 -6.74798,-14.91992 -8.127844,5.20457 -1.722074,16.59626 6.582018,14.89484"
+       id="path3606"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 37.881687,1003.4162 c 6.977123,-0.2596 12.72701,-4.37771 16.197241,-8.74449 0.0701,-4.06954 0.488467,-7.27603 1.740983,-10.55859"
+       id="path3608"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 37.881686,1003.2212 c -8.501387,-2.9431 -13.98973,-3.1506 -23.253487,-1.7697 -1.156551,4.0139 -2.241334,7.0062 -4.23879,9.764"
+       id="path3612"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#a4ff79;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect3590-6"
+       width="100"
+       height="100"
+       x="1.4035813"
+       y="832.89093"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 44.244725,905.50303 c 8.122252,-6.0127 13.402858,-7.8276 20.696532,-7.6645 0.68627,5.4929 2.783414,14.7162 6.405785,18.3884"
+       id="path3602-9"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 44.244725,905.11303 c -0.295412,8.4968 -6.125865,13.9944 -10.704589,17.4716 -6.173745,-1.1058 -10.751988,-4.6636 -13.278037,-9.8674"
+       id="path3604-3"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 44.244725,905.89293 c -2.56685,-11.7337 -6.050217,-23.4074 -9.193111,-34.8764 6.820058,-3.8917 3.212337,-17.2776 -6.74798,-14.92 -8.127844,5.2046 -1.722074,16.5963 6.582018,14.8949"
+       id="path3606-7"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 38.785266,884.44503 c 6.977123,-0.2596 12.72701,-4.3777 16.197241,-8.7445 0.0701,-4.0695 0.488467,-7.276 1.740983,-10.5586"
+       id="path3608-4"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 38.785265,884.25003 c -8.501387,-2.9431 -13.98973,-3.1506 -23.253483,-1.7697 -1.15656,4.0139 -2.24134,7.0062 -4.23879,9.764"
+       id="path3612-5"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
+       x="68.536331"
+       y="868.41888"
+       id="text3655-6-2"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3657-1-5"
+         x="68.536331"
+         y="868.41888">H</tspan></text>
+    <rect
+       style="fill:#ff3b00;fill-opacity:1;stroke:#000000;stroke-width:1.40986550000000022;stroke-opacity:1"
+       id="rect3590-7"
+       width="199.59013"
+       height="99.590134"
+       x="130.11745"
+       y="875.66455"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/launch_btn.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:37.430233px;font-style:normal;font-weight:normal;line-height:125%;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
+       x="140.32774"
+       y="912.93237"
+       id="text3655-6-8"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/launch_btn.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.9721146,1.0286853)"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3657-1-6"
+         x="140.32774"
+         y="912.93237"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Baekmuk Headline;-inkscape-font-specification:Baekmuk Headline Bold">LAUNCH !</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="H"
+     style="display:none">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="67.658302"
+       y="987.6286"
+       id="text3655"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/horizontal_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3657"
+         x="67.658302"
+         y="987.6286">H</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="V"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="67.632751"
+       y="987.39014"
+       id="text3655-6"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3657-1"
+         x="67.632751"
+         y="987.39014">V</tspan></text>
+  </g>
+</svg>

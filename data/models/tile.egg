@@ -1,0 +1,72 @@
+<CoordinateSystem> { Z-up }
+
+<Comment> { "Egg laid by Chicken for Blender, version R85" }
+
+<Material> Material.001 {
+  <Scalar> diffr {0.992507755756}
+  <Scalar> diffg {0.992507755756}
+  <Scalar> diffb {0.992507755756}
+  <Scalar> specr {0.25}
+  <Scalar> specg {0.25}
+  <Scalar> specb {0.25}
+  <Scalar> shininess {12.5}
+}
+<Texture> Untitled {
+  "./tile.highlighted.tex.png"
+  <Scalar> saved-result { 1 }
+  <Scalar> envtype { MODULATE }
+  <Scalar> minfilter { LINEAR }
+  <Scalar> magfilter { LINEAR }
+  <Scalar> wrap { REPEAT }
+}
+<Group> tile {
+  <Transform> {
+    <Matrix4> {
+      1.000000 0.000000 0.000000 0.000000
+      0.000000 1.000000 0.000000 0.000000
+      0.000000 0.000000 1.000000 0.000000
+      0.000000 0.000000 0.010000 1.000000
+    }
+  }
+  <VertexPool> tile {
+    <Vertex> 0 {
+      1.0 0.999999940395 0.00999999977648
+      <UV>  {
+        0.000000 0.000000
+        <Tangent> { 1.000000 -0.000000 0.000000 }
+        <Binormal> { -0.000000 -1.000000 -0.000000 }
+      }
+    }
+    <Vertex> 1 {
+      -0.999999761581 1.00000023842 0.00999999977648
+      <UV>  {
+        1.000000 0.000000
+        <Tangent> { 1.000000 -0.000000 0.000000 }
+        <Binormal> { -0.000000 -1.000000 -0.000000 }
+      }
+    }
+    <Vertex> 2 {
+      -1.0 -0.999999940395 0.00999999977648
+      <UV>  {
+        1.000000 1.000000
+        <Tangent> { 1.000000 -0.000000 0.000000 }
+        <Binormal> { -0.000000 -1.000000 -0.000000 }
+      }
+    }
+    <Vertex> 3 {
+      0.999999940395 -1.0 0.00999999977648
+      <UV>  {
+        0.000000 1.000000
+        <Tangent> { 1.000000 -0.000000 0.000000 }
+        <Binormal> { -0.000000 -1.000000 -0.000000 }
+      }
+    }
+  }
+  <Polygon> {
+    <TRef> { Untitled }
+    <MRef> { Material.001 }
+    <Normal> { 0.000000 -0.000000 1.000000
+    }
+    <VertexRef> { 0 1 2 3 <Ref> { tile } }
+  }
+}

@@ -1,0 +1,61 @@
+<Comment> {
+  "egg-texture-cards -o data/gui/gmenu/arrows.egg -p 100,100 data/gui/gmenu/v_arrow.png data/gui/gmenu/h_arrow.png"
+}
+<Texture> v_arrow {
+  "data/gui/gmenu/v_arrow.png"
+}
+<Texture> h_arrow {
+  "data/gui/gmenu/h_arrow.png"
+}
+<Group> {
+  <Switch> { 1 }
+  <Scalar> fps { 2 }
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      -0.505 0.505 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 1 {
+      -0.505 -0.505 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 2 {
+      0.505 -0.505 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 3 {
+      0.505 0.505 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 4 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 5 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 6 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 7 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+  }
+  <Group> v_arrow {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { v_arrow }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+  <Group> h_arrow {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { h_arrow }
+      <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+}

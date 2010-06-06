@@ -1,0 +1,61 @@
+<Comment> {
+  "egg-texture-cards -o data/gui/gmenu/units_btn.egg -p 100,100 data/gui/gmenu/horizontal_sprinter.png data/gui/gmenu/vertical_sprinter.png"
+}
+<Texture> vertical_sprinter {
+  "data/gui/gmenu/vertical_sprinter.png"
+}
+<Texture> horizontal_sprinter {
+  "data/gui/gmenu/horizontal_sprinter.png"
+}
+<Group> {
+  <Switch> { 1 }
+  <Scalar> fps { 2 }
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      -0.505 0.505 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 1 {
+      -0.505 -0.505 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 2 {
+      0.505 -0.505 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 3 {
+      0.505 0.505 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 4 {
+      -0.505 0.505 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 5 {
+      -0.505 -0.505 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 6 {
+      0.505 -0.505 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 7 {
+      0.505 0.505 0
+      <UV> { 1 1 }
+    }
+  }
+  <Group> horizontal_sprinter {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { horizontal_sprinter }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+  <Group> vertical_sprinter {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { vertical_sprinter }
+      <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+}

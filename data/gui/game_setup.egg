@@ -1,0 +1,33 @@
+<Comment> {
+  "egg-texture-cards -o data/gui/game_setup.egg -p 176,66 data/gui/game_setup.start_btn.png"
+}
+<Texture> game_setup.start_btn {
+  "data/gui/game_setup.start_btn.png"
+}
+<Group> {
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 1 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 2 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 3 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+  }
+  <Group> game_setup.start_btn {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { game_setup.start_btn }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+}
