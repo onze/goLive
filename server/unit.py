@@ -1,5 +1,6 @@
 
 from math import atan2,cos,sin
+import sys
 
 from entity import Entity,EIType
 from tile import Tile
@@ -12,70 +13,122 @@ class Unit(Entity):
 		Entity.__init__(self)
 		self.owner=player
 		self.tile=self.owner.home.tile
-		self.send(self.confirmation_msg)
+		#player the unit belongs to. can be none if the unit is neutral
 		#data related to moves
-		'''list of Tiles to pass by. see update_path_following for details.'''
-		self.move_path=[]
+		'''list of Tiles to pass by (every tiles). see update_path_following for details.'''
+		self.path=[]
+		'''list of target tiles (does't change until next target is reached)'''
+		self.target_path=[]
+		'''index of next tile within tile_path'''
+		#self.path_index=0
 		self.x,self.y=self.tile.x,self.tile.y
 		self.move_speed=.05
-	
-	@property
-	def confirmation_message(self):
-		raise Exception('Abstract unitinstanciation !')
+		#when set to true, the unit will mark tiles on its way
+		self.is_marking=False
+		self.send(self.confirmation_msg)
+		
+	def __del__(self):
+		Entity.__del__(self)
+		print 'Unit.__del__()'
+		self.owner=None
+		self.tile=None
+		self.path=[]
+		self.target_path=[]
 	
 	def add_to_path(self,tile):
 		'''
-		adds a tile to the path. the unit will start goinf to this tile ass soon as 
-		it becomes the next destination to go to.
+		adds a tile to the target path. the unit will start going to this tile as soon as 
+		it becomes the next target to go to.
 		'''
-		self.move_path.append(tile)
-		#first move in the list: client must be warned
-		if len(self.move_path)==1:
-			d=dist2(self,self.move_path[0])
-			self.d=d
-			self.send({network.stc_unit_moving:{'eid':self.eid,
-											    'start':self.tile.eid,
-											    'end':self.move_path[0].eid,
-											    'begin':self.frame_no,
-											    'frames':d/self.move_speed
-											    }})
-			self.server.update_list.append(self.update_path_following)
+		self.target_path.append(tile)
+		#first move in the list: client must be warned, and move update triggered
+		if len(self.target_path)==1:
+			self.path=self.current_tile.path_to(self.target_path[0],player=self.owner)
+			self.send({network.stc_unit_add_path:{'eid':self.eid,
+												  'path':[tile.eid for tile in self.path]}})
+			if not self.update_path_following in self.server.update_list: 
+				self.server.update_list.append(self.update_path_following)
+
+	def get_confirmation_msg(self):
+		'''property'''
+		raise Exception('Abstract unit instanciation !')
+	
+	def get_tile(self):
+		'''property'''
+		return self.current_tile
+	
+	def move_over(self):
+		'''
+		called when the unit has finished moving and need to be removed.
+		'''
+		self.send({network.stc_unit_move_over:{'eid':self.eid,'tile':self.tile.eid}})
+		self.server.del_list.append(self)
+	
+	def set_tile(self,t):
+		'''property'''
+		self.current_tile=t
+		if t==None:
+			return
+		t.owner=self.owner
 		
+	def start_marking(self):
+		self.is_marking=True
+		
+	def stop_marking(self):
+		self.is_marking=False
+		
+	def tile_path(self,src,dst):
+		'''
+		returns a list of tiles to go from src to dst tiles (src and dst are not included)
+		'''
+		return self.current_tile.path_to(src=src,dst=dst,player=self.owner)
+	
 	def update_path_following(self):
 		'''
-		if self.path is not empty, the unit will move at its self.speed from its current position towards
-		the first element in self.path.
+		if self.path is not empty, the unit moves at its self.move_speed 
+		from its current position towards the first element in self.path.
 		'''
-		if len(self.move_path)==0:return
+		#should have been removed before
+		if len(self.path)==0:
+			out('WARNING in Unit.update_path_following: self.path==0, but method still in update_list.')
+			self.server.update_list.remove(self.update_path_following)
+			return
+		d=dist2(self,self.path[0])
 		#not arrived yet
-		d=dist2(self,self.move_path[0])
-#		out('server '+str((self.d-d)*100./self.d))
 		if d>self.move_speed:
-			ox,oy=self.x,self.y
-			#move (angle could be cached)
-			a=atan2(self.move_path[0].y-self.y,self.move_path[0].x-self.x)
+			oldx,oldy=self.x,self.y
+			#move (angle could be cached at next-tile-choice)
+			a=atan2(self.path[0].y-self.y,self.path[0].x-self.x)
 			self.x+=self.move_speed*cos(a)
 			self.y+=self.move_speed*sin(a)
-			#unit may have moved to a new tile
-			if int(ox)!=int(self.x) or int(oy)!=int(self.y):
-				self.tile=self.get_tile(self.x,self.y)
-#				self.send({stc_unit_tile:{'eid':self.eid,'tile':self.tile.eid}})
+			#unit has moved to a new tile
+			if int(oldx)!=int(self.x) or int(oldy)!=int(self.y):
+				self.tile=self.find_tile(x=self.x,y=self.y)
+				#self.send({stc_unit_tile:{'eid':self.eid,'tile':self.tile.eid}})
 		else:
-			#arrived
-			out('server side:arrived')
-			self.tile=self.move_path.pop(0)
+			#arrived at path[0]
+			self.tile=self.path.pop(0)
 			self.x,self.y=self.tile.x,self.tile.y
-			self.send({network.stc_unit_move_over:{'eid':self.eid,'tile':self.tile.eid}})
-			if len(self.move_path)>0:
-				d=dist2(self,self.move_path[0])
-				self.send({network.stc_unit_moving:{'eid':self.eid,
-												    'start':self.tile.eid,
-												    'end':self.move_path[0].eid,
-												    'begin':self.frame_no,
-												    'frames':d/self.move_speed
-												    }})
-			else:
-				self.server.update_list.remove(self.update_path_following)
-
+			#out('server '+str(self.tile.eid)+'@'+str(self.frame_no))
+			#path has ran out of tiles
+			if len(self.path)==0:
+				#should be the same
+				if not self.tile==self.target_path[0]:
+					out('ERROR in Unit.update_path_following: path does\'nt end on target. aborting move.')
+					#self.send({network.stc_unit_abort_move:{'eid':self.eid}})
+					return
+				self.target_path.pop(0)
+				#still has targets to reach
+				if len(self.target_path)>0:
+					self.path=self.current_tile.path_to(self.target_path[0],player=self.owner)
+					self.send({network.stc_unit_add_path:{'eid':self.eid,
+														  'path':[tile.eid for tile in self.path]}})
+				else:
+					#move over
+					self.move_over()
+					self.server.update_list.remove(self.update_path_following)
+	
+	confirmation_msg=property(get_confirmation_msg)
+	tile=property(get_tile,set_tile)
 	   
 	

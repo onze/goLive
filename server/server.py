@@ -51,6 +51,9 @@ class Server(FSM.FSM):
 		#to each event sent to a client is attached the frame number.
 		#this works as a marker of time
 		self.frame_no=Player.frame_no=Entity.frame_no=0
+		#objects that want to be removed add themselves to this list
+		#it is then sure they'll be deleted 'from outside'
+		self.del_list=[]
 		self.demand('Accepting')
 
 	def close(self):
@@ -101,7 +104,7 @@ class Server(FSM.FSM):
 			out(warning_intro+'invalid \'cpu\' tag. default value will be used')
 			pconf['cpu']=default.game_conf['cpu']
 		sconf['cpu']=pconf['cpu']
-		if not pconf['map.res'] in ['s','m','l']:
+		if not pconf['map.res'] in ['xs','s','m','l']:
 			out(warning_intro+'invalid \'map.res\' tag. default value will be used')
 			pconf['map.res']=default.game_conf['map.res']
 		sconf['map.res']=pconf['map.res']
@@ -140,6 +143,9 @@ class Server(FSM.FSM):
 		self.xres,self.yres=xres,yres
 		if None in Entity.instances[EIType.tile]:
 			raise Exception('in Server.set_conf: holes in Entity.instances[EIType.tile]. all tiles must be initialised.')
+		print xres/2
+		print len(Entity.instances[EIType.tile])
+		a=Entity.instances[EIType.tile][xres/2]
 		Home(tile=Entity.instances[EIType.tile][xres/2],owner=self.players[0])
 		Home(tile=Entity.instances[EIType.tile][(yres-1)*xres+xres/2],owner=self.players[1])
 
@@ -172,5 +178,7 @@ class Server(FSM.FSM):
 		self.frame_no+=1
 		Player.frame_no=Entity.frame_no=self.frame_no
 		[f() for f in self.update_list]
+		for o in self.del_list:del o
+		self.del_list=[]
 			
 

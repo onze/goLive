@@ -67,7 +67,6 @@ class ServerProxy(object):
 		'''
 		self.socket.send(network.dict2packet(data))
 
-	def update(self):
-		pass
+	def update(self):pass
 
 	new_data=property(get_new_data)

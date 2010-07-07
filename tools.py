@@ -11,7 +11,12 @@ def random(a=0.,b=1.):
 			return a[int(random_module.random()*len(a))]
 
 def dist2(a,b):
-	return ((b.x-a.x)**2+(b.y-a.y)**2)**.5 
+	'''dist for objects that have x and y attributes'''
+	return ((b.x-a.x)**2+(b.y-a.y)**2)**.5
+
+def dist3(a,b):
+	'''dist for p3dobjects (getX,getY,getZ)'''
+	return ((b.getX()-a.getX())**2+(b.getY()-a.getY())**2+(b.getZ()-a.getZ())**2)**.5 
 
 class Rectangle:
 	def __init__(self,x,y,w,h):

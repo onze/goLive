@@ -28,8 +28,6 @@ class GMap(Widget,DirectObject):
 		self.gcam=GamingCam(self,tools.Rectangle(self.x,self.y,self.w,self.h))
 		self.gcam.level=.5
 		self.gcam.target=self.root
-		#by eid
-		self.entities={}
 		self.selected_tiles=[]
 		self.highlighted_tiles=[]
 		self.is_tile_selection_enabled=False
@@ -46,7 +44,8 @@ class GMap(Widget,DirectObject):
 	def load_resources():
 		GTile.load_resources()
 		#simple models dict
-		GMap.model_res={'tile_matrix':loader.loadModel('data/models/tile_matrix_m.egg')}
+		GMap.model_res={'tile_matrix_xs':loader.loadModel('data/models/tile_matrix_xs.egg'),
+					    'tile_matrix_m':loader.loadModel('data/models/tile_matrix_m.egg')}
 		#dict{id:{model:'file path',animations{'name':'file path'}},etc}
 		#models are stored alone in their egg file
 		#each animation is also stored in its own egg file
@@ -55,12 +54,12 @@ class GMap(Widget,DirectObject):
 							   },
 					    }
 
-	def build_tile_matrix(self,resx,resy):
+	def build_tile_matrix(self,res,resx,resy):
 		'''
 		builds the playing grid, that is a resx*resy matrix of tiles.
 		'''
 		#every nodes will be attached to this one
-		self.tile_matrix_node=self.model_res['tile_matrix']
+		self.tile_matrix_node=self.model_res['tile_matrix_'+res]
 		self.tile_matrix_node.reparentTo(self.root)
 		#self.tile_matrix_origin_np=self.tile_matrix_node.attachNewNode('tile_matrix_origin')
 		#self.tile_matrix_origin_np.setPos(-resx,-resy,0)
@@ -153,11 +152,11 @@ class GMap(Widget,DirectObject):
 		home.reparentTo(self.root)
 		home.setPythonTag('eid',data['eid'])
 		home.setPos(self.root.find('**/tile_'+str(data['tileid'])),0,0,0)
-		self.entities[data['eid']]=home
+		GEntity.instances[data['eid']]=home
 		out('GMap.new_home: data='+str(data))
 		#out(scale=tile.getScale(),y=(y-resy/2.)*2.*s)
 
-	def sync_tile(self,data):
+	def new_tile(self,data):
 		'''
 		synchronizes a tile on the server with its mirror here.
 		'''
@@ -170,7 +169,7 @@ class GMap(Widget,DirectObject):
 		switch={'v_sprinter':GV_Sprinter,
 			    'h_sprinter':GH_Sprinter,
 			    }
-		self.entities[conf['eid']]=switch[conf['type']](conf)
+		switch[conf['type']](conf)
 
 	@property
 	def resx(self):

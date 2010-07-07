@@ -70,7 +70,6 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 		'''
 		will display hsprinter conf buttons
 		'''
-		out('enter hsprinter')
 		self.arrow=Button(	pref_w=self.gmenu.h,
 						    pref_h=self.gmenu.h,
 							p3dobject=DirectButton(geom=(self.gmenu.resources['h_arrow']),
@@ -82,7 +81,6 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 		self._conf['unit_type']='h_sprinter'
 	
 	def exitH_sprinter(self):
-		out('exit hsprinter')
 		if screen.frame.gmap.is_tile_selection_enabled:
 			screen.frame.gmap.disable_tile_selection()
 		self.remove_child(self.arrow)
@@ -94,7 +92,6 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 		'''
 		will display vsprinter conf buttons
 		'''
-		out('enter vsprinter')
 		self.arrow=Button(	pref_w=self.gmenu.h,
 						    pref_h=self.gmenu.h,
 							p3dobject=DirectButton(geom=(self.gmenu.resources['v_arrow']),
@@ -106,7 +103,6 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 		self._conf['unit_type']='v_sprinter'
 	
 	def exitV_sprinter(self):
-		out('exit vsprinter')
 		if screen.frame.gmap.is_tile_selection_enabled:
 			screen.frame.gmap.disable_tile_selection()
 		self.remove_child(self.arrow)

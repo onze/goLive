@@ -120,6 +120,8 @@ dev-mode t
 #general settings
 intro-delay 1
 #map resolution for each size
+map-width-xs 8
+map-height-xs 8
 map-width-s 16
 map-height-s 16
 map-width-m 32

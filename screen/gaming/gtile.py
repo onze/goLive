@@ -41,8 +41,13 @@ class GTile(GEntity):
 		GTile.textures={'highlighted':lambda:loader.loadTexture('data/models/tile.highlighted.tex.png'),
 					   	'selected':lambda:loader.loadTexture('data/models/tile.selected.tex.png'),
 				       }
+		
+	def change_owner(self,data):
+		self.owner=data['owner']
+		#TODO: change color
 	
 	def set_highlighted(self):
+		#out('tile.eid='+str(self.eid))
 		self.is_highlighted=True
 		self.quad.show()
 		self.quad.setTexture(self.ts_highlighted,self.textures['highlighted']())

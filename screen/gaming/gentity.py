@@ -13,5 +13,5 @@ class GEntity:
 		
 	def __del__(self):
 		self.p3dobject.clearPythonTag('ref')
-		self.p3dobject.destroy()
+		self.p3dobject.removeNode()
 		del self.instances[self.eid]

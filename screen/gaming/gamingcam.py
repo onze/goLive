@@ -89,15 +89,14 @@ class GamingCam(object,DirectObject):
 				x,y,z=entry.getSurfacePoint(self.gmap.tile_matrix_node)
 				x=(x+self.gmap.resx)/2.
 				y=(y+self.gmap.resy)/2.
-				if x<0:x=0
-				else:x%=self.gmap.resx-1
-				if y<0:y=0
-				else:y%=self.gmap.resy-1
+				x=max(x,0)
+				x=min(x,self.gmap.resx)
+				y=max(y,0)
+				y=min(y,self.gmap.resy)
 				x=int(x)
 				y=int(y)
 				#out(pos=(x,y,z))
 				return self.gmap.tile_matrix[x][y]
-				
 
 	def get_target(self):
 		return self._target

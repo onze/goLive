@@ -13,8 +13,6 @@ class Entity(object):
 	'''an Entity is anything that lives both server side and client side'''
 	'''each entity has an id that comes from here.'''
 	next_eid=(i for i in xrange(sys.maxint)).next
-	'''for debug purposes. should probably not be used.'''
-	stc_newone='entity'
 	'''dict of {entity instance type:list of entities}.
 	- instances['EIType.tile']: tiles' coordinates are converted to indexes (setup in Server.set_conf)'''
 	instances={}
@@ -25,7 +23,11 @@ class Entity(object):
 		self.eid=self.next_eid()
 		self.set_eitype(self.eitype)
 		
-	def get_tile(self,x,y):
+	def __del__(self):
+		print 'Entity.__del__()'
+		self.unset_eitype()
+		
+	def find_tile(self,x,y):
 		x,y=int(x),int(y)
 		return [tile for tile in self.instances[EIType.tile] if tile.x==x and tile.y==y][0]
 
@@ -66,3 +68,8 @@ class Entity(object):
 		if not Entity.instances.has_key(t):
 			Entity.instances[t]=[]
 		Entity.instances[t].append(self)
+		
+	
+	def unset_eitype(self):
+		'''used at entity removal, to clear links to it'''
+		Entity.instances[self.eitype].remove(self)
