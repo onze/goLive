@@ -17,8 +17,9 @@ class GUnit(GEntity):
 		self.path=[]
 		self.popout_when_move_over=False
 		
-	def __del__(self):
-		GEntity.__del__(self)
+	def dispose(self):
+		'''del method'''
+		GEntity.dispose(self)
 		self.popout_sequence.finish()
 		del self.popout_sequence
 
@@ -37,7 +38,7 @@ class GUnit(GEntity):
 		self.path.extend([self.instances[eid] for eid in data['path']])
 		if not self.update_move in update_list: 
 			update_list.append(self.update_move)
-		out('GUnit.add_path:'+str(data))
+		#out('GUnit.add_path:'+str(data))
 	
 	def finish_move_to(self,data):
 		'''triggered by server side unit, to indicate the need to popout at end of move.'''
@@ -50,7 +51,7 @@ class GUnit(GEntity):
 	def popout(self):
 		'''sets up the popout animation'''
 		scale=self.p3dobject.scaleInterval(.5,(.1,.1,.1))
-		finish=Func(self.__del__)
+		finish=Func(lambda:dispose_list.append(self))
 		self.popout_sequence=Sequence(scale,finish)
 		self.popout_sequence.start()
 		
@@ -68,6 +69,8 @@ class GUnit(GEntity):
 											   self.path[0].p3dobject.getPos(),
 											   name='interval_unit_move_'+str(self.eid)
 											   )
+			self.p3dobject.lookAt(self.path[0].p3dobject.getPos())
+			self.p3dobject.loop('run')
 			self.move_interval.start()
 		else:
 			#is move ~over ?
@@ -82,6 +85,7 @@ class GUnit(GEntity):
 				self.p3dobject.setPos(self.path[0].p3dobject,0,0,0)
 				self.path.pop(0)
 				if len(self.path)==0:
+					self.p3dobject.stop()
 					self.move_interval.finish()
 					del self.move_interval
 					update_list.remove(self.update_move)
@@ -95,6 +99,7 @@ class GUnit(GEntity):
 													   self.path[0].p3dobject.getPos(),
 													   name='interval_unit_move_'+str(self.eid)
 													   )
+					self.p3dobject.lookAt(self.path[0].p3dobject.getPos())
 					self.move_interval.start()
 				
 		
@@ -105,7 +110,8 @@ class GH_Sprinter(GUnit):
 							  }
 							 )
 		GUnit.__init__(self,conf)
-#		home.setH(tools.random([0,90,180,270]))
+		#home.setH(tools.random([0,90,180,270]))
+
 		
 class GV_Sprinter(GUnit):
 	def __init__(self,conf):
@@ -114,4 +120,4 @@ class GV_Sprinter(GUnit):
 							  }
 							 )
 		GUnit.__init__(self,conf)
-#		home.setH(tools.random([0,90,180,270]))
+		#home.setH(tools.random([0,90,180,270]))

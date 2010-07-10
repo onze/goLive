@@ -33,9 +33,11 @@ class GameClient(FSM.FSM):
 			'Stats':['Game_setup'],
 			}
 		#any method in this global list gets called once a frame
-		__builtin__.update_list = []
-		self.is_running = True
-		self.screen = None
+		__builtin__.update_list=[]
+		#any object in this global list gets its dispose method called by current frame's end
+		__builtin__.dispose_list=[]
+		self.is_running=True
+		self.screen=None
 		self.fake_keypresses=['q','a']#,'mouse1','mouse1-up','space']
 
 	def enterGame_setup(self):
@@ -152,9 +154,10 @@ class GameClient(FSM.FSM):
 			if len(self.fake_keypresses):
 				messenger.send(self.fake_keypresses[0])
 				self.fake_keypresses.pop(0)
-		else:
-			pass
-#			out(server_frame_no=d['frame_no'],client_frame_no=self.frame_no)
+		if len(__builtin__.dispose_list):
+			out('objects deleted:'+str(__builtin__.dispose_list))
+		for o in __builtin__.dispose_list:o.dispose()
+		__builtin__.dispose_list=[]
 
 	def update(self, task):
 		'''

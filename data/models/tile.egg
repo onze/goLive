@@ -3,15 +3,15 @@
 <Comment> { "Egg laid by Chicken for Blender, version R85" }
 
 <Material> Material.001 {
-  <Scalar> diffr {0.992507755756}
-  <Scalar> diffg {0.992507755756}
-  <Scalar> diffb {0.992507755756}
-  <Scalar> specr {0.25}
-  <Scalar> specg {0.25}
-  <Scalar> specb {0.25}
+  <Scalar> diffr {0.5}
+  <Scalar> diffg {0.5}
+  <Scalar> diffb {0.5}
+  <Scalar> specr {0.125}
+  <Scalar> specg {0.125}
+  <Scalar> specb {0.125}
   <Scalar> shininess {12.5}
 }
-<Texture> Untitled {
+<Texture> tile.highlighted.tex. {
   "./tile.highlighted.tex.png"
   <Scalar> saved-result { 1 }
   <Scalar> envtype { MODULATE }
@@ -19,18 +19,10 @@
   <Scalar> magfilter { LINEAR }
   <Scalar> wrap { REPEAT }
 }
-<Group> tile {
-  <Transform> {
-    <Matrix4> {
-      1.000000 0.000000 0.000000 0.000000
-      0.000000 1.000000 0.000000 0.000000
-      0.000000 0.000000 1.000000 0.000000
-      0.000000 0.000000 0.010000 1.000000
-    }
-  }
-  <VertexPool> tile {
+<Group> Plane {
+  <VertexPool> Plane {
     <Vertex> 0 {
-      1.0 0.999999940395 0.00999999977648
+      1.0 0.999999940395 0.0
       <UV>  {
         0.000000 0.000000
         <Tangent> { 1.000000 -0.000000 0.000000 }
@@ -38,7 +30,7 @@
       }
     }
     <Vertex> 1 {
-      -0.999999761581 1.00000023842 0.00999999977648
+      -0.999999761581 1.00000023842 0.0
       <UV>  {
         1.000000 0.000000
         <Tangent> { 1.000000 -0.000000 0.000000 }
@@ -46,7 +38,7 @@
       }
     }
     <Vertex> 2 {
-      -1.0 -0.999999940395 0.00999999977648
+      -1.0 -0.999999940395 0.0
       <UV>  {
         1.000000 1.000000
         <Tangent> { 1.000000 -0.000000 0.000000 }
@@ -54,7 +46,7 @@
       }
     }
     <Vertex> 3 {
-      0.999999940395 -1.0 0.00999999977648
+      0.999999940395 -1.0 0.0
       <UV>  {
         0.000000 1.000000
         <Tangent> { 1.000000 -0.000000 0.000000 }
@@ -63,10 +55,10 @@
     }
   }
   <Polygon> {
-    <TRef> { Untitled }
+    <TRef> { tile.highlighted.tex. }
     <MRef> { Material.001 }
     <Normal> { 0.000000 -0.000000 1.000000
     }
-    <VertexRef> { 0 1 2 3 <Ref> { tile } }
+    <VertexRef> { 0 1 2 3 <Ref> { Plane } }
   }
 }

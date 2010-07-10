@@ -12,7 +12,7 @@ class Unit(Entity):
 	def __init__(self,player):
 		Entity.__init__(self)
 		self.owner=player
-		self.tile=self.owner.home.tile
+		self.current_tile=self.owner.home.tile
 		#player the unit belongs to. can be none if the unit is neutral
 		#data related to moves
 		'''list of Tiles to pass by (every tiles). see update_path_following for details.'''
@@ -63,13 +63,18 @@ class Unit(Entity):
 		'''
 		self.send({network.stc_unit_move_over:{'eid':self.eid,'tile':self.tile.eid}})
 		self.server.del_list.append(self)
+		
+	def on_tile_change(self):
+		'''event handler called when the unit's tile changes.'''
+		pass
 	
 	def set_tile(self,t):
 		'''property'''
-		self.current_tile=t
-		if t==None:
-			return
-		t.owner=self.owner
+		if self.current_tile!=t:
+			self.current_tile=t
+			if t==None:
+				return
+			self.on_tile_change()
 		
 	def start_marking(self):
 		self.is_marking=True

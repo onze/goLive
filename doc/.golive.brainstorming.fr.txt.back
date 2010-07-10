@@ -32,7 +32,7 @@ légende:
 -[nom de l'unité](paramètres de création): description
 
 ===unités traceuses===
-ces unités sont faibles au combat, mais placent des pions pour gagner du territoire. quand un traceur tombe sur un mur adverse, il le saute (sans le marquer), mais -en temps normal- ne l'écrase/détruit pas.
+ces unités sont faibles au combat, mais placent des pions pour gagner du territoire. quand un traceur tombe sur un mur adverse, il le saute, mais -en temps normal- ne l'écrase/détruit pas.
 
 -le sprinter V (colonne): va se placer sur la plus proche case de la colonne indiquée, puis par en ligne droite vers le haut du terrain en placant des pions sur son chemin. meurt arrivé au top nord du terrain.
 -le sprinter H (ligne, coté): va se placer sur la plus proche case de la ligne indiquée, du coté indiqué, puis par en ligne droite vers l'autre coté du terrain en placant des pions sur son chemin.

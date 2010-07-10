@@ -11,7 +11,9 @@ class GEntity:
 		self.eid=conf['eid']
 		self.instances[self.eid]=self
 		
-	def __del__(self):
+	def dispose(self):
+		'''del method'''
 		self.p3dobject.clearPythonTag('ref')
+		self.p3dobject.cleanup()
 		self.p3dobject.removeNode()
 		del self.instances[self.eid]

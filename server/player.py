@@ -8,15 +8,24 @@ from sprinter import HSprinter,VSprinter
 class Player:
 	#each player has an id that comes from here.
 	next_pid=(i for i in xrange(sys.maxint)).next
-	#player (including ia) instances add themselves here to get updates
+	#player (including ia) instances, by pid
+	instances={}
 	def __init__(self,socket,address,pid,server):
 		self.pid=pid
+		Player.instances[self.pid]=self
 		self.socket=socket
 		self.socket.setblocking(0)
 		self.address=address
 		self.buf=''
 		self.server=server
 		self.server.update_list.append(self.update)
+		#sum of tiles under player control
+		self.owned_tiles=0
+		
+	def dispose(self):
+		'''del'''
+		del Player.instances[self.pid]
+		self.server.update_list.remove(self.update)
 
 	def new_unit(self,conf):
 		'''

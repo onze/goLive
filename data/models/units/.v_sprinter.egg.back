@@ -12,7 +12,7 @@
   <Scalar> shininess {12.5}
 }
 <Texture> v_sprinter.tex.png {
-  "./data/models/units/v_sprinter.tex.png"
+  "./../../../../1004/goLive/data/models/units/v_sprinter.tex.png"
   <Scalar> saved-result { 1 }
   <Scalar> envtype { MODULATE }
   <Scalar> minfilter { LINEAR }

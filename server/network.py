@@ -58,8 +58,8 @@ stc_start_game=next()
 #sync tile eid,x,y with clients ones:{meta:{eid:number,x:number,y:number}}
 stc_new_tile=next()
 
-#tile owner changes: {meta:{eid:tile eid,owner: player pid}}
-stc_tile_owner_change=next()
+#a unit drops a pawn on a tile: {meta:{eid:tile eid,pawner: player pid}}
+stc_tile_change_pawner=next()
 
 #build home:{meta:{pid:1/2,pos:(42,42)}}
 stc_new_home=next()

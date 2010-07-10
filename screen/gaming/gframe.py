@@ -52,7 +52,7 @@ class GFrame(Frame):
 				    }
 		gunit_switch={network.stc_unit_add_path:GUnit.add_path,
 					  network.stc_unit_move_over:GUnit.finish_move_to,
-					  network.stc_tile_owner_change:GTile.change_owner
+					  network.stc_tile_get_pawned:GTile.change_pawner
 					 }
 		for meta in data:
 			if meta in gframe_switch:

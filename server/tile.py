@@ -1,23 +1,34 @@
 
+from panda3d.core import ConfigVariableInt
+
 from entity import Entity,EIType
 import network
 
 class Tile(Entity):
 	team={}
 	eitype=EIType.tile
+	#flag indicating to the server if the tile ratio has to be recomputed
+	new_ratio=True
 	def __init__(self,players,x,y,h,xres):
 		self.x,self.y,self.h=x,y,h
 		self.index=xres*y+x
 		Entity.__init__(self)
 		#defines the belonging of the tile, hence its color and how score is computed (owner property)
 		#it points to a player
-		self.current_owner=None
+		self.owner=None
+		#pid of the owner of the unit that can pass by the tile
+		#a pawned tile cannot have a different owner than its pawned_by.
+		self._pawner=None
+		#level at wich the tile belongs to its owner. there are 3 levels
+		self.load_level=0
+		#load frame counter, used to determine the load level
+		self.load=0
 		for p in self.players.values():
 			p.send({network.stc_new_tile:{'eid':self.eid,'x':x,'y':y}})#height, type etc
 			
-	def get_owner(self):
+	def get_pawner(self):
 		'''property'''
-		return self.current_owner
+		return self._pawner
 	
 	def get_left_tile(self):
 		if self.x>0:return Entity.instances[self.eitype][self.index-1]
@@ -72,12 +83,15 @@ class Tile(Entity):
 		#out('Tile.path_to: path='+str(map(str,[t.eid for t in path])))
 		return path
 	
-	def set_owner(self,o):
+	def set_pawner(self,p):
 		'''property'''
-		if self.current_owner!=o:
-			self.current_owner=o
-			for p in self.players.values():
-				p.send({network.stc_tile_owner_change:{'eid':self.eid,'owner':self.current_owner.pid}})
+		if self._pawner!=p:
+			self._pawner=p
+			self.load_level=0
+			self.load_frames=0
+			if not self.update_load in self.server.update_list: 
+				self.server.update_list.append(self.update_load)
+			self.send({network.stc_tile_change_pawner:{'eid':self.eid,'pawner':self._pawner.pid}})
 
 	def distance_to(self,target):
 		return (target.x-self.x)+(target.y-self.y)
@@ -93,7 +107,15 @@ class Tile(Entity):
 		'''property'''
 		self._team=t
 
-	owner=property(get_owner,set_owner)
+	def update_load(self):
+		self.load_frames+=1
+		if self.load_frames>ConfigVariableInt('load-frames-level-2'):
+			self.load_level=2
+			self.server.update_list.remove(self.update_load)
+		elif self.load_frames>ConfigVariableInt('load-frames-level-1'):
+			self.load_level=1
+
+	pawner=property(get_pawner,set_pawner)
 	team=property(get_team,set_team)
 	upper_tile=property(get_upper_tile)
 	left_tile=property(get_left_tile)

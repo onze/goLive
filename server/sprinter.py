@@ -1,12 +1,13 @@
 
 from entity import EIType
 from unit import Unit
+from tilemarker import TileMarker
 import network
 
-class Sprinter(Unit):
+class Sprinter(TileMarker):
 	'''abstract class to factorize sprinter behavior'''
 	def __init__(self,player,conf):
-		Unit.__init__(self,player)
+		TileMarker.__init__(self,player)
 		#set the main tiles to pass by
 		first=self.find_first_target_tile(conf['x'],conf['y'])
 		self.add_to_path(first)
