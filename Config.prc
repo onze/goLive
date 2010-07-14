@@ -113,21 +113,13 @@ want-pstat 1
 task-timer-verbose 1
 pstats-tasks 1
 #############################################################golive custom settings
-#development variables
+###development variables
 console-trigger `
 dev-mode t
 
+###client settings
 #general settings
 intro-delay 1
-#map resolution for each size
-map-width-xs 8
-map-height-xs 8
-map-width-s 16
-map-height-s 16
-map-width-m 32
-map-height-m 32
-map-width-l 64
-map-height-l 64
 
 #key handling
 key-confirm enter
@@ -144,3 +136,18 @@ key-cam-down arrow_down
 
 #unit setup menu
 #TODO setup qwert/azerty layout handling here
+
+###server settings
+#map resolution for each size
+map-width-xs 8
+map-height-xs 8
+map-width-s 16
+map-height-s 16
+map-width-m 32
+map-height-m 32
+map-width-l 64
+map-height-l 64
+
+#tiles owner propagation
+load-frames-level-1 60
+load-frames-level-2 120

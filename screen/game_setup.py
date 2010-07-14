@@ -1,10 +1,10 @@
 #import __builtin__
 
 from direct.gui.DirectGui import *
-
-from .server import default
-from widgetwrapper import Button,Frame,Spacer
-import layout
+__package__='screen.game_setup'
+from server import default
+from screen.widgetwrapper import Button,Frame,Spacer
+from screen import layout
 
 class Game_setup(Frame):
 	sgn_start='Game_setup.sgn_start'

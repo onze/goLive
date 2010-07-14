@@ -5,14 +5,13 @@ from direct.gui.DirectGui import *
 from panda3d.core import Vec4
 #from pandac.PandaModules import RigidBodyCombiner,NodePath
 
-from gamingcam import GamingCam
+from screen.gaming.gamingcam import GamingCam
 #from ..widgetwrappers import WidgetWrapper
-from gentity import GEntity
-from gtile import GTile
-from gunit import GV_Sprinter,GH_Sprinter
-from ..widget import Widget
-from tools import random
-from ..server import network
+from screen.gaming.gentity import GEntity
+from screen.gaming.gtile import GTile
+from screen.gaming.gunit import GV_Sprinter,GH_Sprinter
+from screen.widget import Widget
+from server import network
 import tools
 
 class GMap(Widget,DirectObject):

@@ -3,7 +3,7 @@ from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import LerpPosInterval,Func,Sequence
 from panda3d.core import ConfigVariableInt
 
-from gentity import GEntity
+from screen.gaming.gentity import GEntity
 from tools import dist3
 
 class GUnit(GEntity):

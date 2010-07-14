@@ -21,10 +21,32 @@ class Tile(Entity):
 		self._pawner=None
 		#level at wich the tile belongs to its owner. there are 3 levels
 		self.load_level=0
-		#load frame counter, used to determine the load level
+		#load units counter, used to determine the load level
 		self.load=0
 		for p in self.players.values():
 			p.send({network.stc_new_tile:{'eid':self.eid,'x':x,'y':y}})#height, type etc
+			
+	def propagate_load(self,owner,load):
+		#load from opponent is weakening the tile's load
+		if owner==self.owner:
+			self.load+=load
+		else:
+			self.load-=load
+		#if it falls below 0, the tile is acquired by the opponent owner
+		if self.load<0:
+			self.owner=owner
+		#
+		if self.load>ConfigVariableInt('load-frames-level-2'):
+			self.load_level=2
+			self.server.update_list.remove(self.update_load)
+		elif self.load>ConfigVariableInt('load-frames-level-1'):
+			self.load_level=1
+		if self.load_level>1:
+			for n in self.neighbors:
+				#avoid loops within grid
+				if n.load>self.load or n.pawner:
+					continue
+				n.propagate_load(self.owner,self.load_level-1)
 			
 	def get_pawner(self):
 		'''property'''
@@ -108,12 +130,7 @@ class Tile(Entity):
 		self._team=t
 
 	def update_load(self):
-		self.load_frames+=1
-		if self.load_frames>ConfigVariableInt('load-frames-level-2'):
-			self.load_level=2
-			self.server.update_list.remove(self.update_load)
-		elif self.load_frames>ConfigVariableInt('load-frames-level-1'):
-			self.load_level=1
+		self.propagate_load(self.owner,1)
 
 	pawner=property(get_pawner,set_pawner)
 	team=property(get_team,set_team)

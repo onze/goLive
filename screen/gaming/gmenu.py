@@ -4,9 +4,9 @@ from direct.gui.DirectGui import DirectButton
 from direct.showbase.DirectObject import DirectObject
 from panda3d.core import KeyboardButton
 
-from ..widgetwrapper import WidgetWrapper,Frame,Button,Spacer
-from ..layout import HLayout
-from ..server import network
+from screen.widgetwrapper import WidgetWrapper,Frame,Button,Spacer
+from screen.layout import HLayout
+from server import network
 
 class Panel(Frame):
 	def __init__(self,gmenu):

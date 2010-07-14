@@ -2,15 +2,15 @@
 from direct.gui.DirectGui import *
 from panda3d.core import ConfigVariableInt
 
-from ..widgetwrapper import Frame
-from ..layout import VLayout
+from screen.widgetwrapper import Frame
+from screen.layout import VLayout
 from gentity import GEntity
 from gmenu import GMenu
 from gmap import GMap
 from gnotifier import GNotifier
 from gtile import GTile
 from gunit import GUnit
-from ..server import network
+from server import network
 
 from tools import pstat
 
@@ -52,7 +52,7 @@ class GFrame(Frame):
 				    }
 		gunit_switch={network.stc_unit_add_path:GUnit.add_path,
 					  network.stc_unit_move_over:GUnit.finish_move_to,
-					  network.stc_tile_get_pawned:GTile.change_pawner
+					  network.stc_tile_change_pawner:GTile.change_pawner
 					 }
 		for meta in data:
 			if meta in gframe_switch:

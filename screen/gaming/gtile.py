@@ -1,7 +1,7 @@
 
 from panda3d.core import Vec4,TextureStage,TransparencyAttrib
 
-from gentity import GEntity
+from screen.gaming.gentity import GEntity
 
 class GTile(GEntity):
 	
@@ -75,7 +75,7 @@ class GTile(GEntity):
 	def unset_highlighted(self):
 		self.is_highlighted=False
 		self.quad.clearTexture(self.ts_highlighted)
-		if not (self.is_selected or self.pawn_by!=None):
+		if not (self.is_selected or self.pawner!=None):
 			self.quad.hide()
 	
 	def set_selected(self):
@@ -86,7 +86,7 @@ class GTile(GEntity):
 	def unset_selected(self):
 		self.is_selected=False
 		self.quad.clearTexture(self.ts_selected)
-		if not (self.is_highlighted or self.pawn_by!=None):
+		if not (self.is_highlighted or self.pawner!=None):
 			self.quad.hide()
 
 	@property

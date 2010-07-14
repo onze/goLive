@@ -1,6 +1,6 @@
 
-from ..layout import HLayout
-from ..widgetwrapper import Frame
+from screen.layout import HLayout
+from screen.widgetwrapper import Frame
 
 class GNotifier(Frame):
 	def __init__(self,*args,**kwargs):
