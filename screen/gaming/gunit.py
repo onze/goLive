@@ -1,7 +1,7 @@
 
 from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import LerpPosInterval,Func,Sequence
-from panda3d.core import ConfigVariableInt
+from panda3d.core import ConfigVariableDouble,ConfigVariableInt
 
 from screen.gaming.gentity import GEntity
 from tools import dist3
@@ -65,7 +65,7 @@ class GUnit(GEntity):
 			#start moving
 			#first 3 args=model,duration,pos, the duration=1/... is relative to server side tile side size
 			self.move_interval=LerpPosInterval(self.p3dobject,
-											   (1/(self.move_speed*float(ConfigVariableInt('clock-frame-rate').getValue()))),
+											   (1/(self.move_speed*ConfigVariableDouble('clock-frame-rate').getValue())),
 											   self.path[0].p3dobject.getPos(),
 											   name='interval_unit_move_'+str(self.eid)
 											   )
@@ -95,7 +95,7 @@ class GUnit(GEntity):
 					#first 3 args=model,duration,pos
 					self.move_interval.finish()
 					self.move_interval=LerpPosInterval(self.p3dobject,
-													   (1/(self.move_speed*float(ConfigVariableInt('clock-frame-rate').getValue()))),
+													   (1/(self.move_speed*ConfigVariableDouble('clock-frame-rate').getValue())),
 													   self.path[0].p3dobject.getPos(),
 													   name='interval_unit_move_'+str(self.eid)
 													   )

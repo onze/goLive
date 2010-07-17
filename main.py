@@ -1,13 +1,12 @@
 
 import __builtin__
 import sys
-
-#config must be ready before anything else
-#from panda3d.core import ConfigVariableInt,ConfigVariableDouble,ConfigVariableString,ConfigVariableBool
-from panda3d.core import ConfigVariableBool,ConfigVariableString,PStatClient
+#load default config
+import default
 from pandac.PandaModules import loadPrcFile
 loadPrcFile(sys.path[0]+'/Config.prc')
 
+from panda3d.core import ConfigVariableBool,ConfigVariableString,PStatClient
 from direct.fsm import FSM
 from direct.showbase.MessengerGlobal import messenger
 from direct.task.TaskManagerGlobal import taskMgr
@@ -16,7 +15,8 @@ from screen.screen import Screen
 from screen.gaming.gentity import GEntity
 from server.serverproxy import ServerProxy
 from server import network
-from tools import pstat
+if ConfigVariableBool('dev-mode').getValue():
+	from tools import pstat
 
 class GameClient(FSM.FSM):
 	def __init__(self):
@@ -71,8 +71,9 @@ class GameClient(FSM.FSM):
 		init of main/global structures
 		'''
 		self.screen = Screen()
-		self.update_gaming=pstat(self.update_gaming)
-		PStatClient.connect()
+		if ConfigVariableBool('dev-mode').getValue():
+			self.update_gaming=pstat(self.update_gaming)			
+			PStatClient.connect()
 		taskMgr.add(self.update, 'GameClient.update')
 		self.acceptOnce('escape',self.demand,extraArgs=['Quit'])
 		self.demand('Intro')

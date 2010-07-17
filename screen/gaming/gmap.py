@@ -43,8 +43,8 @@ class GMap(Widget,DirectObject):
 	def load_resources():
 		GTile.load_resources()
 		#simple models dict
-		GMap.model_res={'tile_matrix_xs':loader.loadModel('data/models/tile_matrix_xs.egg'),
-					    'tile_matrix_m':loader.loadModel('data/models/tile_matrix_m.egg')}
+		GMap.model_res={'tile_matrix_xs':loader.loadModel('data/models/tiles/tile_matrix_xs.egg'),
+					    'tile_matrix_m':loader.loadModel('data/models/tiles/tile_matrix_m.egg')}
 		#dict{id:{model:'file path',animations{'name':'file path'}},etc}
 		#models are stored alone in their egg file
 		#each animation is also stored in its own egg file

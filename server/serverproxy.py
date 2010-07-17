@@ -2,7 +2,7 @@ import atexit
 import socket
 import sys
 
-from server import Server
+import server
 import network
 
 ip,port='127.0.0.1',7777
@@ -35,7 +35,7 @@ class ServerProxy(object):
 			raise ProxyException('local proxy could not connect to local server (connect error: '+str(e)+')')
 
 	def launch_local_server(self,ip,port):
-		self.server=Server(ip,port)
+		self.server=server.Server(ip,port)
 		if not self.server.is_open:
 			raise ProxyException('local server could not get created.')
 

@@ -1,5 +1,5 @@
 
-from panda3d.core import Vec4,TextureStage,TransparencyAttrib
+from panda3d.core import TextureStage,TransparencyAttrib
 
 from screen.gaming.gentity import GEntity
 
@@ -24,47 +24,68 @@ class GTile(GEntity):
 		self.quad.reparentTo(self.p3dobject)
 		self.quad.hide()
 		
-		self.pawner=None
-		#owner white
-		self.ts_pawn_white=TextureStage('ts_pawn_white')
-		self.ts_pawn_white.setMode(TextureStage.MReplace)
-		self.ts_pawn_white.setSort(1)
+		#load_level
+		self.ts_load_level=TextureStage('ts_load_level')
+		self.ts_load_level.setMode(TextureStage.MReplace)
+		self.ts_load_level.setSort(1)
 		
-		#owner black
-		self.ts_pawn_black=TextureStage('ts_pawn_black')
-		self.ts_pawn_black.setMode(TextureStage.MReplace)
-		self.ts_pawn_black.setSort(1)
+		self.pawner=None
+		#owner
+		self.ts_pawn=TextureStage('ts_pawn')
+		self.ts_pawn.setMode(TextureStage.MDecal)
+		self.ts_pawn.setSort(2)
 		
 		#selection
 		self.is_selected=False
 		self.ts_selected=TextureStage('ts_selected')
 		self.ts_selected.setMode(TextureStage.MReplace)
-		self.ts_selected.setSort(2)
+		self.ts_selected.setSort(3)
 		
 		#highlight
 		self.is_highlighted=False
 		self.ts_highlighted=TextureStage('ts_highlighted')
 		self.ts_highlighted.setMode(TextureStage.MDecal)
-		self.ts_highlighted.setSort(3)
+		self.ts_highlighted.setSort(4)
 	
 	@staticmethod
 	def load_resources():
 		#dict of texture
-		GTile.resources={'quad':lambda:loader.loadModel('data/models/tile.egg')}
-		GTile.textures={'highlighted':loader.loadTexture('data/models/tile.highlighted.tex.png'),
-					   	'selected':loader.loadTexture('data/models/tile.selected.tex.png'),
-					   	'pawn-black':loader.loadTexture('data/models/tile.pawned.black.tex.png'),
-					   	'pawn-white':loader.loadTexture('data/models/tile.pawned.white.tex.png')
+		GTile.resources={'quad':lambda:loader.loadModel('data/models/tiles/tile.egg')}
+		GTile.textures={'highlighted':loader.loadTexture('data/models/tiles/tile.highlighted.tex.png'),
+					   	'selected':loader.loadTexture('data/models/tiles/tile.selected.tex.png'),
+					   	'pawn-black':loader.loadTexture('data/models/tiles/tile.pawned.black.tex.png'),
+					   	'pawn-white':loader.loadTexture('data/models/tiles/tile.pawned.white.tex.png'),
+					   	'black-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.black.1.tex.png'),
+					   	'black-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.black.3.tex.png'),
+					   	'white-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.white.1.tex.png'),
+					   	'white-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.white.3.tex.png'),
 				       }
-		
+	
+	def change_load_level(self,data):
+		'''
+		shown levels are level 0, 1 and 3, respectively neutral, half filled and fully filled tile
+		'''
+		out('tile '+str(self.eid)+'\'s load_level set to '+str(data))
+		self.load_level=data['level']
+		self.owner=data['owner']
+		if self.load_level==0:
+			self.quad.clearTexture(self.ts_load_level)
+		else:
+			color={0:'black',1:'white'}[self.owner]
+			self.quad.setTexture(self.ts_load_level,self.textures[color+'-load_level-'+str(self.load_level)])
+			self.quad.show()
+
 	def change_pawner(self,data):
 		#out('tile '+str(self.eid)+' set to '+str(data['owner']))
 		self.pawner=data['pawner']
-		if self.pawner==0:
-			self.quad.setTexture(self.ts_pawn_black,self.textures['pawn-black'])
-		else:
-			self.quad.setTexture(self.ts_pawn_white,self.textures['pawn-white'])
-		self.quad.show()		
+		if self.pawner==None:
+			self.quad.clearTexture(self.ts_pawn)
+			if not (self.is_selected or self.is_highlighted or self.owner!=None):
+				self.quad.hide()
+		else: 
+			color={0:'black',1:'white'}[self.pawner]
+			self.quad.setTexture(self.ts_pawn,self.textures['pawn-'+color])
+			self.quad.show()		
 	
 	def set_highlighted(self):
 		#out('tile.eid='+str(self.eid))

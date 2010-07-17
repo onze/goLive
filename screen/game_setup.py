@@ -2,7 +2,7 @@
 
 from direct.gui.DirectGui import *
 __package__='screen.game_setup'
-from server import default
+import default
 from screen.widgetwrapper import Button,Frame,Spacer
 from screen import layout
 
@@ -18,7 +18,7 @@ class Game_setup(Frame):
 		self.config=dict(default.game_conf)
 
 	def open(self):
-		[Spacer(parent=self) for i in range(2)]
+		[Spacer(parent=self) for _ in range(2)]
 		self.right_frame=Frame( layout=layout.VLayout,
 								parent=self,
 								pref_w=180)

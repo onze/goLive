@@ -35,7 +35,7 @@ class Screen(DirectObject):
 		#set fps limit
 		globalClock=ClockObject.getGlobalClock() 
 		globalClock.setMode(ClockObject.MLimited) 
-		globalClock.setFrameRate(ConfigVariableDouble('clock-frame-rate'))
+		globalClock.setFrameRate(ConfigVariableDouble('clock-frame-rate').getValue())
 		__builtin__.screen=self
 		__builtin__.gui=pixel2d.attachNewNode('Screen.gui')
 		#gui is the node for 2d rendering, scaled to the screen resolution,

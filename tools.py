@@ -29,7 +29,20 @@ class Rectangle:
 		ret=self.x<x<self.x+self.w and self.y<y<self.y+self.h
 		out(str(self)+'.hit_test('+str(x)+','+str(y)+')->'+str(ret))
 		return ret
-	
+
+def print_raw_tile_grid_load(server):
+	'''
+	print a fancy (ie raw ascii) map of the tile grid, as (load,load_level) tuples.
+	takes the server as arg.
+	'''
+	from  server.tile import Tile
+	print '----'
+	for y in range(server.yres-1,0,-1):
+		for x in range(server.xres):
+			t=Tile.instances['tile'][y*server.yres+x]
+			print '%.0f,%i'%(t.load,t.load_level),',',
+		print '|'
+
 def pstat(func):
 	try:
 		from pandac.PandaModules import PStatCollector

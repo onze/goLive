@@ -41,7 +41,12 @@ class Server(FSM.FSM):
 		self.is_open=True
 		#incoming data (as strings, but still) buffer
 		self.buf=''
+		#methods appended in this list are called once a frame, until they are removed from it
 		self.update_list=[]
+		#methods appended in this list are called at the end of the current frame,
+		#and then removed from it automatically. this list is double buffered, 
+		#so that anything added to it during its processing will be called at the end of the next frame. 
+		self.eof_list=[]
 		#dict of players (by id)
 		self.players={}
 		Entity.players=self.players
@@ -145,13 +150,12 @@ class Server(FSM.FSM):
 			raise Exception('in Server.set_conf: holes in Entity.instances[EIType.tile]. all tiles must be initialised.')
 		print xres/2
 		print len(Entity.instances[EIType.tile])
-		a=Entity.instances[EIType.tile][xres/2]
 		Home(tile=Entity.instances[EIType.tile][xres/2],owner=self.players[0])
 		Home(tile=Entity.instances[EIType.tile][(yres-1)*xres+xres/2],owner=self.players[1])
 
 	def update_accept(self):
 		print 'SERVER::update_accept()'
-		read,write,error=select.select([self.socket],[],[],0)
+		read,_,_=select.select([self.socket],[],[],0)
 		if len(read)>0:
 			socket,address=self.socket.accept()
 			print 'got player @',address
@@ -177,7 +181,13 @@ class Server(FSM.FSM):
 #		out('server update',frame_no=self.frame_no)
 		self.frame_no+=1
 		Player.frame_no=Entity.frame_no=self.frame_no
+		
 		[f() for f in self.update_list]
+		
+		temp=self.eof_list
+		self.eof_list=[]
+		[f() for f in temp]
+		
 		for o in self.del_list:del o
 		self.del_list=[]
 			

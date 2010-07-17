@@ -149,5 +149,10 @@ map-width-l 64
 map-height-l 64
 
 #tiles owner propagation
-load-frames-level-1 60
-load-frames-level-2 120
+pawner-duration 20
+load-propagation-frequency 10
+load-level-level-0 5
+load-level-level-1 50
+load-level-level-2 255
+
+

@@ -36,7 +36,7 @@ class Console(FSM.FSM):
 		if len(args)>0:
 			line.extend([str(a)+' ' for a in args])
 		if len(kwargs.keys())>0:
-			line.extend([' {']+[str(k)+':'+str(kwargs[k]) for k in kwargs]+['}'])
+			line.extend([str(kwargs)])
 		line=''.join(line)
 		print line
 		self.lines.append(line)

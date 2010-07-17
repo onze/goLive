@@ -9,7 +9,7 @@ class TileMarker(Unit):
 		Unit.__init__(self,player)
 		
 	def on_tile_change(self):
-		if not self.current_tile.pawner:
+		if self.current_tile.pawner==None:
+			#TODO: sendevent to GUnit for special animation ?
 			self.current_tile.pawner=self.owner
-			self.current_tile.owner=self.owner
 			self.current_tile.load_level=3
