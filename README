@@ -1,1 +1,13 @@
 == golive readme file ==
+
+== DESCRIPTION ==
+goLive is an arcade oriented version of the classic go board game ( http://en.wikipedia.org/wiki/Go_board_game ). Classic rules are not followed that much, as I try to build a fast paced gameplay.
+
+The game is in heavy development right now, and not currently playable.
+
+== REQUIREMENTS ==
+
+the game uses the panda3d engine. you can get the runtime on panda3d's website ( http://www.panda3d.org/download.php?runtime ).
+
+== INSTALLATION ==
+see above.
