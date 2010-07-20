@@ -19,11 +19,18 @@ def inf():
 next=inf().next
 
 def dict2packet(d):
+	'''
+	takes a dict and returns a string packet ready to be sent through the wires
+	'''
 	#TODO: test compression here
 	return str(d)+'\n'
 #	return cPickle.dumps(d,cPickle.HIGHEST_PROTOCOL)+'\n'
 
 def dict2packets(dbuf):
+	'''
+	takes a dict buffer and returns a list of string packets ready to be sent through the wires.
+	strings size doesn't exceed Node.MTU (upd networking to come soon..)
+	'''
 	#TODO: test zlib compression here
 #	print 'dict2packets',dbuf,'\n with MTU=',node.Node.MTU
 	packets=[]

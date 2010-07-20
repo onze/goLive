@@ -3,6 +3,7 @@ import __builtin__
 import sys
 #load default config
 import default
+default.load_panda_default()
 from pandac.PandaModules import loadPrcFile
 loadPrcFile(sys.path[0]+'/Config.prc')
 
@@ -154,8 +155,6 @@ class GameClient(FSM.FSM):
 			if len(self.fake_keypresses):
 				messenger.send(self.fake_keypresses[0])
 				self.fake_keypresses.pop(0)
-		if len(__builtin__.dispose_list):
-			out('objects deleted:'+str(__builtin__.dispose_list))
 		for o in __builtin__.dispose_list:o.dispose()
 		__builtin__.dispose_list=[]
 

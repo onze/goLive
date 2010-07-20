@@ -1,9 +1,7 @@
 
 from math import atan2,cos,sin
-import sys
 
 from entity import Entity,EIType
-from tile import Tile
 from tools import dist2
 import network
 
@@ -27,8 +25,8 @@ class Unit(Entity):
 		self.is_marking=False
 		self.send(self.confirmation_msg)
 		
-	def __del__(self):
-		Entity.__del__(self)
+	def dispose(self):
+		Entity.dispose(self)
 		print 'Unit.__del__()'
 		self.owner=None
 		self.tile=None
@@ -135,5 +133,5 @@ class Unit(Entity):
 	
 	confirmation_msg=property(get_confirmation_msg)
 	tile=property(get_tile,set_tile)
-	   
+	
 	

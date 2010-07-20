@@ -1,6 +1,6 @@
 #import __builtin__
 
-from direct.gui.DirectGui import *
+from direct.gui.DirectGui import DirectButton,OnscreenText
 __package__='screen.game_setup'
 import default
 from screen.widgetwrapper import Button,Frame,Spacer
@@ -28,7 +28,7 @@ class Game_setup(Frame):
 														borderWidth=(0,0),
 														command=messenger.send, extraArgs=[Game_setup.sgn_start]),
 								parent=self.right_frame)
-		[Spacer(parent=self.right_frame) for i in range(5)]
+		[Spacer(parent=self.right_frame) for _ in range(5)]
 		Spacer(parent=self)
 
 		self.message=OnscreenText(text='game setup',style=1,fg=(1,1,1,1),pos=(.87,-.95),scale=.07)

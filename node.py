@@ -24,12 +24,15 @@ class Node:
 
    def flush_buffer(self):
       '''
-      flush buffered data
+      flush buffered data packets of maximum size Node.MTU
       '''
       [self.send_string(pkt) for pkt in server.network.dict2packets(self.dict_buffer)]
       self.dict_buffer={}
       
    def read(self):
+      '''
+      yields message received from socket.
+      '''
       try:
          self.buf+=self.socket.recv(4096)
       except socket.error,msg:

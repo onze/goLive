@@ -23,7 +23,7 @@ class Entity(object):
 		self.eid=self.next_eid()
 		self.set_eitype(self.eitype)
 		
-	def __del__(self):
+	def dispose(self):
 		print 'Entity.__del__()'
 		self.unset_eitype()
 
