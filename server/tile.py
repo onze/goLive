@@ -182,11 +182,11 @@ class Tile(Entity):
 			if p!=None:
 				if not self.propagate_load in self.server.update_list: 
 					self.server.update_list.append(self.propagate_load)
-				self.send({network.stc_tile_change_pawner:{'eid':self.eid,'pawner':self._pawner.pid}})
+				self.bufferize({network.stc_tile_change_pawner:{'eid':self.eid,'pawner':self._pawner.pid}})
 			else:
 				if self.propagate_load in update_list:
 					update_list.remove(self.propagate_load)
-				self.send({network.stc_tile_change_pawner:{'eid':self.eid,'pawner':None}})
+				self.bufferize({network.stc_tile_change_pawner:{'eid':self.eid,'pawner':None}})
 
 	def set_eitype(self,t=None):
 		Entity.instances[self.eitype][self.index]=self
@@ -218,7 +218,7 @@ class Tile(Entity):
 			self.load=Tile.max_load
 		#update client if level has changed (level 2 is internal)
 		if self.load_level!=save and self.load_level!=2:
-			self.send({network.stc_tile_load_level_change:{'eid':self.eid,'owner':self.owner,'level':self.load_level}})
+			self.bufferize({network.stc_tile_load_level_change:{'eid':self.eid,'owner':self.owner,'level':self.load_level}})
 
 	pawner=property(get_pawner,set_pawner)
 	team=property(get_team,set_team)

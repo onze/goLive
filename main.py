@@ -139,7 +139,6 @@ class GameClient(FSM.FSM):
 		for d in self.proxy.new_data:
 			void=False
 			#TODO: process frame info
-			del d['frame_no']
 			#some of them are to be processed here
 			if network.stc_start_game in d:
 				out('network.stc_start_game')

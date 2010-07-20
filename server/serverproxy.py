@@ -1,6 +1,7 @@
 
 import socket
 
+from node import Node 
 import server
 import network
 
@@ -10,16 +11,18 @@ class ProxyException(Exception):
 	def __init__(self,msg):
 		Exception.__init__(self,msg)
 
-class ServerProxy(object):
+class ServerProxy(object,Node):
 	'''
 	fakes a connexion with a distant server.
-	what's happening for real is that the server is instanciated localy, and the communication occurs on 127.0.0.1
-	the goal is to be able to develop/test/play localy, while minimizing the coupling so that any further expansion of the game is eased (play on lan/online).
+	what's happening for real is that the server is instanciated locally, and the communication occurs on 127.0.0.1
+	the goal is to be able to develop/test/play locally, while minimizing the coupling so that
+	any further expansion of the game is eased (play on lan/online).
 	'''
 	def __init__(self):
 		self.launch_local_server(ip,port)
 		self.buf=''
 		self.connect_to_server(ip,port)
+		Node.__init__(self,self.socket)
 		network.serverproxy=self
 		out('proxy connected.')
 
@@ -40,31 +43,12 @@ class ServerProxy(object):
 
 	def get_new_data(self):
 		self.server.update()
-		try:
-			self.buf+=self.socket.recv(4096)
-		except socket.error,msg:
-			print 'unable to read serverproxy\'s socket: ('+str(msg)+')'
-		msg=[]
-		if '\n' in self.buf:
-			while '\n' in self.buf:
-				i=self.buf.index('\n')
-				try:
-					msg.append(network.packet2dict(self.buf[:i]))
-				except Exception,e:
-					print 'serverproxy error:',str(e)
-				self.buf=self.buf[i+1:]
-		return msg
+		return self.read()
 
 	def send_config(self,conf):
 		out('proxy: sending config.')
 		self.send({network.cts_conf:conf})
 		self.socket.setblocking(0)
-
-	def send(self,data):
-		'''
-		send a dict of {meta:data,[meta:data,...]} to the server
-		'''
-		self.socket.send(network.dict2packet(data))
 
 	def update(self):pass
 

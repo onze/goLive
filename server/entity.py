@@ -26,6 +26,11 @@ class Entity(object):
 	def __del__(self):
 		print 'Entity.__del__()'
 		self.unset_eitype()
+
+	def bufferize(self,d):
+		'''same as server.bufferize(d)
+		sends to all players.'''
+		self.server.bufferize(d)
 		
 	def find_tile(self,x,y):
 		x,y=int(x),int(y)
@@ -58,7 +63,6 @@ class Entity(object):
 	def send(self,d):
 		'''same as server.send(d)
 		sends to all players.'''
-		d['frame_no']=self.frame_no
 		self.server.send(d)
 
 	def set_eitype(self,t=None):

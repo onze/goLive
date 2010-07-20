@@ -1,6 +1,4 @@
 
-from entity import EIType
-from unit import Unit
 from tilemarker import TileMarker
 import network
 

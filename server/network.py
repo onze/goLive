@@ -9,7 +9,7 @@ serverproxy=None
 #import cPickle
 import sys
 
-
+import node
 
 def inf():
 	'''return a new number each call'''
@@ -22,6 +22,37 @@ def dict2packet(d):
 	#TODO: test compression here
 	return str(d)+'\n'
 #	return cPickle.dumps(d,cPickle.HIGHEST_PROTOCOL)+'\n'
+
+def dict2packets(dbuf):
+	#TODO: test zlib compression here
+#	print 'dict2packets',dbuf,'\n with MTU=',node.Node.MTU
+	packets=[]
+	while len(dbuf):
+		meta,data=dbuf.popitem()
+		pkt=dict2packet({meta:data})
+		if len(pkt)<node.Node.MTU:
+			#print 'built packet directly',pkt,'packet length:',len(pkt)
+			packets.append(pkt)
+		else:
+			#print 'fragmenting',pkt
+			fragment={meta:{}}
+			s=dict2packet(fragment)
+			assert len(s)<=node.Node.MTU,'fragment base (\''+s+'\') has lenght '+str(len(s))+' while MTU='+str(node.Node.MTU)
+			while len(data):
+				nextitem=data.popitem()
+				fragment[meta].update((nextitem,))
+				if len(dict2packet(fragment))>node.Node.MTU:
+					if len(fragment[meta])==1:
+						out('ERROR: in network.dict2packets: fragment will never be able to get this item within MTU limits.\
+						item=%s, MTU=%i. skipping item.'%(dict2packet(fragment),node.Node.MTU))
+						continue
+					data.update((nextitem,))
+					del fragment[meta][nextitem[0]]
+					packets.append(dict2packet(fragment))
+					#print 'built packet fragment',fragment
+					fragment={meta:{}}
+			packets.append(dict2packet(fragment))
+	return packets
 
 def packet2dict(p):
 	#TODO: test decompression here

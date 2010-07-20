@@ -1,11 +1,11 @@
 
 import network
-import socket
 import sys
 
+from node import Node 
 from sprinter import HSprinter,VSprinter
 
-class Player:
+class Player(Node):
 	#each player has an id that comes from here.
 	next_pid=(i for i in xrange(sys.maxint)).next
 	#player (including ia) instances, by pid
@@ -13,7 +13,7 @@ class Player:
 	def __init__(self,socket,address,pid,server):
 		self.pid=pid
 		Player.instances[self.pid]=self
-		self.socket=socket
+		Node.__init__(self,socket)
 		self.socket.setblocking(0)
 		self.address=address
 		self.buf=''
@@ -56,37 +56,18 @@ class Player:
 				if conf['unit_type']=='v_sprinter':
 					VSprinter(self,conf)
 				elif conf['unit_type']=='h_sprinter':
-					HSprinter(self,conf)				
-
-	def receive(self):
-		complete_msg=[]
-		try:
-			self.buf+=self.socket.recv(4096)
-		except socket.error,msg:
-			#nothing to read
-#			print 'unable to read player\'s (pid='+str(self.pid)+') socket: ('+str(msg)+')'
-			pass
-		while '\n' in self.buf:
-			i=self.buf.index('\n')
-			try:
-				complete_msg.append(network.packet2dict(self.buf[:i]))
-			except Exception,e:
-				out('ERROR in Player(pid='+str(self.pid)+').receive: '+str(e)+'. skipped.')
-			self.buf=self.buf[i+1:]
-		return complete_msg
-		
+					HSprinter(self,conf)
 
 	def send(self,d):
 		'''
 		d is a dict {meta:values}
 		'''
-		d['frame_no']=self.frame_no
 		self.socket.send(network.dict2packet(d))
 
 	def update(self):
 		switch={  network.cts_new_unit:self.new_unit
 			    }
-		for pkt in self.receive():
+		for pkt in self.read():
 			#pkt is a dict
 			for key in pkt.keys():
 				if key in switch:
@@ -94,3 +75,4 @@ class Player:
 					switch[key](pkt[key])
 				else:
 					out('ERROR unknown pkt:'+str(pkt)+'. skipping.')
+		self.flush_buffer()

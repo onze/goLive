@@ -65,7 +65,7 @@ class GTile(GEntity):
 		'''
 		shown levels are level 0, 1 and 3, respectively neutral, half filled and fully filled tile
 		'''
-		out('tile '+str(self.eid)+'\'s load_level set to '+str(data))
+#		out('tile '+str(self.eid)+'\'s load_level set to '+str(data))
 		self.load_level=data['level']
 		self.owner=data['owner']
 		if self.load_level==0:

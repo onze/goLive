@@ -114,7 +114,7 @@ class Unit(Entity):
 			#arrived at path[0]
 			self.tile=self.path.pop(0)
 			self.x,self.y=self.tile.x,self.tile.y
-			#out('server '+str(self.tile.eid)+'@'+str(self.frame_no))
+			#out('server '+str(self.tile.eid))
 			#path has ran out of tiles
 			if len(self.path)==0:
 				#should be the same

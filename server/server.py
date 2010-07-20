@@ -11,11 +11,12 @@ from ai import AI
 from buildings import Home
 import default
 from entity import Entity,EIType
+from node import Node
 from player import Player
 from tile import Tile
 import network
 
-class Server(FSM.FSM):
+class Server(FSM.FSM,Node):
 	def __init__(self,ip,port):
 		FSM.FSM.__init__(self, 'Server.fsm')
 		self.defaultTransitions = {
@@ -27,6 +28,7 @@ class Server(FSM.FSM):
 		atexit.register(self.close)
 		try:
 			self.socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			Node.__init__(self,self.socket)
 		except socket.error,msg:
 			print 'local server could not get ready (socket creation error:',msg,')'
 			self.close()
@@ -42,6 +44,7 @@ class Server(FSM.FSM):
 		#incoming data (as strings, but still) buffer
 		self.buf=''
 		#methods appended in this list are called once a frame, until they are removed from it
+		#the calls don't happen before the 'Running' state
 		self.update_list=[]
 		#methods appended in this list are called at the end of the current frame,
 		#and then removed from it automatically. this list is double buffered, 
@@ -115,22 +118,28 @@ class Server(FSM.FSM):
 		sconf['map.res']=pconf['map.res']
 		return sconf
 
-	def receive(self):
+	def read(self):
 		'''
 		generator of received messages.
 		must be read until exhaustion before being able to read new messages.
 		'''
 		for p in self.players.values():
-			for msg in p.receive():
+			for msg in p.read():
 				yield msg
 
 	def send(self,d):
 		'''
 		sends a dict {network.code:value} to all players
 		'''
-		d['frame_no']=self.frame_no
 		for p in self.players.values():
 			p.send(d)
+
+	def send_string(self,d):
+		'''
+		sends a string (as given) to all players
+		'''
+		for p in self.players.values():
+			p.send_string(d)
 
 	def set_conf(self,conf):
 		'''processes the conf sent by the player.'''
@@ -168,7 +177,7 @@ class Server(FSM.FSM):
 		receives the conf and sets itself up according to it,
 		then sends a first batch of setup (although regular) instructions to clients.
 		'''
-		for d in self.receive():
+		for d in self.read():
 			print 'SERVER::received:',d
 			if network.cts_conf in d:
 				conf=self.filter_conf(d[network.cts_conf])
@@ -179,14 +188,15 @@ class Server(FSM.FSM):
 
 	def update_running(self):
 #		out('server update',frame_no=self.frame_no)
-		self.frame_no+=1
-		Player.frame_no=Entity.frame_no=self.frame_no
+		Node.frame_no=self.frame_no=self.frame_no+1
 		
 		[f() for f in self.update_list]
 		
 		temp=self.eof_list
 		self.eof_list=[]
 		[f() for f in temp]
+		
+		self.flush_buffer()
 		
 		for o in self.del_list:del o
 		self.del_list=[]
