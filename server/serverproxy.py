@@ -1,6 +1,5 @@
-import atexit
+
 import socket
-import sys
 
 import server
 import network
@@ -44,16 +43,16 @@ class ServerProxy(object):
 		try:
 			self.buf+=self.socket.recv(4096)
 		except socket.error,msg:
-			pass
-			#print 'unable to read serverproxy\'s socket: ('+str(msg)+')'
+			print 'unable to read serverproxy\'s socket: ('+str(msg)+')'
 		msg=[]
-		while '\n' in self.buf:
-			i=self.buf.index('\n')
-			try:
-				msg.append(network.packet2dict(self.buf[:i]))
-			except Exception,e:
-				print 'serverproxy error:',str(e)
-			self.buf=self.buf[i+1:]
+		if '\n' in self.buf:
+			while '\n' in self.buf:
+				i=self.buf.index('\n')
+				try:
+					msg.append(network.packet2dict(self.buf[:i]))
+				except Exception,e:
+					print 'serverproxy error:',str(e)
+				self.buf=self.buf[i+1:]
 		return msg
 
 	def send_config(self,conf):
