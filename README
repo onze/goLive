@@ -5,6 +5,8 @@ goLive is an arcade oriented version of the classic go board game ( http://en.wi
 
 The game is in heavy development right now, and not currently playable.
 
+A more detailed description can be found in the doc folder ( http://github.com/onze/goLive/blob/master/doc/golive.brainstorming.en.txt )
+
 == REQUIREMENTS ==
 
 the game uses the panda3d engine. you can get the runtime on panda3d's website ( http://www.panda3d.org/download.php?runtime ).
