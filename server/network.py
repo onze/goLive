@@ -124,7 +124,9 @@ stc_unit_add_path=next()
 #tile: tile eid
 stc_unit_move_over=next()
 
-
+#tile ratio has changed
+#ratio: dict {pid:ratio}
+stc_tile_ratio_change=next()
 
 
 

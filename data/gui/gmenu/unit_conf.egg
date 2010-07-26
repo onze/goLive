@@ -1,8 +1,11 @@
 <Comment> {
-  "egg-texture-cards -o data/gui/gmenu/arrows.egg -p 100,100 data/gui/gmenu/v_arrow.png data/gui/gmenu/h_arrow.png"
+  "egg-texture-cards -o data/gui/gmenu/unit_conf.egg -p 100,100 data/gui/gmenu/v_arrow.png data/gui/gmenu/h_arrow.png data/gui/gmenu/tile-picking.png"
 }
 <Texture> v_arrow {
   "data/gui/gmenu/v_arrow.png"
+}
+<Texture> tile-picking {
+  "data/gui/gmenu/tile-picking.png"
 }
 <Texture> h_arrow {
   "data/gui/gmenu/h_arrow.png"
@@ -12,34 +15,50 @@
   <Scalar> fps { 2 }
   <VertexPool> vpool {
     <Vertex> 0 {
-      -0.505 0.505 0
-      <UV> { 0 1 }
-    }
-    <Vertex> 1 {
-      -0.505 -0.505 0
-      <UV> { 0 0 }
-    }
-    <Vertex> 2 {
-      0.505 -0.505 0
-      <UV> { 1 0 }
-    }
-    <Vertex> 3 {
-      0.505 0.505 0
-      <UV> { 1 1 }
-    }
-    <Vertex> 4 {
       -0.5 0.5 0
       <UV> { 0 1 }
     }
-    <Vertex> 5 {
+    <Vertex> 1 {
       -0.5 -0.5 0
       <UV> { 0 0 }
     }
-    <Vertex> 6 {
+    <Vertex> 2 {
       0.5 -0.5 0
       <UV> { 1 0 }
     }
+    <Vertex> 3 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 4 {
+      -0.505 0.505 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 5 {
+      -0.505 -0.505 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 6 {
+      0.505 -0.505 0
+      <UV> { 1 0 }
+    }
     <Vertex> 7 {
+      0.505 0.505 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 8 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 9 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 10 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 11 {
       0.5 0.5 0
       <UV> { 1 1 }
     }
@@ -56,6 +75,13 @@
       <RGBA> { 1 1 1 1 }
       <TRef> { h_arrow }
       <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+  <Group> tile-picking {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { tile-picking }
+      <VertexRef> { 8 9 10 11 <Ref> { vpool } }
     }
   }
 }

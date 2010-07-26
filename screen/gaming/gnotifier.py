@@ -7,3 +7,6 @@ class GNotifier(Frame):
 		kwargs['fill']=160,160,160
 		kwargs['layout']=HLayout
 		Frame.__init__(self,*args,**kwargs)
+		
+	def update_tile_ratio(self,data):
+		pass

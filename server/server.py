@@ -14,6 +14,7 @@ from entity import Entity,EIType
 from node import Node
 from player import Player
 from tile import Tile
+from tilerationotifier import TileRatioNotifier
 import network
 
 class Server(FSM.FSM,Node):
@@ -41,26 +42,26 @@ class Server(FSM.FSM,Node):
 			sys.exit()
 		self.socket.listen(1)
 		self.is_open=True
-		#incoming data (as strings, but still) buffer
+		'''incoming data (as strings, but still) buffer'''
 		self.buf=''
-		#methods appended in this list are called once a frame, until they are removed from it
-		#the calls don't happen before the 'Running' state
+		'''methods appended in this list are called once a frame, until they are removed from it
+		the calls don't happen before the 'Running' state'''
 		self.update_list=[]
-		#methods appended in this list are called at the end of the current frame,
-		#and then removed from it automatically. this list is double buffered, 
-		#so that anything added to it during its processing will be called at the end of the next frame. 
-		self.eof_list=[]
-		#dict of players (by id)
+		'''methods appended in this list are called at the end of the current frame,
+		and then removed from it automatically. this list is double buffered, 
+		so that anything added to it during its processing will be called at the end of the next frame.''' 
+#		self.eof_list=[]
+		'''dict of players (by id)'''
 		self.players={}
 		Entity.players=self.players
 		Entity.server=self
 		print 'local server open on ',ip,':',port
-		#for synchronization purposes:
-		#to each event sent to a client is attached the frame number.
-		#this works as a marker of time
+		'''for synchronization purposes:
+		to each event sent to a client is attached the frame number.
+		this works as a marker of time'''
 		self.frame_no=Player.frame_no=Entity.frame_no=0
-		#objects that want to be removed add themselves to this list
-		#it is then sure they'll be deleted 'from outside'
+		'''objects that want to be removed add themselves to this list
+		it is then sure they'll be deleted 'from outside'''
 		self.del_list=[]
 		self.demand('Accepting')
 
@@ -88,6 +89,7 @@ class Server(FSM.FSM,Node):
 
 	def enterRunning(self):
 		self.frame_no=0
+		self.tile_ratio_notifier=TileRatioNotifier(self)
 		Server.update=Server.update_running
 
 	def exitRunning(self):
@@ -192,13 +194,15 @@ class Server(FSM.FSM,Node):
 		
 		[f() for f in self.update_list]
 		
-		temp=self.eof_list
-		self.eof_list=[]
-		[f() for f in temp]
+#		temp=self.eof_list
+#		self.eof_list=[]
+#		[f() for f in temp]
 		
-		self.flush_buffer()
+		self.tile_ratio_notifier.update()
 		
 		for o in self.del_list:del o
 		self.del_list=[]
+		
+		self.flush_buffer()
 			
 

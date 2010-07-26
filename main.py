@@ -39,7 +39,7 @@ class GameClient(FSM.FSM):
 		__builtin__.dispose_list=[]
 		self.is_running=True
 		self.screen=None
-		self.fake_keypresses=['q','a']#,'mouse1','mouse1-up','space']
+		self.fake_keypresses=[]#['q','a']#,'mouse1','mouse1-up','space']
 
 	def enterGame_setup(self):
 		self.screen.open_game_setup()

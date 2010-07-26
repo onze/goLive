@@ -1,5 +1,5 @@
 
-from direct.gui.DirectGui import *
+#from direct.gui.DirectGui import DirectButton
 from panda3d.core import ConfigVariableInt
 
 from screen.widgetwrapper import Frame
@@ -32,12 +32,10 @@ class GFrame(Frame):
 		#load all needed resources
 		GMenu.load_resources()
 		GMap.load_resources()
-		self.menu=GMenu(parent=self,
-						pref_h=50)
+		self.menu=GMenu(parent=self,pref_h=50)
 		#instanciate screen objects
-		self.gmap=GMap(	parent=self)
-		self.notifier=GNotifier(parent=self,
-								pref_h=50)
+		self.gmap=GMap(parent=self)
+		self.gnotifier=GNotifier(parent=self,pref_h=50)
 
 	def process_server_input(self,data):
 		'''
@@ -46,6 +44,8 @@ class GFrame(Frame):
 		'''
 		gframe_switch={network.stc_conf:self.set_conf,
 				}
+		gnotifier_switch={network.stc_tile_ratio_change:GNotifier.update_tile_ratio
+							}
 		gmap_switch={network.stc_new_tile:GMap.new_tile,
 				    network.stc_new_home:GMap.new_home,
 				    network.stc_new_unit:GMap.new_unit,
@@ -58,6 +58,8 @@ class GFrame(Frame):
 		for meta in data:
 			if meta in gframe_switch:
 				gframe_switch[meta](data[meta])
+			elif meta in gnotifier_switch:
+				gnotifier_switch[meta](self.gnotifier,data[meta])
 			elif meta in gmap_switch:
 				gmap_switch[meta](self.gmap,data[meta])
 			elif meta in gunit_switch:

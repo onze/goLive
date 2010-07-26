@@ -15,7 +15,10 @@ il existe plusieurs modes de fin de partie:
 ==déroulement==
 chaque joueur crée ses unités qui se déplacent sur la carte et placent des pions.
 
-chaque joueur dispose d'un point de lancement d'où partent ses unités. le point de lancement peut être déplacé sur la ligne de front à tout moment. la ligne de front d'un joueur est la ligne de cases du terrain la plus en bas de son écran. un mur ne peut pas être construit sur le point de lancement, et le point de lancement ne peut pas être placé sur un mur préexistant.
+chaque joueur dispose d'un point de lancement d'où partent ses unités. la
+ligne de front d'un joueur est la ligne de cases du terrain la plus en bas de
+son écran. un mur ne peut pas être construit sur le point de lancement, et le
+point de lancement ne peut pas être placé sur un mur préexistant.
 
 une unité se déplace sur les cases de la carte selon un comportement propre à son type: ligne droite, cercle, carré, rectangle, longeant les cotés du terrain ou les murs de pions, etc.
 
@@ -27,26 +30,30 @@ une unité dispose de caractéristiques basiques: vie, défense, attaque, vitess
 deux unités adverses entrant en collision se battent. la perdante meurt, la suivante continue son chemin.
 
 ==unités==
-il existe principalement deux types d'unités: les belliqueuses et les traceuses (de territoire).
+il existe principalement trois types d'unités: les marqueuses, les traceuses (de territoire), et les belliqueuses.
 légende:
 -[nom de l'unité](paramètres de création): description
 
-===unités traceuses===
-ces unités sont faibles au combat, mais placent des pions pour gagner du territoire. quand un traceur tombe sur un mur adverse, il le saute, mais -en temps normal- ne l'écrase/détruit pas.
+===unités marqueuses===
+ces unites sont tres faibles au combat. leur role est de se deplacer de tile en tile et des les marquer de la couleur de leur proprietaire. ces unites ne traversent pas les murs adverses une fois arrivees sur leur tile de depart.
 
--le sprinter V (colonne): va se placer sur la plus proche case de la colonne indiquée, puis par en ligne droite vers le haut du terrain en placant des pions sur son chemin. meurt arrivé au top nord du terrain.
--le sprinter H (ligne, coté): va se placer sur la plus proche case de la ligne indiquée, du coté indiqué, puis par en ligne droite vers l'autre coté du terrain en placant des pions sur son chemin.
--encercleur (case, diamètre à choisir parmi 3 tailles): construit un mur autour du point indiqué, puis se recycle.
+-le zig-zagueur (tile de depart): va se placer sur la tile indiquee en parametre, et se deplace ensuite au hasard des tiles.
+
+-le spiraleur (tile de depart): va se placer sur la tile indiquee en parametre, et se deplace ensuite en suivant un schema de spirale, autant que les tiles qu'il rencontre le permettent (longe les murs sinon).
+
+===unités constructrices===
+ces unités sont faibles au combat, mais placent des pions pour marquer du territoire. quand un traceur tombe sur un mur adverse, il le saute (sans le marquer), mais ne le détruit pas.
+
+-le sprinter V (colonne): va se placer sur la plus proche case de la colonne indiquée, puis par en ligne droite vers le haut du terrain. meurt arrivé au top nord du terrain.
+-le sprinter H (ligne): va se placer sur la case la plus proche d'un bord sur la colonne de la tile indiquee, puis par en ligne droite vers l'autre coté du terrain en placant des pions sur son chemin.
+-encercleur (case, diamètre à choisir parmi 3 tailles): construit un mur autour du point indiqué.
 
 ===unités belliqueuses===
-ces unités ne placent pas de pions. elles cherchent le combat avec les unités adverses afin de dégager le terrain.
+ces unités ne placent pas de pions. elles sont faites pour detruire, soit les personnages adverses, soit les murs adverses.
 
--le garde (mur à pointer de la souris): longe un mur prédésigné d'un bout à l'autre, ne le quitte pas. faible.
--le molosse: par en ligne droite verticale, jusqu'à tomber sur un mur adverse, puis le détruit, le franchit, tourne de 90 degres (a droite ou a gauche au hasard) et recommence ce cycle 3 fois. s'il est toujours en vie a la fin de son cycle, il se recycle.
--l'archer (zone conquise): l'archer va se placer dans la zone et y restera jusqu'à sa mort. il tire sur toute unité adverse s'en approchant.
--le saboteur (mur à pointer de la souris): détruit une a une les cases d'un mur donné, puis se recycle.
-
-===autres unités===
+-le garde (mur à pointer de la souris): parcoure pendant un nombre de tiles donne le mur allie prédésigné, et le defend.
+-l'archer (centre de zone): l'archer va se placer au point indique et y reste jusqu'à sa mort. il tire sur toute unité adverse a portee.
+-l'assassin (unite adverse): court assassiner sa cible, puis meurt. si la cible meurt avant d'etre atteinte, l'assassin est recycle.
 
 
 ==options==
@@ -62,14 +69,38 @@ des options peuvent apparaitre sur le terrain, ou être attribuées à un joueur
 
 ==affichage==
 
-===menu===
-le menu occupe une bande horizontale en bas de la fenêtre.
+===notificateur===
+le notificateur occupe une bande horizontale en haut de la fenêtre.
 
 le fond du menu affiche un dégradé aux couleurs des 2 joueurs, proportionnel à la surface du terrain occupé par chacun.
 
-chaque unité dispose d'un touche de raccourci: mettons A pour l'archer. appuyer sur A une fois affiche le sous menu de création d'archer. appuyer sur A à nouveau crée un archer sur le point de lancement.
+==map==
+la map affiche la grille de tiles, ainsi que les personnages y evoluant.
 
-par défaut, le sous menu de création d'une unité garde les paramètres de sa dernière utilisation.
+==menu==
+le menu presente 3 parties alignees de gauche a droite, suivies d'un bouton de lancement (activable par entree ou clic droit). La premiere parties permet la selection d'un des 3 types d'unite (cf ==unités==) qu'affichera la seconde partie. Cette seconde partie sert donc a selectionner l'unite qui sera lancee. La troisieme partie sert enfin a parametrer l'unite selectionnee.
+
+par défaut, le sous menu de parametrage d'une unité garde les paramètres de sa dernière utilisation.
+
+On peut representer le menu par cette arborescence:
+menu:
+   type marqueur:
+	  zig-zagueur:
+		 point de depart
+	  spiraleur:
+		 point de depart
+   type constructeur:
+	  vertical:
+		 colonne
+	  horizontal:
+		 ligne
+   type belliqueux:
+	  belier vertical:
+		 colonne
+	  belier horizontal:
+		 ligne
+	  archer:
+		 tile centrale
 
 ===terrain===
 le terrain occupe la majeure partie de l'écran.

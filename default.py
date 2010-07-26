@@ -27,5 +27,5 @@ def load_panda_default():
 
 #default values for game configuration
 game_conf={'cpu':True,
-		   'map.res':'xs',
+		   'map.res':'m',
 		   }

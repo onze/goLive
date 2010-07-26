@@ -20,6 +20,55 @@
    inkscape:export-ydpi="90">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="Tail"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Tail"
+       style="overflow:visible">
+      <g
+         id="g3705"
+         transform="scale(-1.2)">
+        <path
+           id="path3707"
+           d="M -3.8048674,-3.9585227 L 0.54352094,0"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path3709"
+           d="M -1.2866832,-3.9585227 L 3.0617053,0"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path3711"
+           d="M 1.3053582,-3.9585227 L 5.6537466,0"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path3713"
+           d="M -3.8048674,4.1775838 L 0.54352094,0.21974226"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path3715"
+           d="M -1.2866832,4.1775838 L 3.0617053,0.21974226"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path3717"
+           d="M 1.3053582,4.1775838 L 5.6537466,0.21974226"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+      </g>
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3672"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
     <linearGradient
        id="linearGradient3592">
       <stop
@@ -59,6 +108,381 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3640"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3666"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3692"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3718"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2842"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lstart"
+       style="overflow:visible">
+      <path
+         id="path4644"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(1.1,0,0,1.1,1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path4647"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective2842-5"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lstart-5"
+       style="overflow:visible">
+      <path
+         id="path4644-4"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(1.1,0,0,1.1,1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-7"
+       style="overflow:visible">
+      <path
+         id="path4647-6"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective5282"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-7-5"
+       style="overflow:visible">
+      <path
+         id="path4647-6-5"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective5310"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-7-7"
+       style="overflow:visible">
+      <path
+         id="path4647-6-6"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective5338"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5363"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5388"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5413"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-7-2"
+       style="overflow:visible">
+      <path
+         id="path4647-6-54"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective6440"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6466"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective6488"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8549"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8571"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8593"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8615"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8637"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective8659"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-8"
+       style="overflow:visible">
+      <path
+         id="path3672-8"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective8714"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-89"
+       style="overflow:visible">
+      <path
+         id="path3672-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective8763"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-7"
+       style="overflow:visible">
+      <path
+         id="path3672-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <inkscape:perspective
+       id="perspective9669"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective9695"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective9717"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective9742"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2982"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3013"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3035"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3057"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3079"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3101"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3123"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4675"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -67,16 +491,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2450495"
-     inkscape:cx="201.70913"
-     inkscape:cy="51.373154"
+     inkscape:zoom="3.5215318"
+     inkscape:cx="57.190796"
+     inkscape:cy="52.255394"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer22"
      showgrid="false"
-     inkscape:window-width="1278"
-     inkscape:window-height="739"
+     inkscape:window-width="1276"
+     inkscape:window-height="728"
      inkscape:window-x="0"
-     inkscape:window-y="15"
+     inkscape:window-y="51"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
@@ -91,9 +515,10 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="background"
+     inkscape:label="icon background"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline">
     <rect
        style="fill:#a4ff79;fill-opacity:1;stroke:#000000;stroke-opacity:1"
        id="rect3590"
@@ -101,14 +526,179 @@
        height="100"
        x="0.5"
        y="951.86218"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="launch"
+     style="display:none">
+    <rect
+       style="fill:#ff3b00;fill-opacity:1;stroke:#000000;stroke-width:1.4098655;stroke-opacity:1"
+       id="rect3590-7"
+       width="199.59013"
+       height="99.590134"
+       x="130.11745"
+       y="875.66455"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/launch_btn.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:37.430233px;font-style:normal;font-weight:normal;line-height:125%;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
+       x="140.32774"
+       y="912.93237"
+       id="text3655-6-8"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/launch_btn.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.9721146,1.0286853)"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3657-1-6"
+         x="140.32774"
+         y="912.93237"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Baekmuk Headline;-inkscape-font-specification:Baekmuk Headline Bold">LAUNCH !</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer12"
+     inkscape:label="zig-zager"
+     style="display:none">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="41.765411"
+       y="1017.4238"
+       id="text2864"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan2866"
+         x="41.765411"
+         y="1017.4238">?</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Lend-7)"
+       d="m 67.065607,1004.1713 26.50497,0"
+       id="path3664"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Lend-7);display:inline"
+       d="M 36.490701,1001.6445 10.888866,994.78458"
+       id="path3664-4"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Lend-7);display:inline"
+       d="m 36.797563,1025.8999 -22.953966,13.2524"
+       id="path3664-4-5"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
+       x="79.93129"
+       y="976.90436"
+       id="text2864-6"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan2866-9"
+         x="79.93129"
+         y="976.90436"
+         style="font-size:22px">?</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
+       x="64.280067"
+       y="1041.5004"
+       id="text2864-6-3"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan2866-9-7"
+         x="64.280067"
+         y="1041.5004"
+         style="font-size:28px">?</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
+       x="19.413231"
+       y="977.60779"
+       id="text2864-6-3-4"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan2866-9-7-5"
+         x="19.413231"
+         y="977.60779"
+         style="font-size:22px">?</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Lend-7);display:inline"
+       d="m 59.520616,981.79722 6.859992,-25.60184"
+       id="path3664-7"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/zig-zager.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer13"
+     inkscape:label="spiraler"
+     style="display:none">
+    <path
+       sodipodi:type="spiral"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend-7-2)"
+       id="path5434"
+       sodipodi:cx="49.694283"
+       sodipodi:cy="1001.816"
+       sodipodi:expansion="1"
+       sodipodi:revolution="3"
+       sodipodi:radius="43.891098"
+       sodipodi:argument="-19.561691"
+       sodipodi:t0="0"
+       d="m 49.694283,1001.816 c 1.665806,-1.438 2.760252,1.536 2.390059,2.7687 -1.003202,3.3404 -5.392849,3.5671 -7.927421,2.0114 -4.533753,-2.7827 -4.621396,-9.15126 -1.632816,-13.08616 4.385861,-5.77464 12.962205,-5.71125 18.2449,-1.2542 7.041002,5.94055 6.816511,16.79206 0.875574,23.40366 -7.476063,8.32 -20.63086,7.9298 -28.56238,0.4969 -9.606133,-9.0021 -9.047747,-24.47477 -0.118331,-33.72109 10.523008,-10.89645 28.321935,-10.16861 38.87986,0.2603 12.189541,12.04058 11.291442,32.17119 -0.638912,44.03859 -13.556028,13.4845 -36.021931,12.4156 -49.19734,-1.0175 -14.7808176,-15.07 -13.5408094,-39.87379 1.396155,-54.35611 16.582861,-16.07812 43.726408,-14.66673 59.514819,1.77478"
+       transform="translate(1.703804,2.2717387)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/spiraler.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="=markers="
+     style="display:none">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="-729.99091"
+       y="752.62213"
+       id="text3614"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/type.markers.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan3616"
+         x="-729.99091"
+         y="752.62213"
+         style="font-size:28px">markers</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="drawing">
+     inkscape:label="sprinter"
+     style="display:none">
     <path
        style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 43.341146,1024.4742 c 8.122252,-6.0127 13.402858,-7.8276 20.696532,-7.6645 0.68627,5.4929 2.783414,14.7162 6.405785,18.3884"
@@ -149,100 +739,530 @@
        inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <rect
-       style="fill:#a4ff79;fill-opacity:1;stroke:#000000;stroke-opacity:1"
-       id="rect3590-6"
-       width="100"
-       height="100"
-       x="1.4035813"
-       y="832.89093"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer14"
+     inkscape:label="circler"
+     style="display:none">
     <path
-       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 44.244725,905.50303 c 8.122252,-6.0127 13.402858,-7.8276 20.696532,-7.6645 0.68627,5.4929 2.783414,14.7162 6.405785,18.3884"
-       id="path3602-9"
-       sodipodi:nodetypes="ccc"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 44.244725,905.11303 c -0.295412,8.4968 -6.125865,13.9944 -10.704589,17.4716 -6.173745,-1.1058 -10.751988,-4.6636 -13.278037,-9.8674"
-       id="path3604-3"
-       sodipodi:nodetypes="ccc"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 44.244725,905.89293 c -2.56685,-11.7337 -6.050217,-23.4074 -9.193111,-34.8764 6.820058,-3.8917 3.212337,-17.2776 -6.74798,-14.92 -8.127844,5.2046 -1.722074,16.5963 6.582018,14.8949"
-       id="path3606-7"
-       sodipodi:nodetypes="cccc"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 38.785266,884.44503 c 6.977123,-0.2596 12.72701,-4.3777 16.197241,-8.7445 0.0701,-4.0695 0.488467,-7.276 1.740983,-10.5586"
-       id="path3608-4"
-       sodipodi:nodetypes="ccc"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 38.785265,884.25003 c -8.501387,-2.9431 -13.98973,-3.1506 -23.253483,-1.7697 -1.15656,4.0139 -2.24134,7.0062 -4.23879,9.764"
-       id="path3612-5"
-       sodipodi:nodetypes="ccc"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-opacity:1"
+       id="path6427"
+       sodipodi:cx="57.64537"
+       sodipodi:cy="1013.1747"
+       sodipodi:rx="37.483688"
+       sodipodi:ry="36.915752"
+       d="m 95.129059,1013.1747 a 37.483688,36.915752 0 1 1 -74.967377,0 37.483688,36.915752 0 1 1 74.967377,0 z"
+       transform="translate(-7.6671181,-11.642661)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/circler.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="=builders="
+     style="display:none">
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
-       x="68.536331"
-       y="868.41888"
-       id="text3655-6-2"
-       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/vertical_sprinter.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="-729.99091"
+       y="752.62213"
+       id="text3614-5"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/type.builders.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
          sodipodi:role="line"
-         id="tspan3657-1-5"
-         x="68.536331"
-         y="868.41888">H</tspan></text>
-    <rect
-       style="fill:#ff3b00;fill-opacity:1;stroke:#000000;stroke-width:1.40986550000000022;stroke-opacity:1"
-       id="rect3590-7"
-       width="199.59013"
-       height="99.590134"
-       x="130.11745"
-       y="875.66455"
-       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/launch_btn.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+         id="tspan3616-5"
+         x="-729.99091"
+         y="752.62213"
+         style="font-size:28px">builders</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer15"
+     inkscape:label="guard"
+     style="display:none">
+    <path
+       style="fill:#e8eae9;fill-opacity:1;stroke:#000000;stroke-width:1.10210252px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 10.868022,973.13159 c 15.48727,0.0102 32.574238,-1.96678 37.804469,-10.28946 4.979138,8.51847 26.360716,10.16818 41.607284,9.63268 -6.744839,27.78309 -11.794577,61.85979 -42.054675,71.58839 -28.694231,-9.9747 -33.816563,-45.61181 -37.357078,-70.93161 z"
+       id="path6430"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/guard.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer16"
+     inkscape:label="guard2"
+     style="display:none">
+    <path
+       style="fill:#6a9bec;fill-opacity:1;stroke:#000000;stroke-width:0.90836054px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="m 18.197839,978.18264 c 12.515263,0.007 26.323241,-1.65335 30.54979,-8.64968 4.023641,7.16092 21.302093,8.54772 33.622843,8.09757 -5.450503,23.35537 -9.531197,52.00137 -33.984381,60.17967 -23.187806,-8.3851 -27.327162,-38.34286 -30.188252,-59.62756 z"
+       id="path6430-4-4"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/guard.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer17"
+     inkscape:label="guard3"
+     style="display:none">
     <text
        xml:space="preserve"
-       style="font-size:37.430233px;font-style:normal;font-weight:normal;line-height:125%;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
-       x="140.32774"
-       y="912.93237"
-       id="text3655-6-8"
-       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/launch_btn.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"
-       transform="scale(0.9721146,1.0286853)"
-       sodipodi:linespacing="125%"><tspan
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="33.305508"
+       y="1017.0063"
+       id="text6504"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/guard.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
          sodipodi:role="line"
-         id="tspan3657-1-6"
-         x="140.32774"
-         y="912.93237"
-         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Baekmuk Headline;-inkscape-font-specification:Baekmuk Headline Bold">LAUNCH !</tspan></text>
+         id="tspan6506"
+         x="33.305508"
+         y="1017.0063">G</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer18"
+     inkscape:label="archer"
+     style="display:none">
+    <g
+       id="g8697"
+       transform="translate(15.334236,-15.618203)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/archer.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path6509"
+         d="M 24.137224,1025.1014 77.807051,972.28339"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow1Lend)" />
+      <path
+         id="path8539"
+         d="m 24.705159,1034.8982 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         id="path8539-3"
+         d="m 27.686815,1031.9875 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0"
+         d="m 30.95244,1029.5737 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7"
+         d="m 19.806725,1018.4281 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-8"
+         d="m 17.534987,1021.1258 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-8-6"
+         d="m 14.695314,1024.3914 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+    </g>
+    <g
+       style="display:inline"
+       id="g8697-6"
+       transform="translate(13.949893,13.843406)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/archer.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path6509-6"
+         d="M 24.137224,1025.1014 77.807051,972.28339"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow1Lend)" />
+      <path
+         id="path8539-4"
+         d="m 24.705159,1034.8982 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         id="path8539-3-9"
+         d="m 27.686815,1031.9875 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-5"
+         d="m 30.95244,1029.5737 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-0"
+         d="m 19.806725,1018.4281 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-8-4"
+         d="m 17.534987,1021.1258 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-8-6-8"
+         d="m 14.695314,1024.3914 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+    </g>
+    <g
+       style="display:inline"
+       id="g8697-6-7"
+       transform="translate(-12.743037,-17.109034)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/archer.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path6509-6-2"
+         d="M 24.137224,1025.1014 77.807051,972.28339"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow1Lend)" />
+      <path
+         id="path8539-4-7"
+         d="m 24.705159,1034.8982 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         id="path8539-3-9-2"
+         d="m 27.686815,1031.9875 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-5-2"
+         d="m 30.95244,1029.5737 0,-10.3648"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-0-6"
+         d="m 19.806725,1018.4281 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-8-4-1"
+         d="m 17.534987,1021.1258 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+      <path
+         id="path8539-3-0-7-8-6-8-0"
+         d="m 14.695314,1024.3914 10.3648,0"
+         style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="67.016289"
+       y="1046.9667"
+       id="text8804"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/archer.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan8806"
+         x="67.016289"
+         y="1046.9667">A</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer19"
+     inkscape:label="assassin"
+     style="display:none">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none"
+       d="m 69.288029,984.20995 8.802988,7e-5"
+       id="path8809"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path9659"
+       sodipodi:cx="87.745911"
+       sodipodi:cy="996.98853"
+       sodipodi:rx="25.273092"
+       sodipodi:ry="24.989126"
+       d="m 113.019,996.98853 a 25.273092,24.989126 0 1 1 -50.546182,0 25.273092,24.989126 0 1 1 50.546182,0 z"
+       transform="translate(-39.47146,-13.630432)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
+       id="path9659-6"
+       sodipodi:cx="87.745911"
+       sodipodi:cy="996.98853"
+       sodipodi:rx="25.273092"
+       sodipodi:ry="24.989126"
+       d="m 113.019,996.98853 a 25.273092,24.989126 0 1 1 -50.546182,0 25.273092,24.989126 0 1 1 50.546182,0 z"
+       transform="matrix(0.48494865,0,0,0.4904594,5.5115953,494.87027)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="68.720093"
+       y="1047.2509"
+       id="text9683"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan9685"
+         x="68.720093"
+         y="1047.2509">A</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 56.509499,984.20995 8.802988,7e-5"
+       id="path8809-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 31.804341,984.20995 8.802988,7e-5"
+       id="path8809-5"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 19.025811,984.20995 8.802988,7e-5"
+       id="path8809-1-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 48.558449,1004.9396 -7e-5,8.803"
+       id="path8809-4"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 48.558449,992.16107 -7e-5,8.80303"
+       id="path8809-1-90"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 48.558449,967.45591 -7e-5,8.80299"
+       id="path8809-5-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;display:inline"
+       d="m 48.558449,954.67738 -7e-5,8.80299"
+       id="path8809-1-9-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4, 2;stroke-dashoffset:0"
+       d="m 47.99048,983.92605 c -27.552395,9.65489 -26.087494,20.44365 -18.457877,26.26695 7.787783,5.944 12.387832,16.2486 7.525134,20.4457 -4.862698,4.1971 -21.21697,-10.9969 -26.243739,-5.8137 -3.97631,4.1001 14.063181,14.9796 8.921732,23.9876"
+       id="path9765"
+       sodipodi:nodetypes="czzsc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/assassin.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="=fighters="
+     style="display:none">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="-729.99091"
+       y="752.62213"
+       id="text3614-5-4"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"
+       inkscape:export-filename="/media/z0/python/1001/golive_client/data/gui/type.fighters.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan3616-5-7"
+         x="-729.99091"
+         y="752.62213"
+         style="font-size:28px">fighters</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer20"
+     inkscape:label="point tile"
+     style="display:inline">
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 72.169662,953.60306 c -58.548782,58.21164 -58.2713,59.60304 -58.2713,59.60304"
+       id="path2972"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 78.829253,963.69156 C 20.28047,1021.9032 20.557952,1023.2946 20.557952,1023.2946"
+       id="path2972-5"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 86.043796,975.51942 C 27.495012,1033.7311 27.772494,1035.1225 27.772494,1035.1225"
+       id="path2972-5-7"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 94.368267,987.11535 C 35.819482,1045.3271 36.096964,1046.7186 36.096964,1046.7186"
+       id="path2972-5-7-6"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 98.792895,1016.1471 C 46.671347,953.81329 44.991461,953.67718 44.991461,953.67718"
+       id="path2972-5-7-6-5"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 88.248566,1029.1346 C 36.127019,966.8007 34.447132,966.66457 34.447132,966.66457"
+       id="path2972-5-7-6-5-6"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 78.536684,1041.4262 C 26.415135,979.09239 24.735249,978.95627 24.735249,978.95627"
+       id="path2972-5-7-6-5-6-9"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:none;stroke:#000000;stroke-width:0.55408967;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="M 69.102282,1052.3265 C 16.980734,989.99259 15.300847,989.85654 15.300847,989.85654"
+       id="path2972-5-7-6-5-6-9-3"
+       inkscape:transform-center-x="-8.046989"
+       inkscape:transform-center-y="-8.5809645"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 29.986335,1004.9917 c -1.669349,-1.9338 -3.138525,-3.6609 -3.264833,-3.8381 -0.208706,-0.2928 1.132044,-1.76786 8.01284,-8.81575 l 0.568646,-0.58246 3.361479,3.87477 3.361481,3.87478 -4.34635,4.49066 c -2.390493,2.47 -4.416488,4.4956 -4.502216,4.5015 -0.08572,0.011 -1.521697,-1.5714 -3.191047,-3.5054 z"
+       id="path4008"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 39.854086,994.57232 c -1.755077,-2.04815 -3.175128,-3.86574 -3.155672,-4.0391 0.05173,-0.46095 9.287962,-9.63675 9.559184,-9.49664 0.126335,0.0652 1.673845,1.7869 3.438928,3.82586 l 3.209236,3.70723 -4.869349,4.8669 c -2.678141,2.67681 -4.896782,4.86532 -4.930315,4.86323 -0.03353,0 -1.496936,-1.67937 -3.252012,-3.72748 z"
+       id="path4010"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 52.960311,986.19328 c -5.316944,-6.05244 -5.645477,-6.47987 -5.279451,-6.86878 0.197425,-0.20976 2.564703,-2.59838 5.260617,-5.30806 l 4.901662,-4.92666 3.145327,3.63236 c 1.72993,1.99781 3.234153,3.75368 3.342716,3.90198 0.118034,0.1612 -1.911758,2.38532 -5.048608,5.53195 l -5.245995,5.26235 -1.076268,-1.22514 0,0 z"
+       id="path4012"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 59.820051,994.19125 c -1.59544,-1.87905 -3.316858,-3.90523 -3.825374,-4.50263 l -0.924576,-1.08614 5.225553,-5.24525 5.225551,-5.24525 0.623988,0.64504 c 0.343192,0.35478 2.07442,2.36201 3.847177,4.46052 2.870185,3.39759 3.185584,3.8658 2.879833,4.27499 -0.368857,0.49364 -9.954661,10.1152 -10.077621,10.1152 -0.04054,0 -1.37909,-1.53743 -2.974531,-3.41648 z"
+       id="path4014"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 67.851242,1003.6986 -4.038601,-4.80397 5.096904,-5.10789 c 2.803298,-2.80936 5.202899,-5.13881 5.332448,-5.1766 0.214599,-0.0626 8.066897,9.03305 8.066897,9.3442 0,0.10857 -8.996664,9.24346 -10.105925,10.26106 -0.240224,0.2203 -1.253358,-0.8313 -4.351723,-4.5168 z"
+       id="path4016"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 57.091216,1014.744 c -2.168883,-2.572 -3.968913,-4.7515 -4.000069,-4.8432 -0.07774,-0.2289 9.328158,-9.7253 9.578,-9.6702 0.232232,0.051 7.987832,9.1954 7.980753,9.4097 -0.0026,0.079 -1.829358,1.9695 -4.059461,4.2017 -2.230104,2.2323 -4.392474,4.4007 -4.80527,4.8186 l -0.750535,0.7601 -3.943418,-4.6767 z"
+       id="path4018"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 46.989439,1024.8538 -4.033885,-4.7931 4.345766,-4.49 c 2.390171,-2.4696 4.4082,-4.4932 4.484508,-4.497 0.07631,0 1.512278,1.629 3.191047,3.6287 1.678769,1.9995 3.471126,4.1315 3.983017,4.7379 l 0.930711,1.1025 -4.233392,4.3608 c -2.328366,2.3986 -4.323504,4.4471 -4.433639,4.5522 -0.110137,0.1051 -2.015496,-1.9658 -4.234133,-4.602 z"
+       id="path4020"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="opacity:0.55882353;fill:#80e836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 38.187211,1014.4649 c -2.059218,-2.4078 -3.779362,-4.4562 -3.822544,-4.5525 -0.04319,-0.096 1.899842,-2.2096 4.317834,-4.6967 l 4.396342,-4.5219 3.729157,4.3719 c 2.051036,2.4046 3.764487,4.4601 3.807668,4.5678 0.04319,0.1074 -1.893149,2.2239 -4.302956,4.7025 l -4.381468,4.5066 -3.744033,-4.3777 z"
+       id="path4024"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer22"
+     inkscape:label="point tile 2">
+    <path
+       style="fill:#e55a29;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.05562929;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
+       d="m 48.138762,1004.1747 c -2.038419,-2.3832 -3.747877,-4.41844 -3.798793,-4.52262 -0.05092,-0.10396 2.087669,-2.37561 4.752418,-5.04758 l 4.844996,-4.85816 3.643264,4.26361 c 2.003795,2.34494 3.714843,4.41956 3.802329,4.61002 0.102593,0.22349 -1.532676,2.04023 -4.606201,5.11733 -2.620897,2.6237 -4.802737,4.7707 -4.84853,4.7707 -0.04579,0 -1.751062,-1.95 -3.789483,-4.3333 z"
+       id="path4026"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.2633754px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow2Lstart-5);marker-end:none"
+       d="M 52.468414,999.29114 C 49.777073,980.17571 60.496917,953.58761 3.0765487,964.96709"
+       id="path4029"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/tile-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="h arrows"
+     style="display:none">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.17799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow2Lstart);marker-end:url(#Arrow2Lend);display:inline"
+       d="m 10.217069,1003.8451 c 21.791183,-0.674 45.241741,-0.3127 80.766121,-1.2532"
+       id="path4078"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/v_arrow.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="v arrows"
+     style="display:none">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.17799997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow2Lstart);marker-end:url(#Arrow2Lend);display:inline"
+       d="m 50.475005,1042.3459 c -0.674,-21.7911 -0.3127,-45.24172 -1.2532,-80.7661"
+       id="path4078-9"
+       sodipodi:nodetypes="cc" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="H"
+     inkscape:label="'H'"
      style="display:none">
     <text
        xml:space="preserve"
@@ -261,8 +1281,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="V"
-     style="display:inline">
+     inkscape:label="'V'"
+     style="display:none">
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
@@ -277,4 +1297,9 @@
          x="67.632751"
          y="987.39014">V</tspan></text>
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer11"
+     inkscape:label="=conf"
+     style="display:inline" />
 </svg>

@@ -1,11 +1,29 @@
 <Comment> {
-  "egg-texture-cards -o data/gui/gmenu/units_btn.egg -p 100,100 data/gui/gmenu/horizontal_sprinter.png data/gui/gmenu/vertical_sprinter.png"
+  "egg-texture-cards -o data/gui/gmenu/units_btn.egg -p 100,100 data/gui/gmenu/h_sprinter.png data/gui/gmenu/v_sprinter.png data/gui/gmenu/zigzagger.png data/gui/gmenu/spiraler.png data/gui/gmenu/circler.png data/gui/gmenu/guard.png data/gui/gmenu/archer.png data/gui/gmenu/assassin.png"
 }
-<Texture> vertical_sprinter {
-  "data/gui/gmenu/vertical_sprinter.png"
+<Texture> zigzagger {
+  "data/gui/gmenu/zigzagger.png"
 }
-<Texture> horizontal_sprinter {
-  "data/gui/gmenu/horizontal_sprinter.png"
+<Texture> v_sprinter {
+  "data/gui/gmenu/v_sprinter.png"
+}
+<Texture> spiraler {
+  "data/gui/gmenu/spiraler.png"
+}
+<Texture> h_sprinter {
+  "data/gui/gmenu/h_sprinter.png"
+}
+<Texture> guard {
+  "data/gui/gmenu/guard.png"
+}
+<Texture> circler {
+  "data/gui/gmenu/circler.png"
+}
+<Texture> assassin {
+  "data/gui/gmenu/assassin.png"
+}
+<Texture> archer {
+  "data/gui/gmenu/archer.png"
 }
 <Group> {
   <Switch> { 1 }
@@ -43,19 +61,157 @@
       0.505 0.505 0
       <UV> { 1 1 }
     }
+    <Vertex> 8 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 9 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 10 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 11 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 12 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 13 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 14 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 15 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 16 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 17 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 18 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 19 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 20 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 21 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 22 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 23 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 24 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 25 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 26 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 27 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 28 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 29 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 30 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 31 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
   }
-  <Group> horizontal_sprinter {
+  <Group> h_sprinter {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
-      <TRef> { horizontal_sprinter }
+      <TRef> { h_sprinter }
       <VertexRef> { 0 1 2 3 <Ref> { vpool } }
     }
   }
-  <Group> vertical_sprinter {
+  <Group> v_sprinter {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
-      <TRef> { vertical_sprinter }
+      <TRef> { v_sprinter }
       <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+  <Group> zigzagger {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { zigzagger }
+      <VertexRef> { 8 9 10 11 <Ref> { vpool } }
+    }
+  }
+  <Group> spiraler {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { spiraler }
+      <VertexRef> { 12 13 14 15 <Ref> { vpool } }
+    }
+  }
+  <Group> circler {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { circler }
+      <VertexRef> { 16 17 18 19 <Ref> { vpool } }
+    }
+  }
+  <Group> guard {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { guard }
+      <VertexRef> { 20 21 22 23 <Ref> { vpool } }
+    }
+  }
+  <Group> archer {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { archer }
+      <VertexRef> { 24 25 26 27 <Ref> { vpool } }
+    }
+  }
+  <Group> assassin {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { assassin }
+      <VertexRef> { 28 29 30 31 <Ref> { vpool } }
     }
   }
 }

@@ -12,4 +12,3 @@ class TileMarker(Unit):
 		if self.current_tile.pawner==None:
 			#TODO: sendevent to GUnit for special animation ?
 			self.current_tile.pawner=self.owner
-			self.current_tile.load_level=3
