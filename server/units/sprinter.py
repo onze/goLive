@@ -1,6 +1,6 @@
 
 from tilemarker import TileMarker
-import network
+import server.network as network
 
 class Sprinter(TileMarker):
 	'''abstract class to factorize sprinter behavior'''

@@ -3,7 +3,7 @@ import network
 import sys
 
 from node import Node 
-from sprinter import HSprinter,VSprinter
+from units.sprinter import HSprinter,VSprinter
 
 class Player(Node):
 	#each player has an id that comes from here.

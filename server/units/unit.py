@@ -1,9 +1,9 @@
 
 from math import atan2,cos,sin
 
-from entity import Entity,EIType
+from server.entity import Entity,EIType
 from tools import dist2
-import network
+import server.network as network
 
 class Unit(Entity):
 	eitype=EIType.unit
