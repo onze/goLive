@@ -1,0 +1,108 @@
+2 players game (more players would be a mess, except if team play is implemented).
+networking game
+
+==goal and victory condition==
+go board game: one must own the biggest area by the end of the game.
+
+there can be many ways to determine whether a game is over:
+   -biggest area: the game ends when the biggest area reaches a threshold
+   -smallest area: the game ends when the smallest area reaches a threshold
+   -timeout: the game lasts a pre-determined amount of time
+   -conquest: when one of the players get all of his tiles conquered, doesn't have anymore resources, and his last unit dies.
+
+==gameplay==
+each player launches units that move over the map and drop stones.
+
+each player has a launch base from which his units spawn.
+
+a unit moves on the map according to its type: straight line, circle, square, rectangle, along the map's sides or along walls, etc
+
+launching units costs resource points. the amount of resources earned by a player is relative to a base + the size of the areas he has conquered + any bonus.
+
+a unit cannot be controlled after its launch. it moves until it dies or it get recycled. recycling means that the unit disappear and gives a fraction of its cost back to it's owner resources.
+
+units have basic characteristics: life, defense, strengh, speed.
+
+twos opponent units that arrive on the same tile fight each others. the looser dies, the other one go on on its way.
+
+==units==
+there are 3 main types of units: markers, builders, and fighters.
+
+notation:
+   -[unit name](launch settings): description
+
+===markers===
+those units are very weak. they move from tile to tile and mark them with their owner's color (black or white). markers don't move over ennemy walls once they have reached their starting tile.
+
+
+-zigzagger (starting tile): moves to the starting tile, then randomly moves until it dies.
+
+-spiraler: moves to the starting tile, then move long a spiral-ish path, as much as walls make it possible (moves long those walls otherwise).
+
+===builders===
+those units are weak in fight, but build walls on their way. if a builder run into an enny wall, it jumps over it (without destroying it) and continues.
+
+-vertical sprinter (column): move to the closest tile of the given column, then moves to the opposite side of the map. it dies at the end of its mission.
+
+-horizontal sprinter(row): move to the closest tile of the given row, then moves to the opposite side of the map. it dies at the end of its mission.
+
+-circler(center, radius to be chosen within 3 sizes): builds a round-shaped wall arounf its center.
+
+===fighters===
+those units don't build or mark anything. they are meant to destroy walls and kill ennemy units.
+
+-guard(opponent's wall): moves along the given wall, defending it from any encounter.
+
+-archer (tile): move to the given tile and stays there until its death. shoots any ennemy unit in sight.
+
+-assassin(ennemy unit): move to its target and provokes a fight with it. if the assassin does its job, it disappears. if the target dies before being killed, the assassin get recycled.
+
+==bonuses==
+binuses can appear on the map, or be given to a player after it has accomplished a given action. a player picks up an option when a unit of his moves on the bonus' tile. picked up bonuses are stacked into the player's menu, and can be used at any time.
+
+example bonuses:
+   -speed: the player's units move faster.
+   -forced recycling: all player's opponent's units get recycled.
+   -the fool: get launched at the opponent base. it roams on the map until it run into a unit (of any side). it then talks to the unit for a while, keeping it from doing its mission, then stops and start moving again. it disappear after having annoyed a couple units.
+   -the cursed: get launched at the opponent base. it roams on the map until it run into a unit (of any side), contaminating it (poison like effect). any contaminated becomes cursed, so that a plague can occur.
+   -the doctor: get launched from the player's base. it heals the nth closest units it finds.
+
+==display==
+the gaming screen is made of three parts, from top to bottom: the notifier, the map, and the menu.
+
+===notifier===
+the notifier shows a load bar style representation of the players' territories.
+
+==map==
+the map shows the main part of the game, thus takes most of the screen. it shows the tiles, as well as the units.
+
+there are two viewing modes: global and local. one can switch between viewing modes with the mouse wheel.
+
+in global mode, the whole map is shown. units appear as colored icons. this is a useful view to have a tsategic overview of the territories.
+
+in local mode (default mode), part of the map is shown. one can move the camera with the mouse (the camera moves towars the mouse when its pressed). in this mode, units' 3d models are shown. it is useful to have a more beautiful view of the scene.
+
+==menu==
+the menu shows 3 parts aligned from left to right, plus a launch button at the right (activated by pressing enter, space, or right clicking). the left part allows for unit type selection (see units). the middle part allows for unit selection. the right part allows for unit setting before launch.
+
+this right part of the menu saves the last settings by default, for fast unit launching.
+
+the menu can be represented as a tree:
+menu:
+   markers:
+	  zigzagger:
+		 starting point
+	  spiraler:
+		 starting point
+   builders:
+	  vertical:
+		 column
+	  horizontal:
+		 row
+   fighters:
+	  guard:
+		 column
+	  archer:
+		 center
+	  assassin:
+		 target unit
