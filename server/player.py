@@ -21,6 +21,7 @@ class Player(Node):
 		self.server.update_list.append(self.update)
 		#sum of tiles under player control
 		self.owned_tiles=0
+		self.send({network.pid_setup:{'pid':self.pid}})
 		
 	def dispose(self):
 		'''del'''

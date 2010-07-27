@@ -24,6 +24,8 @@ class GFrame(Frame):
 		kwargs['layout']=VLayout
 		Frame.__init__(self,*args,**kwargs)
 		self.process_server_input=pstat(self.process_server_input)
+		#to be set as soon as a connection is done with the server
+		self.pid=None
 
 	def open(self):
 		'''
@@ -36,13 +38,17 @@ class GFrame(Frame):
 		#instanciate screen objects
 		self.gmap=GMap(parent=self)
 		self.gnotifier=GNotifier(parent=self,pref_h=50)
-
+	
+	def pid_setup(self,data):
+		self.pid=data['pid']
+	
 	def process_server_input(self,data):
 		'''
 		receives server messages.
 		dispatches methods calls according to server messages.
 		'''
-		gframe_switch={network.stc_conf:self.set_conf,
+		gframe_switch={	network.stc_conf:self.set_conf,
+								network.pid_setup:self.pid_setup
 				}
 		gnotifier_switch={network.stc_tile_ratio_change:GNotifier.update_tile_ratio
 							}

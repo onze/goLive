@@ -165,7 +165,7 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	#######################################################
 	#fighters
 	def enterGuard(self):
-		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_wall_selection,xargs=['allied'],key='z')
+		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['allied-wall'],key='z')
 		self._conf['unit_type']='guard'
 
 	def exitGuard(self):
@@ -192,16 +192,29 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	def conf(self):
 		'''
 		setup a nice li'll dict containing the configuration to pass to the server.
+		perfoms (half =p) a check to be (half -_-) sure the sent data won't be rejected
 		'''
 		self._conf['complete']=True
 		if not 'unit_type' in self._conf:
 			self._conf['complete']=False
+		#this is for units:
+		#zigzagger, cw spiraler, ccw spiraler,
+		#v sprinter, h sprinter, circler
+		#guard, archer
 		if screen.frame.gmap.is_tile_selection_enabled:
 			tiles=screen.frame.gmap.selected_tiles
 			if len(tiles)>0:
-				if self._conf['unit_type'] in ['v_sprinter','h_sprinter']:
+				if self._conf['unit_type'] in ['zigzagger','cw-spiraler','ccw-spiraler',
+														'v_sprinter','h_sprinter','circler',
+														'guard','archer']:
 					self._conf['x']=tiles[0].x
 					self._conf['y']=tiles[0].y
+			else:
+				self._conf['complete']=False
+		elif screen.frame.gmap.is_unit_selection_enabled:
+			unit=screen.frame.gmap.selected_unit
+			if unit:
+				self._conf['target-eid']=unit.eid
 			else:
 				self._conf['complete']=False
 		else:
@@ -287,8 +300,6 @@ class GMenu(Frame,DirectObject):
 				gmap.disable_tile_selection()
 			if gmap.is_unit_selection_enabled:
 				gmap.disable_unit_selection()
-			if gmap.is_wall_selection_enabled:
-				gmap.disable_wall_selection()
 
 	def show_unit_sel(self,unit_type):
 		'''

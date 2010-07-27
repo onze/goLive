@@ -73,7 +73,7 @@ class GamingCam(object,DirectObject):
 	
 	def get_picked_tile(self):
 		'''
-		
+		returns
 		'''
 		if base.mouseWatcherNode.hasMouse():
 			#get the mouse position
@@ -97,6 +97,23 @@ class GamingCam(object,DirectObject):
 				y=int(y)
 				#out(pos=(x,y,z))
 				return self.gmap.tile_matrix[x][y]
+		return None
+	
+	def get_picked_unit(self):
+		if base.mouseWatcherNode.hasMouse():
+			#get the mouse position
+			mpos = base.mouseWatcherNode.getMouse()
+			#Set the position of the ray based on the mouse position
+#			self.picker_ray.setFromLens(self.p3dcam.node().getLens(), mpos.getX(), mpos.getY())
+			self.picker_ray.setFromLens(base.camNode, mpos.getX(), mpos.getY())
+			self.collision_traverser.traverse(self.gmap.units_node)
+			if self.collision_queue.getNumEntries()>0:
+				#useless since collision test is done against a single object
+				self.collision_queue.sortEntries()
+				entry=self.collision_queue.getEntry(0)
+				return entry.getIntoNodePath().findNetTag('GUnit-pickable')
+		return None
+		
 
 	def get_target(self):
 		return self._target

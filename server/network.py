@@ -87,6 +87,10 @@ cts_new_unit=next()
 #server configuration
 stc_conf=next()
 
+#each newly created player send its pid to its client
+#{network.pid_setup:{'pid':self.pid}}
+pid_setup=next()
+
 #server says the game is over
 stc_end_game=next()
 

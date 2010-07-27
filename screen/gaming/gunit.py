@@ -10,12 +10,15 @@ class GUnit(GEntity):
 	
 	def __init__(self,conf):
 		GEntity.__init__(self,conf)
-		self.p3dobject.reparentTo(self.gmap.root)
+		self.p3dobject.reparentTo(self.gmap.units_node)
+		#to be put under condition for non pickable units (bonuses npc for instance)
+		self.p3dobject.setTag('GUnit-pickable','1')
 		self.p3dobject.setPos(self.gmap.root.find('**/tile_'+str(conf['tileid'])),0,0,0)
 		#supposedly already a float, but will screw up if not, so just making sure.
 		self.move_speed=float(conf['move_speed'])
 		self.path=[]
 		self.popout_when_move_over=False
+		self.pid=conf['pid']
 		
 	def dispose(self):
 		'''del method'''
@@ -54,6 +57,12 @@ class GUnit(GEntity):
 		finish=Func(lambda:dispose_list.append(self))
 		self.popout_sequence=Sequence(scale,finish)
 		self.popout_sequence.start()
+		
+	def set_highlighted(self):
+		out('GUnit.set_highlighted: to be implemented')
+		
+	def unset_highlighted(self):
+		out('GUnit.unset_highlighted: to be implemented')
 		
 	def update_move(self):
 		'''called every frame during while a move.'''
@@ -110,6 +119,7 @@ class GH_Sprinter(GUnit):
 							  }
 							 )
 		GUnit.__init__(self,conf)
+		self.p3dobject.setName('GH_Sprinter_'+str(self.eid))
 		#home.setH(tools.random([0,90,180,270]))
 
 		
