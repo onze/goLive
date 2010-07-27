@@ -12,7 +12,7 @@ main_menu:$(SRC_GUI)/main_menu.play_btn.png $(SRC_GUI)/main_menu.load_btn.png $(
 game_setup:$(SRC_GUI)/game_setup.start_btn.png
 	egg-texture-cards -o $(SRC_GUI)/game_setup.egg -p 176,66 $(SRC_GUI)/game_setup.start_btn.png
 
-gmenu:gmenu_unit_types gmenu_units gmenu_launch_btn unit_conf
+gmenu:gmenu_unit_types gmenu_units gmenu_misc unit_conf
 
 gmenu_unit_types:$(SRC_GUI)/gmenu/type.builders.png $(SRC_GUI)/gmenu/type.markers.png $(SRC_GUI)/gmenu/type.fighters.png
 	egg-texture-cards -o $(SRC_GUI)/gmenu/unit_types_btn.egg -p 100,100 $(SRC_GUI)/gmenu/type.builders.png $(SRC_GUI)/gmenu/type.markers.png $(SRC_GUI)/gmenu/type.fighters.png
@@ -23,8 +23,8 @@ gmenu_units:$(SRC_GUI)/gmenu/h_sprinter.png $(SRC_GUI)/gmenu/v_sprinter.png $(SR
 unit_conf:$(SRC_GUI)/gmenu/v_arrow.png $(SRC_GUI)/gmenu/h_arrow.png $(SRC_GUI)/gmenu/tile-picking.png $(SRC_GUI)/gmenu/wall-picking.png $(SRC_GUI)/gmenu/unit-picking.png
 	egg-texture-cards -o $(SRC_GUI)/gmenu/unit_conf.egg -p 100,100 $(SRC_GUI)/gmenu/v_arrow.png $(SRC_GUI)/gmenu/h_arrow.png $(SRC_GUI)/gmenu/tile-picking.png $(SRC_GUI)/gmenu/wall-picking.png $(SRC_GUI)/gmenu/unit-picking.png
 	
-gmenu_launch_btn:$(SRC_GUI)/gmenu/launch_btn.png
-	egg-texture-cards -o $(SRC_GUI)/gmenu/launch_btn.egg -p 200,100 $(SRC_GUI)/gmenu/launch_btn.png
+gmenu_misc:$(SRC_GUI)/gmenu/launch_btn.png $(SRC_GUI)/gmenu/cancel_btn.png
+	egg-texture-cards -o $(SRC_GUI)/gmenu/gmenu_misc.egg -p 200,100 $(SRC_GUI)/gmenu/launch_btn.png $(SRC_GUI)/gmenu/cancel_btn.png
 
 models:
 	#"skipping models cause blender/chicken console exports sucks a bit =/"

@@ -1,7 +1,7 @@
 
 from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import LerpPosInterval,Func,Sequence
-from panda3d.core import ConfigVariableDouble,ConfigVariableInt
+from panda3d.core import ConfigVariableDouble
 
 from screen.gaming.gentity import GEntity
 from tools import dist3

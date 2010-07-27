@@ -12,7 +12,7 @@ class Panel(Frame):
 		Frame.__init__(self,layout=HLayout,parent=gmenu)		
 		self.gmenu=gmenu
 		self.buttons=[]
-		self.accepted_keys=[]
+		self.key_focus=[]
 
 	def add_button(self,res,cmd,xargs,key):
 		self.buttons.append(Button(	pref_w=self.gmenu.h,
@@ -22,28 +22,37 @@ class Panel(Frame):
 																		command=cmd,
 																		extraArgs=xargs),
 										parent=self))
-		self.gmenu.accept(key,cmd,extraArgs=xargs)
-		self.accepted_keys.append(key)
+		self.key_focus.append(dict(key=key,cmd=cmd,xargs=xargs))
+		
+	def focus(self):
+		'''listen to keyboard events as stocked within self.key_focus'''
+		for d in self.key_focus:
+			self.gmenu.accept(d['key'],d['cmd'],extraArgs=d['xargs'])
+			
+	def unfocus(self):
+		'''stop listening to keyboard events (doesn't clear self.key_focus)'''
+		for d in self.key_focus:
+			self.gmenu.ignore(d['key'])
 	
 	def remove_all_buttons(self):
 		for btn in self.buttons:
 			btn.p3dobject.destroy()
 			self.remove_child(btn)
-		del self.buttons[:]
-		for key in self.accepted_keys:
-			self.gmenu.ignore(key)
+		self.buttons=[]
+		self.unfocus()
+		self.key_focus=[]
 		
 class UnitTypePanel(Panel):
 	'''presents the buttons for type of unit to select'''
 	def __init__(self,gmenu):
 		Panel.__init__(self,gmenu)
-		self.add_button(res='type_marker',cmd=gmenu.show_unit_sel,xargs=['Type_marker'],key='q')
-		self.add_button(res='type_builder',cmd=gmenu.show_unit_sel,xargs=['Type_builder'],key='w')
-		self.add_button(res='type_fighter',cmd=gmenu.show_unit_sel,xargs=['Type_fighter'],key='e')
+		self.add_button(res='type_marker',cmd=gmenu.show_unit_sel,xargs=['Type_marker'],key='w')
+		self.add_button(res='type_builder',cmd=gmenu.show_unit_sel,xargs=['Type_builder'],key='e')
+		self.add_button(res='type_fighter',cmd=gmenu.show_unit_sel,xargs=['Type_fighter'],key='r')
 		
 	def close(self):
 		self.remove_all_buttons()
-		self.ignoreAll()
+		self.ignoreAll()		
 
 class UnitSelectionPanel(Panel,FSM.FSM):
 	'''presents the buttons for selection of unit to configure'''
@@ -58,26 +67,26 @@ class UnitSelectionPanel(Panel,FSM.FSM):
 	def exitBlank(self):pass
 	
 	def enterType_marker(self):
-		self.add_button(res='zigzagger',cmd=self.gmenu.show_unit_conf,xargs=['Zigzagger'],key='a')
-		self.add_button(res='cw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CwSpiraler'],key='s')
-		self.add_button(res='ccw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CcwSpiraler'],key='d')
+		self.add_button(res='zigzagger',cmd=self.gmenu.show_unit_conf,xargs=['Zigzagger'],key='w')
+		self.add_button(res='cw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CwSpiraler'],key='e')
+		self.add_button(res='ccw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CcwSpiraler'],key='r')
 
 	def exitType_marker(self):
 		self.remove_all_buttons()
 		
 	
 	def enterType_builder(self):
-		self.add_button(res='h_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['H_sprinter'],key='a')
-		self.add_button(res='v_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['V_sprinter'],key='s')
-		self.add_button(res='circler',cmd=self.gmenu.show_unit_conf,xargs=['Circler'],key='d')
+		self.add_button(res='h_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['H_sprinter'],key='w')
+		self.add_button(res='v_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['V_sprinter'],key='e')
+		self.add_button(res='circler',cmd=self.gmenu.show_unit_conf,xargs=['Circler'],key='r')
 	
 	def exitType_builder(self):
 		self.remove_all_buttons()
 	
 	def enterType_fighter(self):
-		self.add_button(res='guard',cmd=self.gmenu.show_unit_conf,xargs=['Guard'],key='a')
-		self.add_button(res='archer',cmd=self.gmenu.show_unit_conf,xargs=['Archer'],key='s')
-		self.add_button(res='assassin',cmd=self.gmenu.show_unit_conf,xargs=['Assassin'],key='d')
+		self.add_button(res='guard',cmd=self.gmenu.show_unit_conf,xargs=['Guard'],key='w')
+		self.add_button(res='archer',cmd=self.gmenu.show_unit_conf,xargs=['Archer'],key='e')
+		self.add_button(res='assassin',cmd=self.gmenu.show_unit_conf,xargs=['Assassin'],key='r')
 	
 	def exitType_fighter(self):
 		self.remove_all_buttons()
@@ -106,7 +115,7 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	def exitBlank(self):pass	
 	
 	def enterClose(self):
-		del self._conf
+		self._conf={}
 		self.ignoreAll()
 		self.remove_all_buttons()
 		
@@ -115,25 +124,31 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	def remove_all_buttons(self):
 		Panel.remove_all_buttons(self)
 		self._conf['unit_type']=None
+		gmap=screen.frame.gmap
+		if gmap.is_tile_selection_enabled:
+			gmap.disable_tile_selection()
+		if gmap.is_unit_selection_enabled:
+			gmap.disable_unit_selection()
+		
 
 	#######################################################
 	#markers
 	def enterZigzagger(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='zizagger'
 		
 	def exitZigzagger(self):
 		self.remove_all_buttons()
 		
 	def enterCwSpiraler(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='cw-spiraler'
 		
 	def exitCwSpiraler(self):
 		self.remove_all_buttons()
 		
 	def enterCcwSpiraler(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='ccw-spiraler'
 		
 	def exitCcwSpiraler(self):
@@ -142,21 +157,21 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	#######################################################
 	#builders
 	def enterH_sprinter(self):
-		self.add_button(res='h_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='h_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='h_sprinter'
 	
 	def exitH_sprinter(self):
 		self.remove_all_buttons()
 	
 	def enterV_sprinter(self):
-		self.add_button(res='v_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='v_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='v_sprinter'
 	
 	def exitV_sprinter(self):
 		self.remove_all_buttons()
 		
 	def enterCircler(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='circler'
 
 	def exitCircler(self):
@@ -165,21 +180,21 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	#######################################################
 	#fighters
 	def enterGuard(self):
-		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['allied-wall'],key='z')
+		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['allied-wall'],key='w')
 		self._conf['unit_type']='guard'
 
 	def exitGuard(self):
 		self.remove_all_buttons()
 
 	def enterArcher(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
 		self._conf['unit_type']='archer'
 
 	def exitArcher(self):
 		self.remove_all_buttons()
 
 	def enterAssassin(self):
-		self.add_button(res='unit-picking',cmd=screen.frame.gmap.enable_unit_selection,xargs=['ennemy'],key='z')
+		self.add_button(res='unit-picking',cmd=screen.frame.gmap.enable_unit_selection,xargs=['ennemy'],key='w')
 		self._conf['unit_type']='assassin'
 
 	def exitAssassin(self):
@@ -227,8 +242,18 @@ class GMenu(Frame,DirectObject):
 		kwargs['fill']=165,255,121
 		kwargs['layout']=HLayout
 		Frame.__init__(self,*args,**kwargs)
-		#graphical aspect: [unit_type_panel | unit_selection_panel | unit_configuration_panel | launch_btn]
+		#'type','unit','conf'
+		self.state='type'
+		self.launch_btn=Button(	pref_w=self.h*2,
+										pref_h=self.h,
+										p3dobject=DirectButton(	geom=(self.resources['cancel_btn']),
+																		borderWidth=(0,0),
+																		command=self.cancel),
+										parent=self)
+		self.accept('q',self.cancel)
+		#graphical aspect: [cancel_btn | unit_type_panel | unit_selection_panel | unit_configuration_panel | launch_btn]
 		self.type_pan=UnitTypePanel(self)
+		self.type_pan.focus()
 		self.sel_pan=UnitSelectionPanel(self)
 		self.sel_pan.request('Blank')
 		self.conf_pan=UnitConfigurationPanel(self)
@@ -250,7 +275,7 @@ class GMenu(Frame,DirectObject):
 		unit_type_sel_res=loader.loadModel('data/gui/gmenu/unit_types_btn.egg')
 		unit_sel_res=loader.loadModel('data/gui/gmenu/units_btn.egg')
 		unit_conf_res=loader.loadModel('data/gui/gmenu/unit_conf.egg')
-		launch_btn_res=loader.loadModel('data/gui/gmenu/launch_btn.egg')
+		misc_res=loader.loadModel('data/gui/gmenu/gmenu_misc.egg')
 		GMenu.resources={#types
 							'type_marker':unit_type_sel_res.find('**/type.markers'),
 							'type_builder':unit_type_sel_res.find('**/type.builders'),
@@ -274,16 +299,30 @@ class GMenu(Frame,DirectObject):
 							'unit-picking':unit_conf_res.find('**/unit-picking'),
 							'h_arrow':unit_conf_res.find('**/h_arrow'),
 							'v_arrow':unit_conf_res.find('**/v_arrow'),
-							'launch_btn':launch_btn_res.find('**/launch_btn'),
+							'launch_btn':misc_res.find('**/launch_btn'),
+							'cancel_btn':misc_res.find('**/cancel_btn'),
 							}
 		for k in GMenu.resources:
 			print k,GMenu.resources[k]
 			if GMenu.resources[k]==None:
 				raise Exception('could not load GMenu.resource \''+k+'\'')
+	
+	def cancel(self):
+		if self.state=='type':
+			pass
+		elif self.state=='unit':
+			self.sel_pan.close()
+			self.type_pan.focus()
+			self.state='type'
+		elif self.state=='conf':
+			self.conf_pan.demand('Close')
+			self.sel_pan.focus()
+			self.state='unit'
 
 	def close(self):
 		self.conf_pan.demand('Close')
 		self.sel_pan.close()
+		self.type_pan.close()
 
 	def launch_unit(self):
 		'''
@@ -306,15 +345,20 @@ class GMenu(Frame,DirectObject):
 		proxy between unit type selection and unit selection panels.
 		allows gui sparkling effect or any other eye candies.
 		'''
+		self.type_pan.unfocus()
+		self.state='unit'
 		self.sel_pan.demand(unit_type)
-			
+		self.sel_pan.focus()
 
 	def show_unit_conf(self,unit_type):
 		'''
 		proxy between unit selection and unit conf panels.
 		allows gui sparkling effect or any other eye candies.
 		'''
+		self.sel_pan.unfocus()
+		self.state='conf'
 		self.conf_pan.demand(unit_type)
+		self.conf_pan.focus()
 
 	def show(self):
 		pass

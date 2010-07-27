@@ -594,6 +594,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3077"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -603,10 +610,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.5139674"
-     inkscape:cx="37.746594"
-     inkscape:cy="44.436594"
+     inkscape:cx="37.035147"
+     inkscape:cy="45.859487"
      inkscape:document-units="px"
-     inkscape:current-layer="layer27"
+     inkscape:current-layer="layer28"
      showgrid="false"
      inkscape:window-width="1276"
      inkscape:window-height="728"
@@ -639,9 +646,38 @@
        height="100"
        x="0.5"
        y="951.86218"
-       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/wall-picking.png"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/cancel.png"
        inkscape:export-xdpi="89.10891"
        inkscape:export-ydpi="89.10891" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer28"
+     inkscape:label="cancel"
+     style="display:inline">
+    <rect
+       style="fill:#ff0404;fill-opacity:1;stroke:#000000;stroke-opacity:1;display:inline"
+       id="rect3590-5"
+       width="100"
+       height="100"
+       x="0.5"
+       y="951.86218"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/cancel.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="27.888704"
+       y="1024.4735"
+       id="text3959"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/cancel.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891"><tspan
+         sodipodi:role="line"
+         id="tspan3961"
+         x="27.888704"
+         y="1024.4735">C</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1322,7 +1358,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer27"
-     inkscape:label="tile grid zoomed">
+     inkscape:label="tile grid zoomed"
+     style="display:none">
     <g
        id="g7890"
        transform="matrix(1.4657501,0,0,1.359251,-25.978462,-353.10381)">
@@ -1637,7 +1674,7 @@
      inkscape:groupmode="layer"
      id="layer25"
      inkscape:label="unit"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.20079523;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        d=""
@@ -1750,7 +1787,7 @@
      inkscape:groupmode="layer"
      id="layer26"
      inkscape:label="unit pick"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow1Lend-7)"
        d="M 4.8190857,964.21308 C 29.762846,964.6554 37.155527,973.79987 38.5462,999.77194"
