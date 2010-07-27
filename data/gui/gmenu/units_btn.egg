@@ -1,5 +1,5 @@
 <Comment> {
-  "egg-texture-cards -o data/gui/gmenu/units_btn.egg -p 100,100 data/gui/gmenu/h_sprinter.png data/gui/gmenu/v_sprinter.png data/gui/gmenu/zigzagger.png data/gui/gmenu/spiraler.png data/gui/gmenu/circler.png data/gui/gmenu/guard.png data/gui/gmenu/archer.png data/gui/gmenu/assassin.png"
+  "egg-texture-cards -o data/gui/gmenu/units_btn.egg -p 100,100 data/gui/gmenu/h_sprinter.png data/gui/gmenu/v_sprinter.png data/gui/gmenu/zigzagger.png data/gui/gmenu/cw-spiraler.png data/gui/gmenu/ccw-spiraler.png data/gui/gmenu/circler.png data/gui/gmenu/guard.png data/gui/gmenu/archer.png data/gui/gmenu/assassin.png"
 }
 <Texture> zigzagger {
   "data/gui/gmenu/zigzagger.png"
@@ -7,17 +7,20 @@
 <Texture> v_sprinter {
   "data/gui/gmenu/v_sprinter.png"
 }
-<Texture> spiraler {
-  "data/gui/gmenu/spiraler.png"
-}
 <Texture> h_sprinter {
   "data/gui/gmenu/h_sprinter.png"
 }
 <Texture> guard {
   "data/gui/gmenu/guard.png"
 }
+<Texture> cw-spiraler {
+  "data/gui/gmenu/cw-spiraler.png"
+}
 <Texture> circler {
   "data/gui/gmenu/circler.png"
+}
+<Texture> ccw-spiraler {
+  "data/gui/gmenu/ccw-spiraler.png"
 }
 <Texture> assassin {
   "data/gui/gmenu/assassin.png"
@@ -157,6 +160,22 @@
       0.5 0.5 0
       <UV> { 1 1 }
     }
+    <Vertex> 32 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 33 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 34 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 35 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
   }
   <Group> h_sprinter {
     <Polygon> {
@@ -179,39 +198,46 @@
       <VertexRef> { 8 9 10 11 <Ref> { vpool } }
     }
   }
-  <Group> spiraler {
+  <Group> cw-spiraler {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
-      <TRef> { spiraler }
+      <TRef> { cw-spiraler }
       <VertexRef> { 12 13 14 15 <Ref> { vpool } }
+    }
+  }
+  <Group> ccw-spiraler {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { ccw-spiraler }
+      <VertexRef> { 16 17 18 19 <Ref> { vpool } }
     }
   }
   <Group> circler {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
       <TRef> { circler }
-      <VertexRef> { 16 17 18 19 <Ref> { vpool } }
+      <VertexRef> { 20 21 22 23 <Ref> { vpool } }
     }
   }
   <Group> guard {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
       <TRef> { guard }
-      <VertexRef> { 20 21 22 23 <Ref> { vpool } }
+      <VertexRef> { 24 25 26 27 <Ref> { vpool } }
     }
   }
   <Group> archer {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
       <TRef> { archer }
-      <VertexRef> { 24 25 26 27 <Ref> { vpool } }
+      <VertexRef> { 28 29 30 31 <Ref> { vpool } }
     }
   }
   <Group> assassin {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
       <TRef> { assassin }
-      <VertexRef> { 28 29 30 31 <Ref> { vpool } }
+      <VertexRef> { 32 33 34 35 <Ref> { vpool } }
     }
   }
 }

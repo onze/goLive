@@ -30,6 +30,8 @@ class GMap(Widget,DirectObject):
 		self.selected_tiles=[]
 		self.highlighted_tiles=[]
 		self.is_tile_selection_enabled=False
+		self.is_unit_selection_enabled=False
+		self.is_wall_selection_enabled=False
 		GEntity.gmap=self
 		
 
@@ -124,6 +126,12 @@ class GMap(Widget,DirectObject):
 		self.selected_tiles=[]
 		self.accept('mouse1-up',self.set_selected_tiles)
 		
+	def enable_unit_selection(self,side):
+		out('GMap.enable_unit_selection: to be implemented')
+		
+	def enable_wall_selection(self,side):
+		out('GMap.enable_wall_selection: to be implemented')
+		
 	def disable_tile_selection(self):
 		'''disabling the selection deletes the selection'''
 		out('gmap.disable_tile_selection()')
@@ -134,6 +142,12 @@ class GMap(Widget,DirectObject):
 		self.disable_tile_highlight()
 		[tile.unset_selected() for tile in self.selected_tiles]
 		self.selected_tiles=[]
+		
+	def disable_unit_selection(self,side):
+		out('GMap.disable_unit_selection: to be implemented')
+		
+	def disable_wall_selection(self,side):
+		out('GMap.disable_wall_selection: to be implemented')
 		
 	def set_selected_tiles(self):
 		'''

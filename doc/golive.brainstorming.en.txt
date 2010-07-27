@@ -37,7 +37,9 @@ those units are very weak. they move from tile to tile and mark them with their 
 
 -zigzagger (starting tile): moves to the starting tile, then randomly moves until it dies.
 
--spiraler: moves to the starting tile, then move long a spiral-ish path, as much as walls make it possible (moves long those walls otherwise).
+-spiraler cw: moves to the starting tile, then move along a clock-wise spiral-ish path, as much as walls make it possible (moves long those walls otherwise).
+
+-spiraler ccw: moves to the starting tile, then move along a counter clock-wise spiral-ish path, as much as walls make it possible (moves long those walls otherwise).
 
 ===builders===
 those units are weak in fight, but build walls on their way. if a builder run into an enny wall, it jumps over it (without destroying it) and continues.
@@ -51,7 +53,7 @@ those units are weak in fight, but build walls on their way. if a builder run in
 ===fighters===
 those units don't build or mark anything. they are meant to destroy walls and kill ennemy units.
 
--guard(opponent's wall): moves along the given wall, defending it from any encounter.
+-guard(allied wall): moves along the given wall, defending it from any encounter.
 
 -archer (tile): move to the given tile and stays there until its death. shoots any ennemy unit in sight.
 

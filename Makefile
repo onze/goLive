@@ -17,11 +17,11 @@ gmenu:gmenu_unit_types gmenu_units gmenu_launch_btn unit_conf
 gmenu_unit_types:$(SRC_GUI)/gmenu/type.builders.png $(SRC_GUI)/gmenu/type.markers.png $(SRC_GUI)/gmenu/type.fighters.png
 	egg-texture-cards -o $(SRC_GUI)/gmenu/unit_types_btn.egg -p 100,100 $(SRC_GUI)/gmenu/type.builders.png $(SRC_GUI)/gmenu/type.markers.png $(SRC_GUI)/gmenu/type.fighters.png
 
-gmenu_units:$(SRC_GUI)/gmenu/h_sprinter.png $(SRC_GUI)/gmenu/v_sprinter.png $(SRC_GUI)/gmenu/zigzagger.png $(SRC_GUI)/gmenu/spiraler.png $(SRC_GUI)/gmenu/circler.png $(SRC_GUI)/gmenu/guard.png $(SRC_GUI)/gmenu/archer.png $(SRC_GUI)/gmenu/assassin.png
-	egg-texture-cards -o $(SRC_GUI)/gmenu/units_btn.egg -p 100,100 $(SRC_GUI)/gmenu/h_sprinter.png $(SRC_GUI)/gmenu/v_sprinter.png $(SRC_GUI)/gmenu/zigzagger.png $(SRC_GUI)/gmenu/spiraler.png $(SRC_GUI)/gmenu/circler.png $(SRC_GUI)/gmenu/guard.png $(SRC_GUI)/gmenu/archer.png $(SRC_GUI)/gmenu/assassin.png
+gmenu_units:$(SRC_GUI)/gmenu/h_sprinter.png $(SRC_GUI)/gmenu/v_sprinter.png $(SRC_GUI)/gmenu/zigzagger.png $(SRC_GUI)/gmenu/cw-spiraler.png $(SRC_GUI)/gmenu/ccw-spiraler.png $(SRC_GUI)/gmenu/circler.png $(SRC_GUI)/gmenu/guard.png $(SRC_GUI)/gmenu/archer.png $(SRC_GUI)/gmenu/assassin.png
+	egg-texture-cards -o $(SRC_GUI)/gmenu/units_btn.egg -p 100,100 $(SRC_GUI)/gmenu/h_sprinter.png $(SRC_GUI)/gmenu/v_sprinter.png $(SRC_GUI)/gmenu/zigzagger.png $(SRC_GUI)/gmenu/cw-spiraler.png $(SRC_GUI)/gmenu/ccw-spiraler.png $(SRC_GUI)/gmenu/circler.png $(SRC_GUI)/gmenu/guard.png $(SRC_GUI)/gmenu/archer.png $(SRC_GUI)/gmenu/assassin.png
 
-unit_conf:$(SRC_GUI)/gmenu/v_arrow.png $(SRC_GUI)/gmenu/h_arrow.png $(SRC_GUI)/gmenu/tile-picking.png
-	egg-texture-cards -o $(SRC_GUI)/gmenu/unit_conf.egg -p 100,100 $(SRC_GUI)/gmenu/v_arrow.png $(SRC_GUI)/gmenu/h_arrow.png $(SRC_GUI)/gmenu/tile-picking.png
+unit_conf:$(SRC_GUI)/gmenu/v_arrow.png $(SRC_GUI)/gmenu/h_arrow.png $(SRC_GUI)/gmenu/tile-picking.png $(SRC_GUI)/gmenu/wall-picking.png $(SRC_GUI)/gmenu/unit-picking.png
+	egg-texture-cards -o $(SRC_GUI)/gmenu/unit_conf.egg -p 100,100 $(SRC_GUI)/gmenu/v_arrow.png $(SRC_GUI)/gmenu/h_arrow.png $(SRC_GUI)/gmenu/tile-picking.png $(SRC_GUI)/gmenu/wall-picking.png $(SRC_GUI)/gmenu/unit-picking.png
 	
 gmenu_launch_btn:$(SRC_GUI)/gmenu/launch_btn.png
 	egg-texture-cards -o $(SRC_GUI)/gmenu/launch_btn.egg -p 200,100 $(SRC_GUI)/gmenu/launch_btn.png

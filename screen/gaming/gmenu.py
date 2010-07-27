@@ -11,47 +11,39 @@ class Panel(Frame):
 	def __init__(self,gmenu):
 		Frame.__init__(self,layout=HLayout,parent=gmenu)		
 		self.gmenu=gmenu
+		self.buttons=[]
+		self.accepted_keys=[]
+
+	def add_button(self,res,cmd,xargs,key):
+		self.buttons.append(Button(	pref_w=self.gmenu.h,
+										pref_h=self.gmenu.h,
+										p3dobject=DirectButton(	geom=(self.gmenu.resources[res]),
+																		borderWidth=(0,0),
+																		command=cmd,
+																		extraArgs=xargs),
+										parent=self))
+		self.gmenu.accept(key,cmd,extraArgs=xargs)
+		self.accepted_keys.append(key)
+	
+	def remove_all_buttons(self):
+		for btn in self.buttons:
+			btn.p3dobject.destroy()
+			self.remove_child(btn)
+		del self.buttons[:]
+		for key in self.accepted_keys:
+			self.gmenu.ignore(key)
 		
 class UnitTypePanel(Panel):
 	'''presents the buttons for type of unit to select'''
 	def __init__(self,gmenu):
 		Panel.__init__(self,gmenu)
-		self.marker_btn=Button(pref_w=gmenu.h,
-									pref_h=gmenu.h,
-									p3dobject=DirectButton(geom=(gmenu.resources['type_marker']),
-																borderWidth=(0,0),
-																command=gmenu.show_unit_sel,
-																extraArgs=['Type_marker']),
-									parent=self) 
-		self.builder_btn=Button(	pref_w=gmenu.h,
-									pref_h=gmenu.h,
-									p3dobject=DirectButton(geom=(gmenu.resources['type_builder']),
-															borderWidth=(0,0),
-															command=gmenu.show_unit_sel,
-															extraArgs=['Type_builder']),
-								parent=self) 
-		self.fighter_btn=Button(	pref_w=gmenu.h,
-									pref_h=gmenu.h,
-									p3dobject=DirectButton(geom=(gmenu.resources['type_fighter']),
-															borderWidth=(0,0),
-															command=gmenu.show_unit_sel,
-															extraArgs=['Type_fighter']),
-								parent=self)
-		gmenu.accept('q',gmenu.show_unit_sel,extraArgs=['Type_marker'])
-		gmenu.accept('w',gmenu.show_unit_sel,extraArgs=['Type_builder'])
-		gmenu.accept('e',gmenu.show_unit_sel,extraArgs=['Type_fighter'])
+		self.add_button(res='type_marker',cmd=gmenu.show_unit_sel,xargs=['Type_marker'],key='q')
+		self.add_button(res='type_builder',cmd=gmenu.show_unit_sel,xargs=['Type_builder'],key='w')
+		self.add_button(res='type_fighter',cmd=gmenu.show_unit_sel,xargs=['Type_fighter'],key='e')
 		
 	def close(self):
+		self.remove_all_buttons()
 		self.ignoreAll()
-		self.marker_btn.p3dobject.destroy()
-		self.remove_child(self.marker_btn)
-		del self.marker_btn
-		self.builder_btn.p3dobject.destroy()
-		self.remove_child(self.builder_btn)
-		del self.builder_btn
-		self.fighter_btn.p3dobject.destroy()
-		self.remove_child(self.fighter_btn)
-		del self.fighter_btn
 
 class UnitSelectionPanel(Panel,FSM.FSM):
 	'''presents the buttons for selection of unit to configure'''
@@ -66,116 +58,37 @@ class UnitSelectionPanel(Panel,FSM.FSM):
 	def exitBlank(self):pass
 	
 	def enterType_marker(self):
-		self.zigzagger_btn=Button(	pref_w=self.gmenu.h,
-								    pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['zigzagger']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['Zigzagger']),
-									parent=self)
-		self.spiraler_btn=Button(	pref_w=self.gmenu.h,
-								    pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['spiraler']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['Spiraler']),
-									parent=self)
-		self.gmenu.accept('a',self.gmenu.show_unit_conf,extraArgs=['Zigzagger'])
-		self.gmenu.accept('s',self.gmenu.show_unit_conf,extraArgs=['Spiraler'])
+		self.add_button(res='zigzagger',cmd=self.gmenu.show_unit_conf,xargs=['Zigzagger'],key='a')
+		self.add_button(res='cw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CwSpiraler'],key='s')
+		self.add_button(res='ccw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CcwSpiraler'],key='d')
 
 	def exitType_marker(self):
-		self.gmenu.ignore('a')
-		self.gmenu.ignore('s')
-		self.zigzagger_btn.p3dobject.destroy()
-		self.remove_child(self.zigzagger_btn)
-		del self.zigzagger_btn
-		self.spiraler_btn.p3dobject.destroy()
-		self.remove_child(self.spiraler_btn)
-		del self.spiraler_btn
+		self.remove_all_buttons()
 		
 	
 	def enterType_builder(self):
-		self.h_sprinter_btn=Button(	pref_w=self.gmenu.h,
-								    pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['h_sprinter']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['H_sprinter']),
-									parent=self) 
-		self.v_sprinter_btn=Button(	pref_w=self.gmenu.h,
-									pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['v_sprinter']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['V_sprinter']),
-								parent=self)
-		self.circler_btn=Button(	pref_w=self.gmenu.h,
-									pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['circler']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['Circler']),
-								parent=self)
-		self.gmenu.accept('a',self.gmenu.show_unit_conf,extraArgs=['H_sprinter'])
-		self.gmenu.accept('s',self.gmenu.show_unit_conf,extraArgs=['V_sprinter'])
-		self.gmenu.accept('d',self.gmenu.show_unit_conf,extraArgs=['Circler'])
+		self.add_button(res='h_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['H_sprinter'],key='a')
+		self.add_button(res='v_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['V_sprinter'],key='s')
+		self.add_button(res='circler',cmd=self.gmenu.show_unit_conf,xargs=['Circler'],key='d')
 	
 	def exitType_builder(self):
-		self.gmenu.ignore('a')
-		self.gmenu.ignore('s')
-		self.gmenu.ignore('d')
-		self.h_sprinter_btn.p3dobject.destroy()
-		self.remove_child(self.h_sprinter_btn)
-		del self.h_sprinter_btn
-		self.v_sprinter_btn.p3dobject.destroy()
-		self.remove_child(self.v_sprinter_btn)
-		del self.v_sprinter_btn
-		self.circler_btn.p3dobject.destroy()
-		self.remove_child(self.circler_btn)
-		del self.circler_btn
+		self.remove_all_buttons()
 	
 	def enterType_fighter(self):
-		self.guard_btn=Button(	pref_w=self.gmenu.h,
-								    pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['guard']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['Guard']),
-									parent=self)
-		self.archer_btn=Button(	pref_w=self.gmenu.h,
-								    pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['archer']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['Archer']),
-									parent=self)
-		self.assassin_btn=Button(	pref_w=self.gmenu.h,
-								    pref_h=self.gmenu.h,
-									p3dobject=DirectButton(geom=(self.gmenu.resources['assassin']),
-															borderWidth=(0,0),
-															command=self.gmenu.show_unit_conf,
-															extraArgs=['Assassin']),
-									parent=self)
-		self.gmenu.accept('a',self.gmenu.show_unit_conf,extraArgs=['Guard'])
-		self.gmenu.accept('s',self.gmenu.show_unit_conf,extraArgs=['Archer'])
-		self.gmenu.accept('d',self.gmenu.show_unit_conf,extraArgs=['Assassin'])
+		self.add_button(res='guard',cmd=self.gmenu.show_unit_conf,xargs=['Guard'],key='a')
+		self.add_button(res='archer',cmd=self.gmenu.show_unit_conf,xargs=['Archer'],key='s')
+		self.add_button(res='assassin',cmd=self.gmenu.show_unit_conf,xargs=['Assassin'],key='d')
 	
 	def exitType_fighter(self):
-		self.gmenu.ignore('a')
-		self.gmenu.ignore('s')
-		self.gmenu.ignore('d')
-		self.guard_btn.p3dobject.destroy()
-		self.remove_child(self.guard_btn)
-		del self.guard_btn
-		self.archer_btn.p3dobject.destroy()
-		self.remove_child(self.archer_btn)
-		del self.archer_btn
-		self.assassin_btn.p3dobject.destroy()
-		self.remove_child(self.assassin_btn)
-		del self.assassin_btn
+		self.remove_all_buttons()
+		
+	def remove_all_buttons(self):
+		Panel.remove_all_buttons(self)
+		self.gmenu.conf_pan.request('Blank')
 		
 	def close(self):
 		self.ignoreAll()
+		self.remove_all_buttons()
 
 class UnitConfigurationPanel(Panel,FSM.FSM):
 	'''FSM presenting configuration tools for the selected unit to launch.'''
@@ -195,140 +108,82 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	def enterClose(self):
 		del self._conf
 		self.ignoreAll()
+		self.remove_all_buttons()
 		
 	def exitClose(self):pass
+	
+	def remove_all_buttons(self):
+		Panel.remove_all_buttons(self)
+		self._conf['unit_type']=None
 
 	#######################################################
 	#markers
 	def enterZigzagger(self):
-		self.tile_picking_btn=Button(	pref_w=self.gmenu.h,
-						    pref_h=self.gmenu.h,
-							p3dobject=DirectButton(geom=(self.gmenu.resources['tile-picking']),
-													borderWidth=(0,0),
-													command=screen.frame.gmap.enable_tile_selection,
-													extraArgs=['single']),
-							parent=self)
-		self.accept('z',screen.frame.gmap.enable_tile_selection, extraArgs=['single'])
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
 		self._conf['unit_type']='zizagger'
 		
 	def exitZigzagger(self):
-		if screen.frame.gmap.is_tile_selection_enabled:
-			screen.frame.gmap.disable_tile_selection()
-		self.remove_child(self.tile_picking_btn)
-		self.tile_picking_btn.p3dobject.destroy()
-		del self.tile_picking_btn
-		self._conf['unit_type']=None
+		self.remove_all_buttons()
 		
-	def enterSpiraler(self):
-		self.tile_picking_btn=Button(	pref_w=self.gmenu.h,
-						    pref_h=self.gmenu.h,
-							p3dobject=DirectButton(geom=(self.gmenu.resources['tile-picking']),
-													borderWidth=(0,0),
-													command=screen.frame.gmap.enable_tile_selection,
-													extraArgs=['single']),
-							parent=self)
-		self.accept('z',screen.frame.gmap.enable_tile_selection, extraArgs=['single'])
-		self._conf['unit_type']='spiraler'
+	def enterCwSpiraler(self):
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self._conf['unit_type']='cw-spiraler'
 		
-	def exitSpiraler(self):
-		if screen.frame.gmap.is_tile_selection_enabled:
-			screen.frame.gmap.disable_tile_selection()
-		self.remove_child(self.tile_picking_btn)
-		self.tile_picking_btn.p3dobject.destroy()
-		del self.tile_picking_btn
-		self._conf['unit_type']=None
+	def exitCwSpiraler(self):
+		self.remove_all_buttons()
+		
+	def enterCcwSpiraler(self):
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
+		self._conf['unit_type']='ccw-spiraler'
+		
+	def exitCcwSpiraler(self):
+		self.remove_all_buttons()
 	
 	#######################################################
 	#builders
 	def enterH_sprinter(self):
-		'''
-		will display hsprinter conf buttons
-		'''
-		self.arrow=Button(	pref_w=self.gmenu.h,
-						    pref_h=self.gmenu.h,
-							p3dobject=DirectButton(geom=(self.gmenu.resources['h_arrow']),
-													borderWidth=(0,0),
-													command=screen.frame.gmap.enable_tile_selection,
-													extraArgs=['single']),
-							parent=self)
-		self.accept('z',screen.frame.gmap.enable_tile_selection, extraArgs=['single'])
+		self.add_button(res='h_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
 		self._conf['unit_type']='h_sprinter'
 	
 	def exitH_sprinter(self):
-		if screen.frame.gmap.is_tile_selection_enabled:
-			screen.frame.gmap.disable_tile_selection()
-		self.remove_child(self.arrow)
-		self.arrow.p3dobject.destroy()
-		del self.arrow
-		self._conf['unit_type']=None
+		self.remove_all_buttons()
 	
 	def enterV_sprinter(self):
-		'''
-		will display vsprinter conf buttons
-		'''
-		self.arrow=Button(	pref_w=self.gmenu.h,
-						    pref_h=self.gmenu.h,
-							p3dobject=DirectButton(geom=(self.gmenu.resources['v_arrow']),
-													borderWidth=(0,0),
-													command=screen.frame.gmap.enable_tile_selection,
-													extraArgs=['single']),
-							parent=self)
-		self.accept('z',screen.frame.gmap.enable_tile_selection, extraArgs=['single'])
+		self.add_button(res='v_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
 		self._conf['unit_type']='v_sprinter'
 	
 	def exitV_sprinter(self):
-		if screen.frame.gmap.is_tile_selection_enabled:
-			screen.frame.gmap.disable_tile_selection()
-		self.remove_child(self.arrow)
-		self.arrow.p3dobject.destroy()
-		del self.arrow
-		self._conf['unit_type']=None
+		self.remove_all_buttons()
 		
 	def enterCircler(self):
-		self.tile_picking_btn=Button(	pref_w=self.gmenu.h,
-						    pref_h=self.gmenu.h,
-							p3dobject=DirectButton(geom=(self.gmenu.resources['tile-picking']),
-													borderWidth=(0,0),
-													command=screen.frame.gmap.enable_tile_selection,
-													extraArgs=['single']),
-							parent=self)
-		self.accept('z',screen.frame.gmap.enable_tile_selection, extraArgs=['single'])
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
 		self._conf['unit_type']='circler'
 
 	def exitCircler(self):
-		if screen.frame.gmap.is_tile_selection_enabled:
-			screen.frame.gmap.disable_tile_selection()
-		self.remove_child(self.tile_picking_btn)
-		self.tile_picking_btn.p3dobject.destroy()
-		del self.tile_picking_btn
-		self._conf['unit_type']=None
+		self.remove_all_buttons()
 		
 	#######################################################
 	#fighters
-	def enterGuard(self):pass
-	def exitGuard(self):pass
+	def enterGuard(self):
+		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_wall_selection,xargs=['allied'],key='z')
+		self._conf['unit_type']='guard'
+
+	def exitGuard(self):
+		self.remove_all_buttons()
+
 	def enterArcher(self):
-		self.tile_picking_btn=Button(	pref_w=self.gmenu.h,
-						    pref_h=self.gmenu.h,
-							p3dobject=DirectButton(geom=(self.gmenu.resources['tile-picking']),
-													borderWidth=(0,0),
-													command=screen.frame.gmap.enable_tile_selection,
-													extraArgs=['single']),
-							parent=self)
-		self.accept('z',screen.frame.gmap.enable_tile_selection, extraArgs=['single'])
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='z')
 		self._conf['unit_type']='archer'
 
 	def exitArcher(self):
-		if screen.frame.gmap.is_tile_selection_enabled:
-			screen.frame.gmap.disable_tile_selection()
-		self.remove_child(self.tile_picking_btn)
-		self.tile_picking_btn.p3dobject.destroy()
-		del self.tile_picking_btn
-		self._conf['unit_type']=None
+		self.remove_all_buttons()
 
-	def enterAssassin(self):pass
-	def exitAssassin(self):pass
-	
+	def enterAssassin(self):
+		self.add_button(res='unit-picking',cmd=screen.frame.gmap.enable_unit_selection,xargs=['ennemy'],key='z')
+		self._conf['unit_type']='assassin'
+
+	def exitAssassin(self):
+		self.remove_all_buttons()
 	
 	#######################################################
 	#misc
@@ -390,7 +245,8 @@ class GMenu(Frame,DirectObject):
 							#units
 							#markers
 							'zigzagger':unit_sel_res.find('**/zigzagger'),
-							'spiraler':unit_sel_res.find('**/spiraler'),
+							'cw-spiraler':unit_sel_res.find('**/cw-spiraler'),
+							'ccw-spiraler':unit_sel_res.find('**/ccw-spiraler'),
 							'circler':unit_sel_res.find('**/circler'),
 							#builders
 							'h_sprinter':unit_sel_res.find('**/h_sprinter'),
@@ -401,6 +257,8 @@ class GMenu(Frame,DirectObject):
 							'assassin':unit_sel_res.find('**/assassin'),
 							#conf stuff
 							'tile-picking':unit_conf_res.find('**/tile-picking'),
+							'wall-picking':unit_conf_res.find('**/wall-picking'),
+							'unit-picking':unit_conf_res.find('**/unit-picking'),
 							'h_arrow':unit_conf_res.find('**/h_arrow'),
 							'v_arrow':unit_conf_res.find('**/v_arrow'),
 							'launch_btn':launch_btn_res.find('**/launch_btn'),
@@ -424,8 +282,13 @@ class GMenu(Frame,DirectObject):
 			del conf['complete']
 			#send conf
 			network.serverproxy.send({network.cts_new_unit:conf})
-			if screen.frame.gmap.is_tile_selection_enabled:
-				screen.frame.gmap.disable_tile_selection()
+			gmap=screen.frame.gmap
+			if gmap.is_tile_selection_enabled:
+				gmap.disable_tile_selection()
+			if gmap.is_unit_selection_enabled:
+				gmap.disable_unit_selection()
+			if gmap.is_wall_selection_enabled:
+				gmap.disable_wall_selection()
 
 	def show_unit_sel(self,unit_type):
 		'''
