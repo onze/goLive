@@ -25,7 +25,8 @@ class Panel(Frame):
 		self.key_focus.append(dict(key=key,cmd=cmd,xargs=xargs))
 		
 	def focus(self):
-		'''listen to keyboard events as stocked within self.key_focus'''
+		'''listen to keyboard events as stocked within self.key_focus.
+		panels are not responsible of their focus'''
 		for d in self.key_focus:
 			self.gmenu.accept(d['key'],d['cmd'],extraArgs=d['xargs'])
 			
@@ -335,6 +336,11 @@ class GMenu(Frame,DirectObject):
 			#send conf
 			network.serverproxy.send({network.cts_new_unit:conf})
 			gmap=screen.frame.gmap
+			self.state='type'
+			self.conf_pan.demand('Close')
+			self.sel_pan.close()
+			self.type_pan.focus()
+			self.state='unit'
 			if gmap.is_tile_selection_enabled:
 				gmap.disable_tile_selection()
 			if gmap.is_unit_selection_enabled:

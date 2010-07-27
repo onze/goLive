@@ -23,8 +23,8 @@ class GMap(Widget,DirectObject):
 		#root of anything on the board
 		self.root=base.render.attachNewNode('GMap.root')
 		self.gcam=GamingCam(self,tools.Rectangle(self.x,self.y,self.w,self.h))
-		self.gcam.level=.5
-		self.gcam.target=self.root
+		self.gcam.level=.7
+		self.gcam.target=(0,-9,0)
 		#node containing eveny GUnits		
 		self.units_node=self.root.attachNewNode('GMap.units_node')
 		#tile selection stuff
@@ -63,7 +63,7 @@ class GMap(Widget,DirectObject):
 		'''
 		builds the playing grid, that is a resx*resy matrix of tiles.
 		'''
-		#every nodes will be attached to this one
+		#every tile nodes will be attached to this one
 		self.tile_matrix_node=self.model_res['tile_matrix_'+res]
 		self.tile_matrix_node.reparentTo(self.root)
 		#self.tile_matrix_origin_np=self.tile_matrix_node.attachNewNode('tile_matrix_origin')
@@ -92,10 +92,6 @@ class GMap(Widget,DirectObject):
 		called every frame when tile highlighting is enabled.
 		does the real job.
 		'''
-		#if len(self.highlighted_tiles) and self.highlighted_tiles[0] in self.selected_tiles:
-		#	self.color_tiles(self.highlighted_tiles,self.selected_tiles_color)
-		#else:
-		#	self.color_tiles(self.highlighted_tiles,self.normal_tiles_color)
 		old=list(self.highlighted_tiles)
 		if self.highlight_mode==None:
 			return
@@ -117,21 +113,33 @@ class GMap(Widget,DirectObject):
 				self.highlighted_tiles=[picked]
 			else:
 				self.highlighted_tiles=[]
+		elif self.highlight_mode in ['allied-wall','enemy-wall']:
+			picked=self.gcam.get_picked_tile()
+			if picked:
+				if self.highlight_mode=='allied-wall' and picked.pawner==screen.frame.pid:
+					self.highlighted_tiles=picked.wall
+				elif self.highlight_mode=='enemy-wall' and picked.pawner!=screen.frame.pid:
+					self.highlighted_tiles=picked.wall
+				else:
+					self.highlighted_tiles=[]
+			else:
+				self.highlighted_tiles=[]
+		out(len(self.highlighted_tiles))
 		if self.highlighted_tiles!=old:
 			[tile.unset_highlighted() for tile in old]
 			[tile.set_highlighted() for tile in self.highlighted_tiles]
 
 	def enable_tile_selection(self,mode):
 		'''
-		will keep track of hovered tiles depending on the given mode ('column','row','single'),
+		will keep track of hovered tiles depending on the given mode ('column','row','single','allied-wall','enemy-wall'),
 		storing a list of them into self.selected_tiles. 
 		'''
-		out('gmap.enable_tile_selection()')
+		out('gmap.enable_tile_selection(mode='+mode+')')
 		self.is_tile_selection_enabled=True
-#		self.gcam.push_state()
-#		self.gcam.center()
-#		self.gcam.disable_move()
-#		self.gcam.level=1
+		self.gcam.push_state()
+		self.gcam.center()
+		self.gcam.disable_move()
+		self.gcam.level=1
 		self.enable_tile_highlight(mode)
 		self.selected_tiles=[]
 		self.accept('mouse1-up',self.set_selected_tiles)
@@ -141,8 +149,8 @@ class GMap(Widget,DirectObject):
 		out('gmap.disable_tile_selection()')
 		self.ignore('mouse1-up')
 		self.is_tile_selection_enabled=False
-#		self.gcam.enable_move()
-#		self.gcam.pop_state()
+		self.gcam.enable_move()
+		self.gcam.pop_state()
 		self.disable_tile_highlight()
 		[tile.unset_selected() for tile in self.selected_tiles]
 		self.selected_tiles=[]		
@@ -181,11 +189,14 @@ class GMap(Widget,DirectObject):
 					self.highlighted_unit=picked
 				if self.highlight_mode=='ally' and picked.pid==screen.frame.pid:
 					self.highlighted_unit=picked
-		if self.highlighted_unit and self.highlighted_unit!=old:
-			if old:
+		if self.highlighted_unit:
+			if self.highlighted_unit!=old:
+				if old:
+					old.unset_highlighted()
+				if self.highlighted_unit:
+					self.highlighted_unit.set_highlighted()
+		elif old:
 				old.unset_highlighted()
-			if self.highlighted_unit:
-				self.highlighted_unit.set_highlighted()
 		
 	def enable_unit_selection(self,mode):
 		'''
@@ -193,6 +204,10 @@ class GMap(Widget,DirectObject):
 		'''
 		out('GMap.enable_unit_selection')
 		self.is_unit_selection_enabled=True
+		self.gcam.push_state()
+		self.gcam.center()
+		self.gcam.disable_move()
+		self.gcam.level=1
 		self.enable_unit_highlight(mode)
 		self.selected_unit=None
 		self.accept('mouse1-up',self.set_selected_unit)
@@ -200,18 +215,23 @@ class GMap(Widget,DirectObject):
 	def disable_unit_selection(self):
 		out('GMap.disable_unit_selection')
 		self.is_unit_selection_enabled=False
+		self.gcam.enable_move()
+		self.gcam.pop_state()
 		self.ignore('mouse1-up')
 		self.disable_unit_highlight()
-		self.selected_unit.unset_selected()
-		self.selected_unit=None
+		if self.selected_unit:
+			self.selected_unit.unset_selected()
+			self.selected_unit=None
 		
 	def set_selected_unit(self):
 		'''
 		called at left mouse click when unit selection is enabled.
 		'''
-		self.selected_unit.unset_selected()
+		if self.selected_unit:
+			self.selected_unit.unset_selected()
 		self.selected_unit=self.highlighted_unit
-		self.selected_unit.set_selected()
+		if self.selected_unit:
+			self.selected_unit.set_selected()
 
 	def new_home(self,data):
 		#http://www.panda3d.org/wiki/index.php/Loading_Actors_and_Animations

@@ -34,6 +34,7 @@ class GFrame(Frame):
 		#load all needed resources
 		GMenu.load_resources()
 		GMap.load_resources()
+		GUnit.load_resources()
 		self.menu=GMenu(parent=self,pref_h=50)
 		#instanciate screen objects
 		self.gmap=GMap(parent=self)

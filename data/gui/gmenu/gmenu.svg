@@ -594,13 +594,6 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3077"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -610,15 +603,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.5139674"
-     inkscape:cx="37.035147"
-     inkscape:cy="45.859487"
+     inkscape:cx="37.746594"
+     inkscape:cy="44.436594"
      inkscape:document-units="px"
-     inkscape:current-layer="layer28"
+     inkscape:current-layer="layer27"
      showgrid="false"
      inkscape:window-width="1276"
-     inkscape:window-height="728"
+     inkscape:window-height="711"
      inkscape:window-x="0"
-     inkscape:window-y="51"
+     inkscape:window-y="68"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true" />
@@ -646,38 +639,9 @@
        height="100"
        x="0.5"
        y="951.86218"
-       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/cancel.png"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
        inkscape:export-xdpi="89.10891"
        inkscape:export-ydpi="89.10891" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer28"
-     inkscape:label="cancel"
-     style="display:inline">
-    <rect
-       style="fill:#ff0404;fill-opacity:1;stroke:#000000;stroke-opacity:1;display:inline"
-       id="rect3590-5"
-       width="100"
-       height="100"
-       x="0.5"
-       y="951.86218"
-       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/cancel.png"
-       inkscape:export-xdpi="89.10891"
-       inkscape:export-ydpi="89.10891" />
-    <text
-       xml:space="preserve"
-       style="font-size:64px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="27.888704"
-       y="1024.4735"
-       id="text3959"
-       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/cancel.png"
-       inkscape:export-xdpi="89.10891"
-       inkscape:export-ydpi="89.10891"><tspan
-         sodipodi:role="line"
-         id="tspan3961"
-         x="27.888704"
-         y="1024.4735">C</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1358,11 +1322,13 @@
   <g
      inkscape:groupmode="layer"
      id="layer27"
-     inkscape:label="tile grid zoomed"
-     style="display:none">
+     inkscape:label="tile grid zoomed">
     <g
        id="g7890"
-       transform="matrix(1.4657501,0,0,1.359251,-25.978462,-353.10381)">
+       transform="matrix(1.4657501,0,0,1.359251,-25.978462,-353.10381)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891">
       <path
          inkscape:export-ydpi="89.10891"
          inkscape:export-xdpi="89.10891"
@@ -1674,7 +1640,7 @@
      inkscape:groupmode="layer"
      id="layer25"
      inkscape:label="unit"
-     style="display:none">
+     style="display:inline">
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.20079523;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        d=""
@@ -1687,21 +1653,33 @@
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 33.168059,1020.2553 c 0.888976,-1.9083 1.571851,-4.5221 4.02427,-4.1203 -0.528473,2.9997 2.198001,2.9175 2.910053,4.6193"
        id="path4904"
-       sodipodi:nodetypes="ccc" />
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 36.859634,1015.2859 c 1.87655,-1.8781 1.038133,-4.3528 0.851924,-6.6733"
        id="path4906"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 36.433683,1011.1683 c -1.255793,-0.6921 -2.426465,-0.7196 -3.691575,0.142"
        id="path4908"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 38.847406,1011.1683 c 1.246217,-0.6398 2.850478,-0.5941 3.975542,0.284"
-       id="path4910" />
+       id="path4910"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        sodipodi:type="arc"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
@@ -1711,30 +1689,48 @@
        sodipodi:rx="2.1083498"
        sodipodi:ry="1.6816601"
        d="m 56.825051,984.26752 a 2.1083498,1.6816601 0 1 1 -4.216699,0 2.1083498,1.6816601 0 1 1 4.216699,0 z"
-       transform="translate(-16.384241,21.988926)" />
+       transform="translate(-16.384241,21.988926)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:#e55a29;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        d="m 37.820088,1007.3443 c -0.520157,-0.149 -0.921912,-0.4707 -1.026147,-0.8217 -0.07028,-0.2367 -0.07028,-0.2949 0,-0.5315 0.106617,-0.3591 0.565624,-0.7157 1.07947,-0.8386 0.974208,-0.2332 2.036578,0.3429 2.036578,1.1043 0,0.7794 -1.124025,1.3643 -2.089901,1.0875 z"
-       id="path4984" />
+       id="path4984"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 52.731822,977.20095 c 0.888976,-1.9084 1.571851,-4.5222 4.02427,-4.1203 -0.528473,2.9997 2.198001,2.9175 2.910053,4.6193"
        id="path4904-2"
-       sodipodi:nodetypes="ccc" />
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 56.423397,972.23145 c 1.87655,-1.8781 1.038133,-4.35272 0.851924,-6.67324"
        id="path4906-5"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 55.997446,968.11395 c -1.255793,-0.69217 -2.426465,-0.71967 -3.691575,0.142"
        id="path4908-4"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 58.411169,968.11395 c 1.246217,-0.6398 2.850478,-0.5941 3.975542,0.284"
-       id="path4910-7" />
+       id="path4910-7"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        sodipodi:type="arc"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
@@ -1744,30 +1740,48 @@
        sodipodi:rx="2.1083498"
        sodipodi:ry="1.6816601"
        d="m 56.825051,984.26752 a 2.1083498,1.6816601 0 1 1 -4.216699,0 2.1083498,1.6816601 0 1 1 4.216699,0 z"
-       transform="translate(3.1795222,-21.065493)" />
+       transform="translate(3.1795222,-21.065493)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        d="m 57.383851,964.28993 c -0.520157,-0.14902 -0.921912,-0.47075 -1.026147,-0.82175 -0.07028,-0.23666 -0.07028,-0.29488 0,-0.53154 0.106617,-0.35903 0.565624,-0.71561 1.07947,-0.83859 0.974208,-0.23318 2.036578,0.34291 2.036578,1.10436 0,0.77933 -1.124025,1.36424 -2.089901,1.08752 z"
-       id="path4984-4" />
+       id="path4984-4"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 84.95465,1005.4336 c -0.888976,-1.9084 -1.571851,-4.5222 -4.02427,-4.1203 0.528473,2.9997 -2.198001,2.9175 -2.910053,4.6193"
        id="path4904-2-4"
-       sodipodi:nodetypes="ccc" />
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 81.263075,1000.4641 c -1.87655,-1.8781 -1.038133,-4.35272 -0.851924,-6.67324"
        id="path4906-5-3"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 81.689026,996.3466 c 1.255793,-0.69217 2.426465,-0.71967 3.691575,0.142"
        id="path4908-4-1"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
        d="m 79.275303,996.3466 c -1.246217,-0.6398 -2.850478,-0.5941 -3.975542,0.284"
-       id="path4910-7-4" />
+       id="path4910-7-4"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        sodipodi:type="arc"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
@@ -1777,22 +1791,31 @@
        sodipodi:rx="2.1083498"
        sodipodi:ry="1.6816601"
        d="m 56.825051,984.26752 a 2.1083498,1.6816601 0 1 1 -4.216699,0 2.1083498,1.6816601 0 1 1 4.216699,0 z"
-       transform="matrix(-1,0,0,1,134.50694,7.1671567)" />
+       transform="matrix(-1,0,0,1,134.50694,7.1671567)"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        d="m 80.302621,992.52258 c 0.520157,-0.14902 0.921912,-0.47075 1.026147,-0.82175 0.07028,-0.23666 0.07028,-0.29488 0,-0.53154 -0.106617,-0.35903 -0.565624,-0.71561 -1.07947,-0.83859 -0.974208,-0.23318 -2.036578,0.34291 -2.036578,1.10436 0,0.77933 1.124025,1.36424 2.089901,1.08752 z"
-       id="path4984-4-2" />
+       id="path4984-4-2"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer26"
      inkscape:label="unit pick"
-     style="display:none">
+     style="display:inline">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow1Lend-7)"
        d="M 4.8190857,964.21308 C 29.762846,964.6554 37.155527,973.79987 38.5462,999.77194"
        id="path5208"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/z0/python/1004/goLive/data/gui/gmenu/unit-picking.png"
+       inkscape:export-xdpi="89.10891"
+       inkscape:export-ydpi="89.10891" />
   </g>
   <g
      inkscape:groupmode="layer"

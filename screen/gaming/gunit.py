@@ -1,7 +1,7 @@
 
 from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import LerpPosInterval,Func,Sequence
-from panda3d.core import ConfigVariableDouble
+from panda3d.core import ConfigVariableDouble,TextureStage,TransparencyAttrib
 
 from screen.gaming.gentity import GEntity
 from tools import dist3
@@ -11,6 +11,7 @@ class GUnit(GEntity):
 	def __init__(self,conf):
 		GEntity.__init__(self,conf)
 		self.p3dobject.reparentTo(self.gmap.units_node)
+		self.p3dobject.setTransparency(TransparencyAttrib.MAlpha)
 		#to be put under condition for non pickable units (bonuses npc for instance)
 		self.p3dobject.setTag('GUnit-pickable','1')
 		self.p3dobject.setPos(self.gmap.root.find('**/tile_'+str(conf['tileid'])),0,0,0)
@@ -19,6 +20,20 @@ class GUnit(GEntity):
 		self.path=[]
 		self.popout_when_move_over=False
 		self.pid=conf['pid']
+		#highlight
+		self.ts_highlighted=TextureStage('ts_highlighted')
+		self.ts_highlighted.setMode(TextureStage.MDecal)
+		self.ts_highlighted.setSort(2)
+		#highlight
+		self.ts_selected=TextureStage('ts_selected')
+		self.ts_selected.setMode(TextureStage.MDecal)
+		self.ts_selected.setSort(3)
+					
+	@staticmethod
+	def load_resources():
+		GUnit.textures={	'highlighted':loader.loadTexture('data/models/highlighted.tex.png'),
+								'selected':loader.loadTexture('data/models/selected.tex.png'),
+							}
 		
 	def dispose(self):
 		'''del method'''
@@ -52,17 +67,23 @@ class GUnit(GEntity):
 			self.popout()
 			
 	def popout(self):
-		'''sets up the popout animation'''
+		'''sets up the popout animation at end of unit's mission'''
 		scale=self.p3dobject.scaleInterval(.5,(.1,.1,.1))
 		finish=Func(lambda:dispose_list.append(self))
 		self.popout_sequence=Sequence(scale,finish)
 		self.popout_sequence.start()
 		
 	def set_highlighted(self):
-		out('GUnit.set_highlighted: to be implemented')
+		self.p3dobject.setTexture(self.ts_highlighted,self.textures['highlighted'])
 		
 	def unset_highlighted(self):
-		out('GUnit.unset_highlighted: to be implemented')
+		self.p3dobject.clearTexture(self.ts_highlighted)
+		
+	def set_selected(self):
+		self.p3dobject.setTexture(self.ts_selected,self.textures['selected'])
+		
+	def unset_selected(self):
+		self.p3dobject.clearTexture(self.ts_selected)
 		
 	def update_move(self):
 		'''called every frame during while a move.'''
@@ -110,7 +131,6 @@ class GUnit(GEntity):
 													   )
 					self.p3dobject.lookAt(self.path[0].p3dobject.getPos())
 					self.move_interval.start()
-				
 		
 class GH_Sprinter(GUnit):
 	def __init__(self,conf):
@@ -120,7 +140,6 @@ class GH_Sprinter(GUnit):
 							 )
 		GUnit.__init__(self,conf)
 		self.p3dobject.setName('GH_Sprinter_'+str(self.eid))
-		#home.setH(tools.random([0,90,180,270]))
 
 		
 class GV_Sprinter(GUnit):
@@ -130,4 +149,3 @@ class GV_Sprinter(GUnit):
 							  }
 							 )
 		GUnit.__init__(self,conf)
-		#home.setH(tools.random([0,90,180,270]))

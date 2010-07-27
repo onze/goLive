@@ -29,8 +29,8 @@ class GTile(GEntity):
 		self.ts_load_level.setMode(TextureStage.MReplace)
 		self.ts_load_level.setSort(1)
 		
+		#pid of the player that owns the tile
 		self.pawner=None
-		#owner
 		self.ts_pawn=TextureStage('ts_pawn')
 		self.ts_pawn.setMode(TextureStage.MDecal)
 		self.ts_pawn.setSort(2)
@@ -50,16 +50,65 @@ class GTile(GEntity):
 	@staticmethod
 	def load_resources():
 		#dict of texture
-		GTile.resources={'quad':lambda:loader.loadModel('data/models/tiles/tile.egg')}
-		GTile.textures={'highlighted':loader.loadTexture('data/models/tiles/tile.highlighted.tex.png'),
-					   	'selected':loader.loadTexture('data/models/tiles/tile.selected.tex.png'),
-					   	'pawn-black':loader.loadTexture('data/models/tiles/tile.pawned.black.tex.png'),
-					   	'pawn-white':loader.loadTexture('data/models/tiles/tile.pawned.white.tex.png'),
-					   	'black-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.black.1.tex.png'),
-					   	'black-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.black.3.tex.png'),
-					   	'white-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.white.1.tex.png'),
-					   	'white-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.white.3.tex.png'),
-				       }
+		GTile.resources={	'quad':lambda:loader.loadModel('data/models/tiles/tile.egg'),
+								}
+		GTile.textures={	'highlighted':loader.loadTexture('data/models/tiles/tile.highlighted.tex.png'),
+					   		'selected':loader.loadTexture('data/models/tiles/tile.selected.tex.png'),
+					   		'pawn-black':loader.loadTexture('data/models/tiles/tile.pawned.black.tex.png'),
+					   		'pawn-white':loader.loadTexture('data/models/tiles/tile.pawned.white.tex.png'),
+					   		'black-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.black.1.tex.png'),
+					   		'black-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.black.3.tex.png'),
+					   		'white-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.white.1.tex.png'),
+					   		'white-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.white.3.tex.png'),
+				       		}
+
+	@property
+	def left_tile(self):
+		'''property getter'''
+		if self.x>0:return self.gmap.tile_matrix[self.x-1][self.y]
+		return None
+
+	@property
+	def lower_tile(self):
+		'''property getter'''
+		if self.y>0:return self.gmap.tile_matrix[self.x][self.y-1]
+		return None
+
+	@property
+	def right_tile(self):
+		'''property getter'''
+		if self.x<self.gmap.resx-1:return self.gmap.tile_matrix[self.x+1][self.y]
+		return None
+
+	@property
+	def upper_tile(self):
+		'''property getter'''
+		if self.y<self.gmap.resy-1:return self.gmap.tile_matrix[self.x][self.y+1]
+		return None
+
+	@property
+	def neighbors(self):
+		'''property getter'''
+		return filter(lambda t:t!=None,[self.left_tile,self.lower_tile,self.right_tile,self.upper_tile])
+
+	@property
+	def wall(self):
+		'''
+		returns a list of all tiles that form a wall connected to this tile.
+		a tile with no pawner doesn't belong to any wall.
+		'''
+		if self.pawner==None:
+			return []
+		wall=[]
+		fringe=[self]
+		visited={}
+		while len(fringe):
+			t=fringe.pop(0)
+			if t.pawner==self.pawner:
+				wall.append(t)
+				visited[t]=1
+			fringe.extend([n for n in t.neighbors if n.pawner==self.pawner and n not in visited])
+		return wall
 	
 	def change_load_level(self,data):
 		'''
@@ -85,7 +134,7 @@ class GTile(GEntity):
 		else: 
 			color={0:'black',1:'white'}[self.pawner]
 			self.quad.setTexture(self.ts_pawn,self.textures['pawn-'+color])
-			self.quad.show()		
+			self.quad.show()
 	
 	def set_highlighted(self):
 		#out('tile.eid='+str(self.eid))
@@ -113,5 +162,6 @@ class GTile(GEntity):
 	@property
 	def center_pos(self):
 		return self.p3dobject.getPos()
+
 
 		
