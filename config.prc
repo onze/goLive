@@ -116,7 +116,7 @@ pstats-tasks 1
 ###development variables
 console-trigger `
 dev-mode t
-stats f
+stats t
 
 ###client settings
 #general settings
@@ -126,6 +126,12 @@ intro-delay 1
 key-confirm enter
 key-next space
 key-cancel escape
+#gaming menu
+gmenu-cancel q
+gmenu-m1 w
+gmenu-m2 e
+gmenu-m3 r
+gmenu-launch space
 
 #camera movement while gaming
 key-cam-zoom-in wheel_up
@@ -149,11 +155,5 @@ map-height-m 32
 map-width-l 64
 map-height-l 64
 
-#tiles owner propagation
-pawner-duration 20
-load-propagation-frequency 10
-load-level-level-0 5
-load-level-level-1 50
-load-level-level-2 255
 
 

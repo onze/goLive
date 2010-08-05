@@ -5,24 +5,31 @@ ConfigVariableString('','')
 ConfigVariableInt('',)
 '''
 def load_panda_default():
-	ConfigVariableInt('load-propagation-frequency',10)
-	ConfigVariableInt('load-level-0',5)
-	ConfigVariableInt('load-level-1',50)
-	ConfigVariableInt('load-level-2',255)
-	ConfigVariableInt('pawner-duration',20)
-	ConfigVariableInt('win-width',1280)
-	ConfigVariableInt('win-height',800)
-	ConfigVariableString('console-trigger','`')
-	ConfigVariableString('key-confirm','enter')
-	ConfigVariableInt('intro-delay',1)
+	#dev
 	ConfigVariableBool('dev-mode','t')
 	ConfigVariableBool('stats','f')
+	
+	#engine
+	ConfigVariableInt('win-width',1280)
+	ConfigVariableInt('win-height',800)
+	ConfigVariableInt('intro-delay',1)
+	
+	#keys	
+	ConfigVariableString('console-trigger','`')
+	ConfigVariableString('key-confirm','enter')
+	ConfigVariableString('gmenu-cancel','q')
+	ConfigVariableString('gmenu-m1','w')
+	ConfigVariableString('gmenu-m2','e')
+	ConfigVariableString('gmenu-m3','r')
+	ConfigVariableString('gmenu-launch','space')
 	ConfigVariableString('key-cam-zoom-in','wheel_up')
 	ConfigVariableString('key-cam-zoom-out','wheel_down')
 	ConfigVariableString('key-cam-right','arrow_right')
 	ConfigVariableString('key-cam-up','arrow_left')
 	ConfigVariableString('key-cam-left','arrow_up')
 	ConfigVariableString('key-cam-down','arrow_down')
+	
+	#game
 	ConfigVariableInt('map-width-xs',8)
 	ConfigVariableInt('map-height-xs',8)
 	ConfigVariableInt('map-width-s',16)

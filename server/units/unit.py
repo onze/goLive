@@ -99,15 +99,16 @@ class Unit(Entity):
 		d=dist2(self,self.path[0])
 		#not arrived yet
 		if d>self.move_speed:
-			oldx,oldy=self.x,self.y
-			#move (angle could be cached at next-tile-choice)
-			a=atan2(self.path[0].y-self.y,self.path[0].x-self.x)
-			self.x+=self.move_speed*cos(a)
-			self.y+=self.move_speed*sin(a)
-			#unit has moved to a new tile
-			if int(oldx)!=int(self.x) or int(oldy)!=int(self.y):
+			oldx,oldy=int(self.x),int(self.y)
+			target=self.path[0]
+			dx=target.x-self.x
+			if not dx:
+				dy=target.y-self.y
+				self.y+=self.move_speed*(1 if dy>0 else -1)
+			else:
+				self.x+=self.move_speed*(1 if dx>0 else -1)
+			if oldx!=int(self.x) or oldy!=int(self.y):
 				self.tile=self.find_tile(x=self.x,y=self.y)
-				#self.send({stc_unit_tile:{'eid':self.eid,'tile':self.tile.eid}})
 		else:
 			#arrived at path[0]
 			self.tile=self.path.pop(0)

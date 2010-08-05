@@ -2,6 +2,7 @@
 from direct.fsm import FSM
 from direct.gui.DirectGui import DirectButton
 from direct.showbase.DirectObject import DirectObject
+from panda3d.core import ConfigVariableString
 
 from screen.widgetwrapper import Frame,Button,Spacer
 from screen.layout import HLayout
@@ -47,9 +48,9 @@ class UnitTypePanel(Panel):
 	'''presents the buttons for type of unit to select'''
 	def __init__(self,gmenu):
 		Panel.__init__(self,gmenu)
-		self.add_button(res='type_marker',cmd=gmenu.show_unit_sel,xargs=['Type_marker'],key='w')
-		self.add_button(res='type_builder',cmd=gmenu.show_unit_sel,xargs=['Type_builder'],key='e')
-		self.add_button(res='type_fighter',cmd=gmenu.show_unit_sel,xargs=['Type_fighter'],key='r')
+		self.add_button(res='type_marker',cmd=gmenu.show_unit_sel,xargs=['Type_marker'],key=self.keys['m1'])
+		self.add_button(res='type_builder',cmd=gmenu.show_unit_sel,xargs=['Type_builder'],key=self.keys['m2'])
+		self.add_button(res='type_fighter',cmd=gmenu.show_unit_sel,xargs=['Type_fighter'],key=self.keys['m3'])
 		
 	def close(self):
 		self.remove_all_buttons()
@@ -68,26 +69,26 @@ class UnitSelectionPanel(Panel,FSM.FSM):
 	def exitBlank(self):pass
 	
 	def enterType_marker(self):
-		self.add_button(res='zigzagger',cmd=self.gmenu.show_unit_conf,xargs=['Zigzagger'],key='w')
-		self.add_button(res='cw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CwSpiraler'],key='e')
-		self.add_button(res='ccw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CcwSpiraler'],key='r')
+		self.add_button(res='zigzagger',cmd=self.gmenu.show_unit_conf,xargs=['Zigzagger'],key=self.keys['m1'])
+		self.add_button(res='cw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CwSpiraler'],key=self.keys['m2'])
+		self.add_button(res='ccw-spiraler',cmd=self.gmenu.show_unit_conf,xargs=['CcwSpiraler'],key=self.keys['m3'])
 
 	def exitType_marker(self):
 		self.remove_all_buttons()
 		
 	
 	def enterType_builder(self):
-		self.add_button(res='h_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['H_sprinter'],key='w')
-		self.add_button(res='v_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['V_sprinter'],key='e')
-		self.add_button(res='circler',cmd=self.gmenu.show_unit_conf,xargs=['Circler'],key='r')
+		self.add_button(res='h_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['H_sprinter'],key=self.keys['m1'])
+		self.add_button(res='v_sprinter',cmd=self.gmenu.show_unit_conf,xargs=['V_sprinter'],key=self.keys['m2'])
+		self.add_button(res='circler',cmd=self.gmenu.show_unit_conf,xargs=['Circler'],key=self.keys['m3'])
 	
 	def exitType_builder(self):
 		self.remove_all_buttons()
 	
 	def enterType_fighter(self):
-		self.add_button(res='guard',cmd=self.gmenu.show_unit_conf,xargs=['Guard'],key='w')
-		self.add_button(res='archer',cmd=self.gmenu.show_unit_conf,xargs=['Archer'],key='e')
-		self.add_button(res='assassin',cmd=self.gmenu.show_unit_conf,xargs=['Assassin'],key='r')
+		self.add_button(res='guard',cmd=self.gmenu.show_unit_conf,xargs=['Guard'],key=self.keys['m1'])
+		self.add_button(res='archer',cmd=self.gmenu.show_unit_conf,xargs=['Archer'],key=self.keys['m2'])
+		self.add_button(res='assassin',cmd=self.gmenu.show_unit_conf,xargs=['Assassin'],key=self.keys['m3'])
 	
 	def exitType_fighter(self):
 		self.remove_all_buttons()
@@ -135,21 +136,21 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	#######################################################
 	#markers
 	def enterZigzagger(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='zizagger'
 		
 	def exitZigzagger(self):
 		self.remove_all_buttons()
 		
 	def enterCwSpiraler(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='cw-spiraler'
 		
 	def exitCwSpiraler(self):
 		self.remove_all_buttons()
 		
 	def enterCcwSpiraler(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='ccw-spiraler'
 		
 	def exitCcwSpiraler(self):
@@ -158,21 +159,21 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	#######################################################
 	#builders
 	def enterH_sprinter(self):
-		self.add_button(res='h_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='h_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='h_sprinter'
 	
 	def exitH_sprinter(self):
 		self.remove_all_buttons()
 	
 	def enterV_sprinter(self):
-		self.add_button(res='v_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='v_arrow',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='v_sprinter'
 	
 	def exitV_sprinter(self):
 		self.remove_all_buttons()
 		
 	def enterCircler(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='circler'
 
 	def exitCircler(self):
@@ -181,21 +182,21 @@ class UnitConfigurationPanel(Panel,FSM.FSM):
 	#######################################################
 	#fighters
 	def enterGuard(self):
-		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['allied-wall'],key='w')
+		self.add_button(res='wall-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['allied-wall'],key=self.keys['m1'])
 		self._conf['unit_type']='guard'
 
 	def exitGuard(self):
 		self.remove_all_buttons()
 
 	def enterArcher(self):
-		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key='w')
+		self.add_button(res='tile-picking',cmd=screen.frame.gmap.enable_tile_selection,xargs=['single'],key=self.keys['m1'])
 		self._conf['unit_type']='archer'
 
 	def exitArcher(self):
 		self.remove_all_buttons()
 
 	def enterAssassin(self):
-		self.add_button(res='unit-picking',cmd=screen.frame.gmap.enable_unit_selection,xargs=['ennemy'],key='w')
+		self.add_button(res='unit-picking',cmd=screen.frame.gmap.enable_unit_selection,xargs=['ennemy'],key=self.keys['m1'])
 		self._conf['unit_type']='assassin'
 
 	def exitAssassin(self):
@@ -243,6 +244,7 @@ class GMenu(Frame,DirectObject):
 		kwargs['fill']=165,255,121
 		kwargs['layout']=HLayout
 		Frame.__init__(self,*args,**kwargs)
+		self.read_keys_from_config()
 		#'type','unit','conf'
 		self.state='type'
 		self.launch_btn=Button(	pref_w=self.h*2,
@@ -251,7 +253,7 @@ class GMenu(Frame,DirectObject):
 																		borderWidth=(0,0),
 																		command=self.cancel),
 										parent=self)
-		self.accept('q',self.cancel)
+		self.accept(self.keys['cancel'],self.cancel)
 		#graphical aspect: [cancel_btn | unit_type_panel | unit_selection_panel | unit_configuration_panel | launch_btn]
 		self.type_pan=UnitTypePanel(self)
 		self.type_pan.focus()
@@ -267,7 +269,7 @@ class GMenu(Frame,DirectObject):
 														command=self.launch_unit),
 								parent=self)
 		self.accept('enter',self.launch_unit)
-		self.accept('space',self.launch_unit)
+		self.accept(self.keys['launch'],self.launch_unit)
 		self.accept('mouse3',self.launch_unit)
 	
 	@staticmethod
@@ -344,6 +346,14 @@ class GMenu(Frame,DirectObject):
 				gmap.disable_tile_selection()
 			if gmap.is_unit_selection_enabled:
 				gmap.disable_unit_selection()
+
+	def read_keys_from_config(self):
+		Panel.keys=self.keys={	'm1':ConfigVariableString('gmenu-m1').getValue(),
+										'm2':ConfigVariableString('gmenu-m2').getValue(),
+										'm3':ConfigVariableString('gmenu-m3').getValue(),
+										'launch':ConfigVariableString('gmenu-launch').getValue(),
+										'cancel':ConfigVariableString('gmenu-cancel').getValue(),
+									}
 
 	def show_unit_sel(self,unit_type):
 		'''
