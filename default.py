@@ -16,6 +16,7 @@ def load_panda_default():
 	ConfigVariableString('key-confirm','enter')
 	ConfigVariableInt('intro-delay',1)
 	ConfigVariableBool('dev-mode','t')
+	ConfigVariableBool('stats','f')
 	ConfigVariableString('key-cam-zoom-in','wheel_up')
 	ConfigVariableString('key-cam-zoom-out','wheel_down')
 	ConfigVariableString('key-cam-right','arrow_right')
@@ -24,6 +25,14 @@ def load_panda_default():
 	ConfigVariableString('key-cam-down','arrow_down')
 	ConfigVariableInt('map-width-xs',8)
 	ConfigVariableInt('map-height-xs',8)
+	ConfigVariableInt('map-width-s',16)
+	ConfigVariableInt('map-height-s',16)
+	ConfigVariableInt('map-width-m',32)
+	ConfigVariableInt('map-height-m',32)
+	ConfigVariableInt('map-width-l',48)
+	ConfigVariableInt('map-height-l',48)
+	ConfigVariableInt('map-width-xl',64)
+	ConfigVariableInt('map-height-xl',64)
 
 #default values for game configuration
 game_conf={'cpu':True,

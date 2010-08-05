@@ -1,7 +1,7 @@
 
 from direct.showbase.DirectObject import DirectObject
 from direct.actor.Actor import Actor
-from direct.gui.DirectGui import *
+from direct.gui.DirectGui import DirectButton
 #from pandac.PandaModules import RigidBodyCombiner,NodePath
 
 from screen.gaming.gamingcam import GamingCam
@@ -124,7 +124,6 @@ class GMap(Widget,DirectObject):
 					self.highlighted_tiles=[]
 			else:
 				self.highlighted_tiles=[]
-		out(len(self.highlighted_tiles))
 		if self.highlighted_tiles!=old:
 			[tile.unset_highlighted() for tile in old]
 			[tile.set_highlighted() for tile in self.highlighted_tiles]

@@ -304,7 +304,6 @@ class GMenu(Frame,DirectObject):
 							'cancel_btn':misc_res.find('**/cancel_btn'),
 							}
 		for k in GMenu.resources:
-			print k,GMenu.resources[k]
 			if GMenu.resources[k]==None:
 				raise Exception('could not load GMenu.resource \''+k+'\'')
 	

@@ -103,14 +103,6 @@ stc_new_tile=next()
 #a unit drops a pawn on a tile: {meta:{eid:tile eid,pawner: player pid}}
 stc_tile_change_pawner=next()
 
-#tile load_level update {meta:{
-#eid:tile eid number
-#owner: owner pid
-#level: tile load_level
-#}}
-#TODO: buffer this into {meta:[{eid:load_level},{eid:load_level},...]}!
-stc_tile_load_level_change=next()
-
 #build home:{meta:{pid:1/2,pos:(42,42)}}
 stc_new_home=next()
 

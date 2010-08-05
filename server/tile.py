@@ -1,8 +1,8 @@
 
-from panda3d.core import ConfigVariableDouble,ConfigVariableInt
+#from panda3d.core import ConfigVariableDouble,ConfigVariableInt
 
 from entity import Entity,EIType
-import player
+#import player
 import network
 
 class Tile(Entity):
@@ -10,22 +10,6 @@ class Tile(Entity):
 	eitype=EIType.tile
 	'''flag indicating to the server if the tile ratio has to be recomputed'''
 	new_ratio=True
-	'''Tile.propagate_load is called every load_frame%this var'''
-	load_propagation_frequency=ConfigVariableInt('load-propagation-frequency').getValue()
-	'''amount of load spread by a stone every frame'''
-	load_amount=8.
-	'''amount under this threshold won't be propagated to neighbor tiles'''
-	load_amount_threshold=.01
-	max_load=255
-	'''load levels thresholds (numbers of frames under which the load level is at load_level_n)
-	see Tile.update_load_level'''
-	load_level_0=ConfigVariableInt('load-level-0').getValue()
-	load_level_1=ConfigVariableInt('load-level-1').getValue()
-	load_level_2=ConfigVariableInt('load-level-2').getValue()
-	'''load can't be greater than this (allows taking back a tile quickly)'''
-	max_load=ConfigVariableInt('load-level-2').getValue()
-	'''duration (in frames) during which the tile holds a stone before it disappear'''
-	pawner_duration=ConfigVariableInt('pawner-duration').getValue()*ConfigVariableDouble('clock-frame-rate').getValue()
 	'''updated by tiles on owner change, to keeps ratio in sync'''
 	ratio={}
 
@@ -93,7 +77,7 @@ class Tile(Entity):
 		fringe=[self]
 		#{tile:(prev,dist)}
 		dijkstra={self:[None,0]}
-		while len(fringe)>0:
+		while len(fringe):
 			t=fringe.pop(0)
 			if t==dst:break
 			for neighbor in t.neighbors:

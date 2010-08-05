@@ -5,7 +5,7 @@ import sys
 import default
 default.load_panda_default()
 from pandac.PandaModules import loadPrcFile
-loadPrcFile(sys.path[0]+'/Config.prc')
+loadPrcFile(sys.path[0]+'/config.prc')
 
 from panda3d.core import ConfigVariableBool,ConfigVariableString,PStatClient
 from direct.fsm import FSM
@@ -16,7 +16,7 @@ from screen.screen import Screen
 from screen.gaming.gentity import GEntity
 from server.serverproxy import ServerProxy
 from server import network
-if ConfigVariableBool('dev-mode').getValue():
+if ConfigVariableBool('stats').getValue():
 	from tools import pstat
 
 class GameClient(FSM.FSM):
@@ -50,7 +50,7 @@ class GameClient(FSM.FSM):
 	def exitGame_setup(self):
 		#TODO grab setup options here
 		self.game_conf=self.screen.frame.config
-		self.screen.close_game_setup()
+		self.screen.close()
 
 	def enterGaming(self):
 		self.proxy=ServerProxy()
@@ -64,7 +64,7 @@ class GameClient(FSM.FSM):
 		self.frame_no=GEntity.frame_no=0
 
 	def exitGaming(self):
-		self.screen.close_gaming()
+		self.screen.close()
 		update_list.remove(self.update_gaming)
 
 	def enterInit(self):
@@ -72,9 +72,9 @@ class GameClient(FSM.FSM):
 		init of main/global structures
 		'''
 		self.screen = Screen()
-		if ConfigVariableBool('dev-mode').getValue():
+		if ConfigVariableBool('stats').getValue():
 			self.update_gaming=pstat(self.update_gaming)			
-			PStatClient.connect()
+			PStatClient.connect()			
 		taskMgr.add(self.update, 'GameClient.update')
 		self.acceptOnce('escape',self.demand,extraArgs=['Quit'])
 		self.demand('Intro')
@@ -113,7 +113,7 @@ class GameClient(FSM.FSM):
 			self.demand('Game_setup')
 
 	def exitMain_menu(self):
-		self.screen.close_main_menu()
+		self.screen.close()
 
 	def enterOptions(self):pass
 	def exitOptions(self):pass
@@ -125,7 +125,7 @@ class GameClient(FSM.FSM):
 		last cleanup before closing the window.
 		'''
 		#TODO clean close
-		self.screen.destroy()
+		self.screen.close()
 		del self.screen
 		self.is_running = False
 

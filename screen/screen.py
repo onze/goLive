@@ -22,6 +22,7 @@ class Screen(DirectObject):
 	sgn_main_menu_create='screen.sgn_main_menu_create'
 	def __init__(self):
 		DirectObject.__init__(self)
+		self.close=lambda:None
 		#create main window
 		base=ShowBase()
 		__builtin__.base=base
@@ -49,6 +50,7 @@ class Screen(DirectObject):
 		self.frames=[]
 
 	def open_game_setup(self):
+		self.close=self.close_game_setup
 		self.frame=Game_setup(w=self.width,h=self.height)
 		self.frames.append(self.frame)
 		self.frame.open()
@@ -59,6 +61,7 @@ class Screen(DirectObject):
 		self.frames.pop(-1)
 
 	def open_gaming(self):
+		self.close=self.close_gaming
 		self.frame=GFrame(w=self.width,h=self.height)
 		self.frames.append(self.frame)
 		self.frame.open()
@@ -67,6 +70,7 @@ class Screen(DirectObject):
 		pass
 
 	def open_intro(self):
+		self.close=self.close_intro
 		self.intro_message=OnscreenText(text='intro',style=1,fg=(1,1,1,1),pos=(.87,-.95),scale=.07)
 		taskMgr.doMethodLater(ConfigVariableDouble('intro-delay').getValue(),messenger.send,Screen.sgn_intro_done, extraArgs = [Screen.sgn_intro_done])
 
@@ -75,6 +79,7 @@ class Screen(DirectObject):
 		del self.intro_message
 
 	def open_main_menu(self):
+		self.close=self.close_main_menu
 		self.frame=Main_menu(w=self.width,h=self.height)
 		self.frames.append(self.frame)
 		self.frame.open()

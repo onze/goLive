@@ -36,7 +36,9 @@ class Node:
       try:
          self.buf+=self.socket.recv(4096)
       except socket.error,msg:
-         print 'unable to read serverproxy\'s socket: ('+str(msg)+')'
+         #nothing to read, so nothing to do
+         return
+         #print 'unable to read serverproxy\'s socket: ('+str(msg)+')'
       while '\n' in self.buf:
          i=self.buf.index('\n')
          try:

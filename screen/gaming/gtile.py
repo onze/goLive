@@ -56,10 +56,6 @@ class GTile(GEntity):
 					   		'selected':loader.loadTexture('data/models/tiles/tile.selected.tex.png'),
 					   		'pawn-black':loader.loadTexture('data/models/tiles/tile.pawned.black.tex.png'),
 					   		'pawn-white':loader.loadTexture('data/models/tiles/tile.pawned.white.tex.png'),
-					   		'black-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.black.1.tex.png'),
-					   		'black-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.black.3.tex.png'),
-					   		'white-load_level-1':loader.loadTexture('data/models/tiles/tile.owned.white.1.tex.png'),
-					   		'white-load_level-3':loader.loadTexture('data/models/tiles/tile.owned.white.3.tex.png'),
 				       		}
 
 	@property
@@ -108,33 +104,19 @@ class GTile(GEntity):
 				wall.append(t)
 				visited[t]=1
 			fringe.extend([n for n in t.neighbors if n.pawner==self.pawner and n not in visited])
-		return wall
-	
-	def change_load_level(self,data):
-		'''
-		shown levels are level 0, 1 and 3, respectively neutral, half filled and fully filled tile
-		'''
-#		out('tile '+str(self.eid)+'\'s load_level set to '+str(data))
-		self.load_level=data['level']
-		self.owner=data['owner']
-		if self.load_level==0:
-			self.quad.clearTexture(self.ts_load_level)
-		else:
-			color={0:'black',1:'white'}[self.owner]
-			self.quad.setTexture(self.ts_load_level,self.textures[color+'-load_level-'+str(self.load_level)])
-			self.quad.show()
 
 	def change_pawner(self,data):
 		#out('tile '+str(self.eid)+' set to '+str(data['owner']))
-		self.pawner=data['pawner']
-		if self.pawner==None:
-			self.quad.clearTexture(self.ts_pawn)
-			if not (self.is_selected or self.is_highlighted or self.owner!=None):
-				self.quad.hide()
-		else: 
-			color={0:'black',1:'white'}[self.pawner]
-			self.quad.setTexture(self.ts_pawn,self.textures['pawn-'+color])
-			self.quad.show()
+		if self.pawner!=data['pawner']:
+			self.pawner=data['pawner']
+			if self.pawner==None:
+				self.quad.clearTexture(self.ts_pawn)
+				if not (self.is_selected or self.is_highlighted or self.owner!=None):
+					self.quad.hide()
+			else: 
+				color={0:'black',1:'white'}[self.pawner]
+				self.quad.setTexture(self.ts_pawn,self.textures['pawn-'+color])
+				self.quad.show()
 	
 	def set_highlighted(self):
 		#out('tile.eid='+str(self.eid))

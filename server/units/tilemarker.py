@@ -11,4 +11,5 @@ class TileMarker(Unit):
 	def on_tile_change(self):
 		if self.current_tile.pawner==None:
 			#TODO: sendevent to GUnit for special animation ?
+			#out('Tilemarker.on_tile_change: tile ',self.current_tile.eid, 'set from pawner',self.current_tile.pawner,' to ',self.owner.pid)
 			self.current_tile.pawner=self.owner

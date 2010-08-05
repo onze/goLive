@@ -7,8 +7,6 @@ from panda3d.core import CollisionTraverser,CollisionNode,CollisionPlane,Plane,V
 from panda3d.core import CollisionHandlerQueue,CollisionRay
 from pandac.PandaModules import GeomNode
 
-from gtile import GTile
-
 class GamingCam(object,DirectObject):
 	yshift,zshift=5,5
 	ymin,ymax=10,70

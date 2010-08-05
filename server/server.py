@@ -3,6 +3,7 @@ import atexit
 import select
 import socket
 import sys
+import time
 
 from direct.fsm import FSM
 from panda3d.core import ConfigVariableInt
@@ -159,8 +160,6 @@ class Server(FSM.FSM,Node):
 		self.xres,self.yres=xres,yres
 		if None in Entity.instances[EIType.tile]:
 			raise Exception('in Server.set_conf: holes in Entity.instances[EIType.tile]. all tiles must be initialised.')
-		print xres/2
-		print len(Entity.instances[EIType.tile])
 		Home(tile=Entity.instances[EIType.tile][xres/2],owner=self.players[0])
 		Home(tile=Entity.instances[EIType.tile][(yres-1)*xres+xres/2],owner=self.players[1])
 
