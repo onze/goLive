@@ -238,7 +238,9 @@ class GMap(Widget,DirectObject):
 		home.loop('anim')
 		home.reparentTo(self.root)
 		home.setPythonTag('eid',data['eid'])
-		home.setPos(self.root.find('**/tile_'+str(data['tileid'])),0,0,0)
+		target=self.root.find('**/tile_'+str(data['tileid']))
+		print target
+		home.setPos(target,0,0,0)
 		GEntity.instances[data['eid']]=home
 		out('GMap.new_home: data='+str(data))
 		#out(scale=tile.getScale(),y=(y-resy/2.)*2.*s)

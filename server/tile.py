@@ -12,6 +12,8 @@ class Tile(Entity):
 	new_ratio=True
 	'''updated by tiles on owner change, to keeps ratio in sync'''
 	ratio={}
+	'''Tile.instances is a dict with tiles' indexes as key, whereas Entity.instances has eid as key'''
+	instances={}
 
 	def __init__(self,players,x,y,h,xres):
 		self.x,self.y,self.h=x,y,h
@@ -23,18 +25,28 @@ class Tile(Entity):
 		#pid of the owner of the unit that drops a stone on the tile
 		self._pawner=None
 		self.send({network.stc_new_tile:{'eid':self.eid,'x':x,'y':y}})#height, type etc
+		
+	def __repr__(self):
+		return 'Tile{eid:'+str(self.eid)+'\n\
+x/y:'+str(self.x)+'/'+str(self.y)+'\n\
+owner:'+str(self.owner)+'\n\
+pawner:'+str((self.pawner.pid if self.pawner else self.pawner))+'\n\
+}'
+	
+	def __str__(self):
+		return self.__repr__()
 
 	def distance_to(self,target):
 		return (target.x-self.x)+(target.y-self.y)
 	
 	def get_left_tile(self):
 		'''property getter'''
-		if self.x>0:return Entity.instances[self.eitype][self.index-1]
+		if self.x>0:return Tile.instances[self.index-1]
 		return None
 	
 	def get_lower_tile(self):
 		'''property getter'''
-		if self.y>0:return Entity.instances[self.eitype][self.index-self.server.yres]
+		if self.y>0:return Tile.instances[self.index-self.server.yres]
 		return None
 	
 	def get_neighbors(self):
@@ -55,12 +67,12 @@ class Tile(Entity):
 	
 	def get_right_tile(self):
 		'''property getter'''
-		if self.x<self.server.xres-1:return Entity.instances[self.eitype][self.index+1]
+		if self.x<self.server.xres-1:return Tile.instances[self.index+1]
 		return None
 	
 	def get_upper_tile(self):
 		'''property getter'''
-		if self.y<self.server.yres-1:return Entity.instances[self.eitype][self.index+self.server.yres]
+		if self.y<self.server.yres-1:return Tile.instances[self.index+self.server.yres]
 		return None
 
 	def path_to(self,dst,player=None):
@@ -104,12 +116,17 @@ class Tile(Entity):
 
 	def set_eitype(self,t=None):
 		'''property setter'''
-		Entity.instances[self.eitype][self.index]=self
+		Entity.set_eitype(self,t)
+		Tile.instances[self.index]=self
 		
 	def set_owner(self,o):
 		'''property setter'''
 		Tile.ratio_notifier.update_ratio(self._owner,o)
 		self._owner=o
+		
+	def unset_eitype(self):
+		Entity.unset_eitype(self)
+		del Tile.instances[self.index]
 
 	pawner=property(get_pawner,set_pawner)
 	upper_tile=property(get_upper_tile)

@@ -115,8 +115,9 @@ pstats-tasks 1
 #############################################################golive custom settings
 ###development variables
 console-trigger `
-dev-mode t
-stats t
+#dev-mode t
+#stats t
+#dump-network-packets f
 
 ###client settings
 #general settings

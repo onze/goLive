@@ -29,7 +29,7 @@ class Panel(Frame):
 		'''listen to keyboard events as stocked within self.key_focus.
 		panels are not responsible of their focus'''
 		for d in self.key_focus:
-			self.gmenu.accept(d['key'],d['cmd'],extraArgs=d['xargs'])
+			self.gmenu.accept(d['key']+'-up',d['cmd'],extraArgs=d['xargs'])
 			
 	def unfocus(self):
 		'''stop listening to keyboard events (doesn't clear self.key_focus)'''
@@ -253,7 +253,7 @@ class GMenu(Frame,DirectObject):
 																		borderWidth=(0,0),
 																		command=self.cancel),
 										parent=self)
-		self.accept(self.keys['cancel'],self.cancel)
+		self.accept(self.keys['cancel']+'-up',self.cancel)
 		#graphical aspect: [cancel_btn | unit_type_panel | unit_selection_panel | unit_configuration_panel | launch_btn]
 		self.type_pan=UnitTypePanel(self)
 		self.type_pan.focus()
@@ -268,9 +268,9 @@ class GMenu(Frame,DirectObject):
 														borderWidth=(0,0),
 														command=self.launch_unit),
 								parent=self)
-		self.accept('enter',self.launch_unit)
-		self.accept(self.keys['launch'],self.launch_unit)
-		self.accept('mouse3',self.launch_unit)
+		self.accept('enter-up',self.launch_unit)
+		self.accept(self.keys['launch']+'-up',self.launch_unit)
+		self.accept('mouse3-up',self.launch_unit)
 	
 	@staticmethod
 	def load_resources():

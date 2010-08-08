@@ -1,6 +1,4 @@
 
-from math import atan2,cos,sin
-
 from server.entity import Entity,EIType
 from tools import dist2
 import server.network as network

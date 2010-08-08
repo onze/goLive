@@ -70,10 +70,10 @@ class Entity(object):
 			print 'WARNING in Entity.set_eitype(): eitype not defined for class %s'%str(self.__class__)
 			return
 		if not Entity.instances.has_key(t):
-			Entity.instances[t]=[]
-		Entity.instances[t].append(self)
+			Entity.instances[t]={}
+		Entity.instances[t][self.eid]=self
 		
 	
 	def unset_eitype(self):
 		'''used at entity removal, to clear links to it'''
-		Entity.instances[self.eitype].remove(self)
+		del Entity.instances[self.eitype][self.eid]

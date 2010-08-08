@@ -4,6 +4,7 @@ import sys
 
 from node import Node 
 from units.sprinter import HSprinter,VSprinter
+from entity import Entity,EIType
 
 class Player(Node):
 	#each player has an id that comes from here.
@@ -21,7 +22,7 @@ class Player(Node):
 		self.server.update_list.append(self.update)
 		#sum of tiles under player control
 		self.owned_tiles=0
-		self.send({network.pid_setup:{'pid':self.pid}})
+		self.send({network.stc_pid_setup:{'pid':self.pid}})
 		
 	def dispose(self):
 		'''del'''
@@ -58,15 +59,21 @@ class Player(Node):
 					VSprinter(self,conf)
 				elif conf['unit_type']=='h_sprinter':
 					HSprinter(self,conf)
-
-	def send(self,d):
+		
+	def dump_entity(self,data):
 		'''
-		d is a dict {meta:values}
+		prints out eid's corresponding entity.
+		implmented for debug purposes.
 		'''
-		self.socket.send(network.dict2packet(d))
+		eid=data['eid']
+		for t in Entity.instances:
+			if eid in Entity.instances[t]:
+				out(Entity.instances[t][eid])
+				return
 
 	def update(self):
-		switch={  network.cts_new_unit:self.new_unit
+		switch={	network.cts_new_unit:self.new_unit,
+					network.cts_dbg_dump_entity:self.dump_entity,
 			    }
 		for pkt in self.read():
 			#pkt is a dict

@@ -17,6 +17,6 @@ class AI(Player):
 		'''receives info about the world.'''
 		pass
 
-	def send_string(self,d):
+	def send_string(self,s):
 		'''receives info about the world.'''
 		pass

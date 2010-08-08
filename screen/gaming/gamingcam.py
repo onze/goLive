@@ -6,6 +6,7 @@ from panda3d.core import PandaNode,NodePath
 from panda3d.core import CollisionTraverser,CollisionNode,CollisionPlane,Plane,Vec3,Point3
 from panda3d.core import CollisionHandlerQueue,CollisionRay
 from pandac.PandaModules import GeomNode
+from server import network
 
 class GamingCam(object,DirectObject):
 	yshift,zshift=5,5
@@ -24,8 +25,8 @@ class GamingCam(object,DirectObject):
 		#range=[0,1] between min and max closeness to ground
 		self.level=.7
 		#
-		self.accept(ConfigVariableString('key-cam-zoom-in').getValue(),self.zoom,extraArgs=[-GamingCam.zoom_speed])
-		self.accept(ConfigVariableString('key-cam-zoom-out').getValue(),self.zoom,extraArgs=[GamingCam.zoom_speed])
+		self.accept(ConfigVariableString('key-cam-zoom-in').getValue()+'-up',self.zoom,extraArgs=[-GamingCam.zoom_speed])
+		self.accept(ConfigVariableString('key-cam-zoom-out').getValue()+'-up',self.zoom,extraArgs=[GamingCam.zoom_speed])
 		#keys_down acts as a pool containing keys (+mouse buttons) currently down
 		self.keys_down=[]
 		self.accept(ConfigVariableString('key-cam-right').getValue(),self.keys_down.append,extraArgs=['r'])
@@ -36,10 +37,9 @@ class GamingCam(object,DirectObject):
 		self.accept(ConfigVariableString('key-cam-left').getValue()+'-up',self.keys_down.remove,extraArgs=['l'])
 		self.accept(ConfigVariableString('key-cam-down').getValue(),self.keys_down.append,extraArgs=['d'])
 		self.accept(ConfigVariableString('key-cam-down').getValue()+'-up',self.keys_down.remove,extraArgs=['d'])
-		self.accept('mouse1',self.keys_down.append,extraArgs=['m'])
-		self.accept('mouse1-up',lambda:'m' in self.keys_down and self.keys_down.remove('m'))
+		self.accept('mouse1-up',self.mouse_up,extraArgs=['left'])
 		#
-		self.accept('mouse2',lambda:self.set_level(.7) or self.set_target(Vec3(0,-9,0)))
+		self.accept('mouse2',self.mouse_up,extraArgs=['middle'])
 		update_list.append(self.update)
 		#setup for mouse picking
 		picker_node=CollisionNode('gcam_to_mouse_ray')#general collision node
@@ -88,7 +88,7 @@ class GamingCam(object,DirectObject):
 				#useless since collision test is done against a single object
 				self.collision_queue.sortEntries()
 				entry=self.collision_queue.getEntry(0)
-				x,y,z=entry.getSurfacePoint(self.gmap.tile_matrix_node)
+				x,y,_=entry.getSurfacePoint(self.gmap.tile_matrix_node)
 				x=(x+self.gmap.resx)/2.
 				y=(y+self.gmap.resy)/2.
 				x=max(x,0)
@@ -119,6 +119,16 @@ class GamingCam(object,DirectObject):
 
 	def get_target(self):
 		return self._target
+	
+	def mouse_up(self,btn):
+		if btn=='left':
+			target=self.get_picked_tile()
+			out(target)
+			if target:
+				network.serverproxy.send({network.cts_dbg_dump_entity:{'eid':target.eid}})
+		elif btn=='middle':
+			self.set_level(.7)
+			self.set_target(Vec3(0,-9,0))
 
 	def move(self,dx=0,dy=0):
 		self._target.setPos(self._target,dx,dy,0)
@@ -161,8 +171,9 @@ class GamingCam(object,DirectObject):
 			if k=='u':dy+=GamingCam.move_speed
 			if k=='d':dy-=GamingCam.move_speed
 			if k=='m':
-				dx+=mouse.getMouseX()
-				dy+=mouse.getMouseY()
+				pass
+				#dx+=mouse.getMouseX()
+				#dy+=mouse.getMouseY()
 		if self.move_enabled:
 			self.move(dx,dy)
 

@@ -6,8 +6,9 @@ ConfigVariableInt('',)
 '''
 def load_panda_default():
 	#dev
-	ConfigVariableBool('dev-mode','t')
-	ConfigVariableBool('stats','f')
+	ConfigVariableBool('dev-mode',True)
+	ConfigVariableBool('stats',False)
+	ConfigVariableBool('dump-network-packets',True)
 	
 	#engine
 	ConfigVariableInt('win-width',1280)

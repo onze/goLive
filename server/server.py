@@ -3,7 +3,6 @@ import atexit
 import select
 import socket
 import sys
-import time
 
 from direct.fsm import FSM
 from panda3d.core import ConfigVariableInt
@@ -126,20 +125,14 @@ class Server(FSM.FSM,Node):
 		generator of received messages.
 		must be read until exhaustion before being able to read new messages.
 		'''
+		print Server.update.__name__
 		for p in self.players.values():
 			for msg in p.read():
 				yield msg
 
-	def send(self,d):
-		'''
-		sends a dict {network.code:value} to all players
-		'''
-		for p in self.players.values():
-			p.send(d)
-
 	def send_string(self,d):
 		'''
-		sends a string (as given) to all players
+		sends a dict {network.code:value} to all players
 		'''
 		for p in self.players.values():
 			p.send_string(d)
@@ -154,12 +147,13 @@ class Server(FSM.FSM,Node):
 		xres=ConfigVariableInt('map-width-'+conf['map.res']).getValue()
 		yres=ConfigVariableInt('map-height-'+conf['map.res']).getValue()
 		Entity.instances[EIType.tile]=[None]*(xres*yres)
-		for x in range(xres):
-			for y in range(yres):
+		for y in range(yres):
+			for x in range(xres):
 				Tile(self.players,x,y,0,xres)
 		self.xres,self.yres=xres,yres
 		if None in Entity.instances[EIType.tile]:
 			raise Exception('in Server.set_conf: holes in Entity.instances[EIType.tile]. all tiles must be initialised.')
+		self.flush_buffer()
 		Home(tile=Entity.instances[EIType.tile][xres/2],owner=self.players[0])
 		Home(tile=Entity.instances[EIType.tile][(yres-1)*xres+xres/2],owner=self.players[1])
 

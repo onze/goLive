@@ -10,7 +10,7 @@ class TileRatioNotifier:
    '''
    def __init__(self,server):
       self.server=server
-      self.ratio={None:len(tile.Tile.instances[tile.Tile.eitype])}
+      self.ratio={None:len(tile.Tile.instances)}
       for pid in player.Player.instances:
          self.ratio[pid]=0
       self.has_changed=False

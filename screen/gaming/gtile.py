@@ -24,11 +24,6 @@ class GTile(GEntity):
 		self.quad.reparentTo(self.p3dobject)
 		self.quad.hide()
 		
-		#load_level
-		self.ts_load_level=TextureStage('ts_load_level')
-		self.ts_load_level.setMode(TextureStage.MReplace)
-		self.ts_load_level.setSort(1)
-		
 		#pid of the player that owns the tile
 		self.pawner=None
 		self.ts_pawn=TextureStage('ts_pawn')
@@ -46,6 +41,17 @@ class GTile(GEntity):
 		self.ts_highlighted=TextureStage('ts_highlighted')
 		self.ts_highlighted.setMode(TextureStage.MDecal)
 		self.ts_highlighted.setSort(4)
+		
+	def __repr__(self):
+		return 'GTile{eid:'+str(self.eid)+'\n\
+x/y:'+str(self.x)+'/'+str(self.y)+'\n\
+pawner:'+str(self.pawner)+'\n\
+selected:'+str(self.is_selected)+'\n\
+highlighted:'+str(self.is_highlighted)+'\n\
+}'
+	
+	def __str__(self):
+		return self.__repr__()
 	
 	@staticmethod
 	def load_resources():

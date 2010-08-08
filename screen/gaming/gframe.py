@@ -49,7 +49,7 @@ class GFrame(Frame):
 		dispatches methods calls according to server messages.
 		'''
 		gframe_switch={	network.stc_conf:self.set_conf,
-								network.pid_setup:self.pid_setup
+								network.stc_pid_setup:self.pid_setup
 				}
 		gnotifier_switch={network.stc_tile_ratio_change:GNotifier.update_tile_ratio
 							}

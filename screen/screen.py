@@ -11,7 +11,6 @@ from game_setup import Game_setup
 from gaming.gframe import GFrame
 from main_menu import Main_menu
 from q3 import Console
-import widget
 
 class Screen(DirectObject):
 	'''
