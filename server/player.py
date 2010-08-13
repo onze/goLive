@@ -4,7 +4,7 @@ import sys
 
 from node import Node 
 from units.sprinter import HSprinter,VSprinter
-from entity import Entity,EIType
+from entity import Entity
 
 class Player(Node):
 	#each player has an id that comes from here.

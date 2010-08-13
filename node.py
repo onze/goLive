@@ -1,6 +1,5 @@
 from panda3d.core import ConfigVariableBool
 
-import errno
 import socket
 
 import server.network 

@@ -1,11 +1,10 @@
 import __builtin__
 
-from direct.gui.DirectGui import *
 from direct.gui.OnscreenText import OnscreenText
 from direct.showbase.DirectObject import DirectObject
 from direct.showbase.ShowBase import ShowBase
 from pandac.PandaModules import ClockObject
-from panda3d.core import ConfigVariableDouble,ConfigVariableInt,ConfigVariableString,WindowProperties 
+from panda3d.core import ConfigVariableDouble,ConfigVariableInt,WindowProperties 
 
 from game_setup import Game_setup
 from gaming.gframe import GFrame
@@ -41,7 +40,7 @@ class Screen(DirectObject):
 		#gui is the node for 2d rendering, scaled to the screen resolution,
 		#with origin at bottom-left, and max at top-right
 		gui.setZ(gui,-self.height)
-		__builtin__.console = Console(print_messenger_events=True)
+		__builtin__.console=Console(print_messenger_events=False)
 		__builtin__.out=console.out
 		console.request('Open')
 		__builtin__.mouse=base.pointerWatcherNodes[0]

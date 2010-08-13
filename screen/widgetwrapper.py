@@ -1,8 +1,11 @@
-from direct.fsm import FSM
-from direct.gui.DirectGui import *
-from panda3d.core import CardMaker,NodePath,PNMImage,Texture
+#wraps panda3d gui objects into the widget lib
 
-from widget import Widget,Frame,Spacer
+import widget 
+
+Widget=widget.Widget
+Frame=widget.Frame
+Spacer=widget.Spacer
+
 
 class WidgetWrapper(Widget):
 	'''
@@ -68,10 +71,3 @@ class Label(WidgetWrapper):
 
 	def __repr__(self):
 		return ''.join(['<Label instance{text=\'',self.text,'\'}>'])
-
-	def draw(self):
-		#print self.draw,self.pos,self.size
-		Widget.draw(self)
-		fill(0)
-		stroke(0)
-		text(self.text,self.x+5,self.y+5)

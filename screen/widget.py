@@ -33,21 +33,9 @@ class Widget(object):
 	def __str__(self):
 		return '<'+self.__class__.__name__+' pos='+str(self.pos)+',size='+str(self.size)+'>'
 
-	@staticmethod
-	def chain_draw():
-		print 'chain_draw'
-		for i in Widget.instances:
-			print i,'pos=',i.pos,'size=',i.size
-			i.draw()
-
 	def add_child(self,child):
 		self.children.append(child)
 		self.invalidate()
-
-	def draw(self):
-		dx,dy=self.parent.pos if self.parent else (0,0)
-		fill(*self.fill)
-		rect(self.x+self.w/2.+dx,self.y+self.h/2.+dy,self.w,self.h)
 
 	def get_pos(self):return self.x,self.y
 	def get_size(self):return self.w,self.h
@@ -90,12 +78,6 @@ class Label(Widget):
 		self.text=kwargs['text'] if 'text' in kwargs else 'no text'
 		if not 'fill' in kwargs:kwargs['fill']=200,200,255
 		Widget.__init__(self,*args,**kwargs)
-
-	def draw(self):
-		Widget.draw(self)
-		fill(0)
-		dx,dy=self.parent.pos if self.parent else (0,0)
-		text(self.text,self.x+dx,self.y+dy,self.w,self.h)
 
 #class Spacer(Widget):
 #	def __init__(self,*args,**kwargs):
