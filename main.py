@@ -74,7 +74,7 @@ class GameClient(FSM.FSM):
       '''
       self.screen = Screen()
       if ConfigVariableBool('stats').getValue():
-         self.update_gaming=pstat(self.update_gaming)         
+         self.update_gaming=pstat(self.update_gaming)
          PStatClient.connect()         
       taskMgr.add(self.update, 'GameClient.update')
       self.acceptOnce('escape',self.demand,extraArgs=['Quit'])
@@ -140,7 +140,6 @@ class GameClient(FSM.FSM):
       #process data from server (server's update included)
       for d in self.proxy.new_data:
          void=False
-         #TODO: process frame info
          #some of them are to be processed here
          if network.stc_start_game in d:
             out('network.stc_start_game')

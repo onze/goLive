@@ -9,7 +9,7 @@ class Console(FSM.FSM):
       self.defaultTransitions={'Closed':['Open'],'Open':['Closed']}
       self.lines=[]
       #
-      self.textObject=OnscreenText(text='',pos=(-1.55,.85),scale=0.04,align=TextNode.ALeft)
+      self.textObject=OnscreenText(text='',pos=(-1.3,.95),scale=0.06,align=TextNode.ALeft)
       self.textObject.setFg((.95,.95,.95,.6))
       self.textObject.setBg((.50,.50,.50,.5))
       self.max_rows=15

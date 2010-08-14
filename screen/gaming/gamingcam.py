@@ -171,6 +171,8 @@ class GamingCam(object,DirectObject):
 
    def update(self):
       dx,dy=0,0
+      if len(self.keys_down):
+         out(str(self.keys_down))
       for k in self.keys_down:
          if k=='r':dx+=GamingCam.move_speed
          if k=='l':dx-=GamingCam.move_speed

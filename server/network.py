@@ -58,7 +58,6 @@ def buffer2packets(buf):
 	]
 	returned packets are single meta-ed, to keep a network/cpu efficiency balance.
 	'''
-	print 'breaking buffer:',buf
 	packets=[]
 	while len(buf):
 		meta,data=buf.popitem()
@@ -72,17 +71,20 @@ def buffer2packets(buf):
 			#this breaks dict2packet's encapsulation for less worse efficiency
 			if currpktlen+len(str(fragment))+3>=node.Node.MTU:
 				packets.append(dict2packet(currpkt,buffered=True))
-				print 'built packet:',dict2packet(currpkt,buffered=True)
+				#print 'built packet:',dict2packet(currpkt,buffered=True)
 				currpkt={meta:[]}
 				currpktlen=len(dict2packet(currpkt,buffered=True))
 				#make sure base packet can be sent
-				assert currpktlen<node.Node.MTU,'ERROR in buffer2packets: empty packet is already too big (packet length=%i,Node.MTU=%i). check meta length.\nmeta=%s\n packet=%s'%(currpktlen,node.Node.MTU,meta,dict2packet(currpkt))
+				assert currpktlen<node.Node.MTU,'ERROR in buffer2packets: \
+				empty packet is already too big (packet length=%i,Node.MTU=%i). \
+				check meta length.\nmeta=%s\n packet=%s\
+				'%(currpktlen,node.Node.MTU,meta,dict2packet(currpkt))
 			else:
 				currpkt[meta].append(fragment)
 				currpktlen=len(dict2packet(currpkt,buffered=True))
 				fragment=data.pop(0)
 		currpkt[meta].append(fragment)
-		print 'built last packet for current meta:',dict2packet(currpkt,buffered=True)
+		#print 'built last packet for current meta:',dict2packet(currpkt,buffered=True)
 		packets.append(dict2packet(currpkt,buffered=True))
 	return packets
 

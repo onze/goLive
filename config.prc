@@ -20,14 +20,13 @@ load-display pandagl
 # These control the placement and size of the default rendering window.
 
 win-origin 0 0
-win-size 1280 800
-win-width 1280
-win-height 800
+win-width 800
+win-height 600
 
 # Uncomment this line if you want to run Panda fullscreen instead of
 # in a window.
 
-fullscreen t
+fullscreen f
 
 # The framebuffer-hardware flag forces it to use an accelerated driver.
 # The framebuffer-software flag forces it to use a software renderer.
@@ -110,51 +109,50 @@ audio-library-name null
 #default-directnotify-level info
 
 #want-pstat 1
-task-timer-verbose 1
-pstats-tasks 1
+#task-timer-verbose 1
+#pstats-tasks 1
 #############################################################golive custom settings
 ###development variables
-console-trigger `
+#console-trigger `
 #dev-mode t
 #stats t
 #dump-network-packets f
 
 ###client settings
 #general settings
-intro-delay 1
+#intro-delay 1
 
 #key handling
-key-confirm enter
-key-next space
-key-cancel escape
-#gaming menu
-gmenu-cancel q
-gmenu-m1 w
-gmenu-m2 e
-gmenu-m3 r
-gmenu-launch space
-
-#camera movement while gaming
-key-cam-zoom-in wheel_up
-key-cam-zoom-out wheel_down
-key-cam-right arrow_right
-key-cam-left arrow_left
-key-cam-up arrow_up
-key-cam-down arrow_down
-
-#unit setup menu
-#TODO setup qwert/azerty layout handling here
-
-###server settings
-#map resolution for each size
-map-width-xs 8
-map-height-xs 8
-map-width-s 16
-map-height-s 16
-map-width-m 32
-map-height-m 32
-map-width-l 64
-map-height-l 64
-
+#key-confirm enter
+#key-next space
+#key-cancel escape
+##gaming menu
+#gmenu-cancel q
+#gmenu-m1 w
+#gmenu-m2 e
+#gmenu-m3 r
+#gmenu-launch space
+#
+##camera movement while gaming
+#key-cam-zoom-in wheel_up
+#key-cam-zoom-out wheel_down
+#key-cam-right arrow_right
+#key-cam-left arrow_left
+#key-cam-up arrow_up
+#key-cam-down arrow_down
+#
+##unit setup menu
+##TODO setup qwert/azerty layout handling here
+#
+####server settings
+##map resolution for each size
+#map-width-xs 8
+#map-height-xs 8
+#map-width-s 16
+#map-height-s 16
+#map-width-m 32
+#map-height-m 32
+#map-width-l 64
+#map-height-l 64
 
 
