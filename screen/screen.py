@@ -4,7 +4,7 @@ from direct.gui.OnscreenText import OnscreenText
 from direct.showbase.DirectObject import DirectObject
 from direct.showbase.ShowBase import ShowBase
 from pandac.PandaModules import ClockObject
-from panda3d.core import ConfigVariableBool,ConfigVariableDouble,ConfigVariableInt,WindowProperties 
+from panda3d.core import ConfigVariableBool,ConfigVariableDouble,ConfigVariableInt,ConfigVariableString,WindowProperties 
 
 from game_setup import Game_setup
 from gaming.gframe import GFrame
@@ -25,12 +25,14 @@ class Screen(DirectObject):
       base=ShowBase()
       __builtin__.base=base
       props = WindowProperties()
+      #props.setTitle(ConfigVariableString('win-title').getValue()) 
       props.setFullscreen(ConfigVariableBool('fullscreen').getValue())
       props.setSize(ConfigVariableInt('win-width').getValue(),ConfigVariableInt('win-height').getValue())
       base.win.requestProperties(props)
       self.width=base.win.getXSize() 
       self.height=base.win.getYSize()
       print 'size=',self.width,'x',self.height
+      self.accept('window-event',self.on_resize)
       base.disableMouse()
       #set fps limit
       globalClock=ClockObject.getGlobalClock() 
@@ -47,6 +49,12 @@ class Screen(DirectObject):
       __builtin__.mouse=base.pointerWatcherNodes[0]
       #is used as a stack. stores frames showed to the user (top at the front of the screen)
       self.frames=[]
+      
+   def on_resize(self,graphicswindow):
+      self.width,self.height=graphicswindow.getXSize(),graphicswindow.getYSize()
+      gui.setZ(-self.height)
+      if len(self.frames):
+         self.frame.size=self.width,self.height
 
    def open_game_setup(self):
       self.close=self.close_game_setup

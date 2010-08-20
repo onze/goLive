@@ -48,6 +48,11 @@ def load_panda_default():
    ConfigVariableInt('map-height-l',48)
    ConfigVariableInt('map-width-xl',64)
    ConfigVariableInt('map-height-xl',64)
+   
+   #misc
+   #this is useful for window managers that use the window title
+   ConfigVariableString('window-title','goLive')
+   
 
 #default values for game configuration
 game_conf={'cpu':True,

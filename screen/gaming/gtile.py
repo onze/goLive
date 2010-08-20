@@ -60,8 +60,8 @@ highlighted:'+str(self.is_highlighted)+'\n\
 								}
 		GTile.textures={	'highlighted':loader.loadTexture('data/models/tiles/tile.highlighted.tex.png'),
 					   		'selected':loader.loadTexture('data/models/tiles/tile.selected.tex.png'),
-					   		'pawn-black':loader.loadTexture('data/models/tiles/tile.pawned.black.tex.png'),
-					   		'pawn-white':loader.loadTexture('data/models/tiles/tile.pawned.white.tex.png'),
+					   		'pawn-0':loader.loadTexture('data/models/tiles/tile.pawned.black.tex.png'),
+					   		'pawn-1':loader.loadTexture('data/models/tiles/tile.pawned.white.tex.png'),
 				       		}
 
 	@property
@@ -117,11 +117,10 @@ highlighted:'+str(self.is_highlighted)+'\n\
 			self.pawner=data['pawner']
 			if self.pawner==None:
 				self.quad.clearTexture(self.ts_pawn)
-				if not (self.is_selected or self.is_highlighted or self.owner!=None):
+				if not (self.is_selected or self.is_highlighted):
 					self.quad.hide()
 			else: 
-				color={0:'black',1:'white'}[self.pawner]
-				self.quad.setTexture(self.ts_pawn,self.textures['pawn-'+color])
+				self.quad.setTexture(self.ts_pawn,self.textures['pawn-'+str(self.pawner)])
 				self.quad.show()
 	
 	def set_highlighted(self):
