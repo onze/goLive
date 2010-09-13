@@ -1,14 +1,12 @@
 
 from direct.showbase.DirectObject import DirectObject
 from direct.actor.Actor import Actor
-from pandac.PandaModules import NodePath,RigidBodyCombiner
 
 from screen.gaming.gamingcam import GamingCam
 #from ..widgetwrappers import WidgetWrapper
 from screen.gaming.gentity import GEntity
 from screen.gaming.gtile import GTile
 from screen.gaming.gunit import GV_Sprinter,GH_Sprinter
-from screen.gaming.gtilequadtree import GTileQuadTree
 from screen.widget import Widget
 import tools
 
@@ -38,7 +36,7 @@ class GMap(Widget,DirectObject):
       self.selected_unit=None
       self.highlighted_unit=None
       self.is_unit_selection_enabled=False
-      GEntity.gmap=GTileQuadTree.map=self
+      GEntity.gmap=self
       
 
    def __del__(self):
