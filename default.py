@@ -33,8 +33,8 @@ def load_panda_default():
    ConfigVariableString('key-cam-zoom-in','wheel_up')
    ConfigVariableString('key-cam-zoom-out','wheel_down')
    ConfigVariableString('key-cam-right','arrow_right')
-   ConfigVariableString('key-cam-up','arrow_left')
-   ConfigVariableString('key-cam-left','arrow_up')
+   ConfigVariableString('key-cam-up','arrow_up')
+   ConfigVariableString('key-cam-left','arrow_left')
    ConfigVariableString('key-cam-down','arrow_down')
    
    #game
@@ -56,5 +56,5 @@ def load_panda_default():
 
 #default values for game configuration
 game_conf={'cpu':True,
-         'map.res':'m',
+         'map.res':'s',
          }

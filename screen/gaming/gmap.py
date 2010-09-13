@@ -1,12 +1,14 @@
 
 from direct.showbase.DirectObject import DirectObject
 from direct.actor.Actor import Actor
+from pandac.PandaModules import NodePath,RigidBodyCombiner
 
 from screen.gaming.gamingcam import GamingCam
 #from ..widgetwrappers import WidgetWrapper
 from screen.gaming.gentity import GEntity
 from screen.gaming.gtile import GTile
 from screen.gaming.gunit import GV_Sprinter,GH_Sprinter
+from screen.gaming.gtilequadtree import GTileQuadTree
 from screen.widget import Widget
 import tools
 
@@ -23,7 +25,9 @@ class GMap(Widget,DirectObject):
       self.gcam=GamingCam(self,tools.Rectangle(self.x,self.y,self.w,self.h))
       self.gcam.level=.7
       self.gcam.target=(0,-9,0)
-      #node containing eveny GUnits      
+      #node containing GTiles' quads (textures)      
+      self.tiles_quads_node=self.root.attachNewNode('GMap.tile_quads_node')
+      #node containing every GUnits      
       self.units_node=self.root.attachNewNode('GMap.units_node')
       #tile selection stuff
       self.is_tile_selection_enabled=False
@@ -34,7 +38,7 @@ class GMap(Widget,DirectObject):
       self.selected_unit=None
       self.highlighted_unit=None
       self.is_unit_selection_enabled=False
-      GEntity.gmap=self
+      GEntity.gmap=GTileQuadTree.map=self
       
 
    def __del__(self):
@@ -47,8 +51,10 @@ class GMap(Widget,DirectObject):
    def load_resources():
       GTile.load_resources()
       #simple models dict
-      GMap.model_res={'tile_matrix_xs':loader.loadModel('data/models/tiles/tile_matrix_xs.egg'),
-                   'tile_matrix_m':loader.loadModel('data/models/tiles/tile_matrix_m.egg')}
+      GMap.model_res={  'tile_matrix_xs':loader.loadModel('data/models/tiles/tile_matrix_xs.egg'),
+                        'tile_matrix_s':loader.loadModel('data/models/tiles/tile_matrix_s.egg'),
+                        'tile_matrix_m':loader.loadModel('data/models/tiles/tile_matrix_m.egg'),
+                   }
       #dict{id:{model:'file path',animations{'name':'file path'}},etc}
       #models are stored alone in their egg file
       #each animation is also stored in its own egg file
@@ -133,10 +139,10 @@ class GMap(Widget,DirectObject):
       '''
       out('gmap.enable_tile_selection(mode='+mode+')')
       self.is_tile_selection_enabled=True
-      self.gcam.push_state()
-      self.gcam.center()
-      self.gcam.disable_move()
-      self.gcam.level=1
+      #self.gcam.push_state()
+      #self.gcam.center()
+      #self.gcam.disable_move()
+      #self.gcam.level=1
       self.enable_tile_highlight(mode)
       self.selected_tiles=[]
       self.accept('mouse1-up',self.set_selected_tiles)
@@ -146,8 +152,8 @@ class GMap(Widget,DirectObject):
       out('gmap.disable_tile_selection()')
       self.ignore('mouse1-up')
       self.is_tile_selection_enabled=False
-      self.gcam.enable_move()
-      self.gcam.pop_state()
+      #self.gcam.enable_move()
+      #self.gcam.pop_state()
       self.disable_tile_highlight()
       [tile.unset_selected() for tile in self.selected_tiles]
       self.selected_tiles=[]      
@@ -234,6 +240,7 @@ class GMap(Widget,DirectObject):
       '''
       start accepting user mouse/keyboard input.
       '''
+      self.tiles_quads_node.flattenStrong()
       self.gcam.start_accepting()
 
    def new_home(self,data):
@@ -242,18 +249,24 @@ class GMap(Widget,DirectObject):
       home.loop('anim')
       home.reparentTo(self.root)
       home.setPythonTag('eid',data['eid'])
-      target=self.root.find('**/tile_'+str(data['tileid']))
-      print target
+      target=self.tile_matrix_node.find('**/tile_'+str(data['tileid']))
       home.setPos(target,0,0,0)
       GEntity.instances[data['eid']]=home
       out('GMap.new_home: data='+str(data))
-      #out(scale=tile.getScale(),y=(y-resy/2.)*2.*s)
+      '''
+      #way to get a tile node's pos back after the tile matrix flattening
+      target=self.root.find('**/tile_'+str(data['tileid'])).getPythonTag('ref')
+      t=self.tile_matrix_node.getScale()[0]/2.
+      home.setPos(self.tile_matrix_node,(-self.resx/2.+target.x+t)*2.,(target.y-self.resy/2.+t)*2.,0)
+      '''
 
    def new_tile(self,data):
       '''
       synchronizes a tile on the server with its mirror here.
       '''
-      self.tile_matrix[data['x']][data['y']]=GTile(data)
+      gtile=GTile(data)
+      self.tile_matrix[data['x']][data['y']]=gtile
+      #self.tile_quadtree.add(data['x'],data['y'],gtile)
 
    def new_unit(self,conf):
       '''

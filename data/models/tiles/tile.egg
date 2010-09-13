@@ -1,18 +1,9 @@
 <CoordinateSystem> { Z-up }
 
-<Comment> { "Egg laid by Chicken for Blender, version R85" }
+<Comment> { "Egg laid by Chicken for Blender, version R91" }
 
-<Material> Material.001 {
-  <Scalar> diffr {0.5}
-  <Scalar> diffg {0.5}
-  <Scalar> diffb {0.5}
-  <Scalar> specr {0.125}
-  <Scalar> specg {0.125}
-  <Scalar> specb {0.125}
-  <Scalar> shininess {12.5}
-}
 <Texture> tile.highlighted.tex. {
-  "./tile.highlighted.tex.png"
+  "./../../../../../..0/python/1004/goLive/data/models/tile.highlighted.tex.png"
   <Scalar> saved-result { 1 }
   <Scalar> envtype { MODULATE }
   <Scalar> minfilter { LINEAR }
@@ -56,7 +47,6 @@
   }
   <Polygon> {
     <TRef> { tile.highlighted.tex. }
-    <MRef> { Material.001 }
     <Normal> { 0.000000 -0.000000 1.000000
     }
     <VertexRef> { 0 1 2 3 <Ref> { Plane } }

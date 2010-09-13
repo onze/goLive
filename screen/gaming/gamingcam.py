@@ -110,7 +110,9 @@ class GamingCam(object,DirectObject):
    def mouse_up(self,btn):
       if btn=='left':
          target=self.get_picked_tile()
-         out(target)
+         #out(target)
+         #print NodePath(self.gmap.tile_matrix_node).ls()
+         #print render.analyze()
          if target:
             network.serverproxy.send({network.cts_dbg_dump_entity:{'eid':target.eid}})
       elif btn=='middle':
@@ -171,8 +173,6 @@ class GamingCam(object,DirectObject):
 
    def update(self):
       dx,dy=0,0
-      if len(self.keys_down):
-         out(str(self.keys_down))
       for k in self.keys_down:
          if k=='r':dx+=GamingCam.move_speed
          if k=='l':dx-=GamingCam.move_speed

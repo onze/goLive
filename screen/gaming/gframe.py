@@ -50,17 +50,17 @@ class GFrame(Frame):
       '''
       gframe_switch={   network.stc_conf:self.set_conf,
                         network.stc_pid_setup:self.pid_setup
-            }
-      gnotifier_switch={network.stc_tile_ratio_change:GNotifier.update_tile_ratio
                      }
-      gmap_switch={network.stc_new_tile:GMap.new_tile,
-                network.stc_new_home:GMap.new_home,
-                network.stc_new_unit:GMap.new_unit,
-                }
-      gunit_switch={network.stc_unit_add_path:GUnit.add_path,
-                 network.stc_unit_move_over:GUnit.finish_move_to,
-                 network.stc_tile_change_pawner:GTile.change_pawner,
-                }
+      gnotifier_switch={   network.stc_tile_ratio_change:GNotifier.update_tile_ratio
+                        }
+      gmap_switch={  network.stc_new_tile:GMap.new_tile,
+                     network.stc_new_home:GMap.new_home,
+                     network.stc_new_unit:GMap.new_unit,
+                  }
+      gunit_switch={ network.stc_unit_add_path:GUnit.add_path,
+                     network.stc_unit_move_over:GUnit.finish_move_to,
+                     network.stc_tile_change_pawner:GTile.change_pawner,
+                  }
       for meta in data:
          if meta in gframe_switch:
             gframe_switch[meta](data[meta])
